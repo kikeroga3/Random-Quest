@@ -1,0 +1,145 @@
+{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset128 \'82\'6c\'82\'72 \'96\'be\'92\'a9;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\lang17\b\f0\fs20 What's CuteHSP\par
+\b0 CuteHSP is a very easy programming language.\par
+The executable platform is Windows / macOS / Linux.\par
+\par
+\b Type of executable file\b0\par
+\par
+\b CuteHSP Minimum\b0\par
+CuteHSP standard version.\par
+The window screen 640 x 480 dots, the displayable color is 16.77 million colors.\par
+Executable file name "cutehsp" (* Windows version requires the DLL file "glfw3.dll")\par
+Unusable instructions: input, picload, font, mes, beep\par
+\par
+\b CuteHSP Extra\b0\par
+CuteHSP extended version.\par
+The window screen 640 x 480 dots, the displayable color is 16.77 million colors.\par
+Executable file name "cutehspx" (* Windows version requires the DLL file "glfw3.dll" and "OpenAL32.dll")\par
+When displaying characters on the window screen, a font file such as "tiny.ttf" is also necessary.\par
+Unusable instructions: input\par
+\par
+\b CuteHSP Console\b0\par
+CuteHSP console version.\par
+User I/O is standard input/output, without a window screen.\par
+Executable file name "cutehspcl"\par
+Unusable instructions: picload, font, beep, title, stop, stick, wait, color, pos, pset, line, boxf, circle, redraw\par
+\par
+\b Program execution method\b0\par
+From the console (command line), make the following entries.\par
+\par
+cutehsp start.hs\tab\tab <- Specify program file name as argument\par
+\par
+If you omit the program file name, "start.hs" is given as an argument.\par
+\par
+\b Instructions\par
+\b0 --------------------------------------------------------------------------------\par
+\b Usage             Description\par
+\b0 end                 End the program.\par
+run p1              Discard the currently executing program, read the file p1, and execute it.\par
+goto p1             Jump to label p1.\par
+gosub p1            Jump to label p1 of the subroutine.\par
+return              Return from the subroutine.\par
+repeat p1           Repeats the range enclosed by repeat-loop.\par
+loop                End instruction of iterative processing.\par
+continue            It returns to the repeat command while repeating processing.\par
+break               Exit from iterative processing.\par
+if p1               If condition p1 is satisfied, the subsequent instructions of that line are executed.\par
+else                When the if condition is not satisfied, else instruction and after are executed.\par
+dim p1,p2           \'95\'cf\'90\'94\'96\'bcp1\'81\'41\'94\'7a\'97\'f1\'90\'94p2\'82\'cc\'94\'7a\'97\'f1\'95\'cf\'90\'94(\'90\'ae\'90\'94)\'82\'f0\'8d\'ec\'90\'ac\'82\'b7\'82\'e9\par
+ddim p1,p2          \'95\'cf\'90\'94\'96\'bcp1\'81\'41\'94\'7a\'97\'f1\'90\'94p2\'82\'cc\'94\'7a\'97\'f1\'95\'cf\'90\'94(\'8e\'c0\'90\'94)\'82\'f0\'8d\'ec\'90\'ac\'82\'b7\'82\'e9\par
+sdim p1,p2,p3       \'95\'cf\'90\'94\'96\'bcp1\'81\'41\'95\'b6\'8e\'9a\'90\'94p2\'81\'41\'94\'7a\'97\'f1\'90\'94p3\'82\'cc\'95\'b6\'8e\'9a\'97\'f1\'8c\'5e\'94\'7a\'97\'f1\'95\'cf\'90\'94\'82\'f0\'8d\'ec\'90\'ac\'82\'b7\'82\'e9\par
+font p1,p2,p3       \'83\'74\'83\'48\'83\'93\'83\'67\'82\'cc\'90\'dd\'92\'e8\'82\'f0\'8d\'73\'82\'a2\'82\'dc\'82\'b7\'81\'42p1\'82\'cd\'8e\'67\'97\'70\'82\'b7\'82\'e9TTF\'83\'74\'83\'40\'83\'43\'83\'8b\'82\'f0\'8a\'67\'92\'a3\'8e\'71\'82\'dc\'82\'c5\tab\tab\tab\'8a\'dc\'82\'df\'82\'c4\'8e\'77\'92\'e8\'81\'42p2\'82\'cd\'83\'74\'83\'48\'83\'93\'83\'67\'83\'54\'83\'43\'83\'59(\'8f\'e3\'8c\'c0100)\'81\'41p3\'82\'cd\'83\'58\'83\'80\'81\'5b\'83\'57\'83\'93\'83\'4f\'82\'cc\tab\tab\tab\'8e\'77\'92\'e8(0\'82\'c5\'83\'58\'83\'80\'81\'5b\'83\'57\'83\'93\'83\'4f\'82\'c8\'82\'b5\'81\'4116\'82\'c5\'83\'58\'83\'80\'81\'5b\'83\'57\'83\'93\'83\'4f\'82\'a0\'82\'e8)\'82\'c5\'82\'b7\'81\'42\par
+mes p1              \'95\'b6\'8e\'9a\'97\'f1p1\'82\'f0\'89\'e6\'96\'ca\'82\'c9\'95\'5c\'8e\'a6\'82\'b5\'82\'dc\'82\'b7\par
+picload p1           p1\'82\'c5\'8e\'77\'92\'e8\'82\'b5\'82\'bd\'89\'e6\'91\'9c\'83\'74\'83\'40\'83\'43\'83\'8b\'82\'f0\'93\'c7\'82\'dd\'8d\'9e\'82\'dd\'81\'41\'89\'e6\'96\'ca\'82\'c9\'95\'5c\'8e\'a6\'82\'b5\'82\'dc\'82\'b7\par
+input p1,p2,p3      \'83\'4c\'81\'5b\'93\'fc\'97\'cd\'82\'f0\'8e\'e6\'93\'be\'82\'b7\'82\'e9\'81\'42p1:\'93\'fc\'97\'cd\'92\'6c\'82\'f0\'8a\'69\'94\'5b\'82\'b7\'82\'e9\'95\'cf\'90\'94\'96\'bc\'81\'42\tab\tab\tab\tab\tab p2:\'95\'cf\'90\'94\'82\'c9\'91\'e3\'93\'fc\'82\'b3\'82\'ea\'82\'e9\'8d\'c5\'91\'e5\'95\'b6\'8e\'9a\'90\'94\'81\'42p3:\'89\'fc\'8d\'73\'83\'52\'81\'5b\'83\'68\'94\'46\'8e\'af\'83\'74\'83\'89\'83\'4f\tab\tab\tab\tab (0=\'82\'c8\'82\'b5/1\'82\'cc\'8f\'ea\'8d\'87\'82\'cdLF\'82\'f0\'81\'412\'82\'cc\'8f\'ea\'8d\'87\'82\'cdCR+LF\'82\'f0\'89\'fc\'8d\'73\'82\'c6\'94\'46\'8e\'af)\par
+beep p1,p2,p3,p4     p1\'82\'cd\'8e\'fc\'94\'67\'90\'94\'81\'41p2\'82\'cd\'8d\'c4\'90\'b6\'82\'b7\'82\'e9\'92\'b7\'82\'b3(\'83\'7e\'83\'8a\'95\'62)\'81\'41p3\'82\'cd\'94\'67\'8c\'60\'82\'cc\'8e\'ed\'97\'de\'81\'41p4\'82\'cd\tab\tab\tab\'83\'7b\'83\'8a\'83\'85\'81\'5b\'83\'80(0\'81\'6030000)\'82\'f0\'8e\'77\'92\'e8\'82\'b5\'82\'c4\'89\'b9\'82\'f0\'96\'c2\'82\'e7\'82\'b5\'82\'dc\'82\'b7\par
+                     \tab [\'94\'67\'8c\'60\'82\'cc\'8e\'ed\'97\'de(\'83\'66\'83\'74\'83\'48\'83\'8b\'83\'67:2)]\par
+                           0  \'90\'b3\'8c\'b7\'94\'67               1  \'83\'6d\'83\'52\'83\'4d\'83\'8a\'94\'67\par
+                           2  \'8b\'e9\'8c\'60\'94\'67               3  \'8e\'4f\'8a\'70\'94\'67\par
+                           4  \'83\'7a\'83\'8f\'83\'43\'83\'67\'83\'6d\'83\'43\'83\'59\par
+bload p1,p2         \'83\'74\'83\'40\'83\'43\'83\'8b\'96\'bcp1\'82\'cc\'93\'e0\'97\'65\'82\'f0\'95\'b6\'8e\'9a\'8c\'5e\'95\'cf\'90\'94p2\'82\'c9\'93\'c7\'82\'dd\'8d\'9e\'82\'de\par
+bsave p1,p2         \'95\'b6\'8e\'9a\'8c\'5e\'95\'cf\'90\'94p2\'82\'cc\'93\'e0\'97\'65\'82\'f0\'83\'74\'83\'40\'83\'43\'83\'8b\'96\'bcp1\'82\'c5\'95\'db\'91\'b6\'82\'b7\'82\'e9\par
+poke p1,p2,p3       \'95\'b6\'8e\'9a\'8c\'5e\'95\'cf\'90\'94p1\'82\'ccp2\'83\'6f\'83\'43\'83\'67\'82\'df\'82\'c9\'83\'6f\'83\'43\'83\'67\'92\'6cp3\'82\'f0\'8f\'91\'82\'ab\'8d\'9e\'82\'de\par
+wait p1             p1\'83\'7e\'83\'8a\'95\'62\'91\'d2\'82\'c2\par
+stop                \'83\'45\'83\'42\'83\'93\'83\'68\'83\'45\'82\'aa[\'81\'7e]\'82\'c5\'83\'4e\'83\'8d\'81\'5b\'83\'59\'82\'b3\'82\'ea\'82\'e9\'82\'dc\'82\'c5\'91\'d2\'82\'c2\par
+title p1            \'83\'5e\'83\'43\'83\'67\'83\'8b\'83\'6f\'81\'5b\'82\'c9\'95\'b6\'8e\'9a\'97\'f1p1\'82\'f0\'95\'5c\'8e\'a6\'82\'b7\'82\'e9\par
+pset p1,p2          \'8d\'c0\'95\'57p1,p2\'82\'c9\'83\'68\'83\'62\'83\'67\'82\'f0\'95\'60\'89\'e6\'82\'b7\'82\'e9\'81\'42p1,p2\'82\'aa\'8f\'c8\'97\'aa\'82\'b3\'82\'ea\'82\'bd\'8f\'ea\'8d\'87\'82\'cd\'83\'4a\'83\'8c\'83\'93\'83\'67\tab\tab\tab\'83\'7c\'83\'57\'83\'56\'83\'87\'83\'93\'82\'c9\'95\'60\'89\'e6\'82\'b7\'82\'e9\par
+line p1,p2,p3,p4    \'8d\'c0\'95\'57p1,p2\'82\'a9\'82\'e7\'8d\'c0\'95\'57p3,p4\'82\'dc\'82\'c5\'90\'fc\'82\'f0\'95\'60\'89\'e6\'82\'b7\'82\'e9\par
+boxf p1,p2,p3,p4    \'8d\'c0\'95\'57p1,p2\'82\'a9\'82\'e7\'8d\'c0\'95\'57p3,p4\'82\'dc\'82\'c5\'8b\'e9\'8c\'60\'82\'f0\'93\'68\'82\'e8\'82\'c2\'82\'d4\'82\'b7\par
+circle p1,p2,p3,p4  \'8d\'c0\'95\'57p1,p2\'82\'a9\'82\'e7\'8d\'c0\'95\'57p3,p4\'82\'dc\'82\'c5\'82\'cc\'8b\'e9\'8c\'60\'93\'e0\'82\'c9\'8e\'fb\'82\'dc\'82\'e9\'89\'7e\'8c\'60\'82\'f0\'95\'60\'82\'ad\par
+redraw p1           p1\'82\'aa0\'82\'c8\'82\'e7\'8d\'c4\'95\'60\'89\'e6\'83\'58\'83\'43\'83\'62\'83\'60\'82\'f0\'83\'49\'83\'74\'81\'411\'82\'c8\'82\'e7\'83\'49\'83\'93\'82\'c9\'82\'b7\'82\'e9\'81\'42\tab\tab\tab\tab\tab p1\'82\'aa\'8f\'c8\'97\'aa\'82\'b3\'82\'ea\'82\'bd\'82\'e7\'83\'49\'83\'93\'82\'c9\'82\'b7\'82\'e9\par
+pos p1,p2           \'8d\'c0\'95\'57p1,p2\'82\'f0\'83\'4a\'83\'8c\'83\'93\'83\'67\'83\'7c\'83\'57\'83\'56\'83\'87\'83\'93\'82\'c9\'90\'dd\'92\'e8\'82\'b7\'82\'e9\par
+color p1,p2,p3      RGB\'83\'4a\'83\'89\'81\'5bp1,p2,p3\'82\'f0\'83\'4a\'83\'8c\'83\'93\'83\'67\'83\'4a\'83\'89\'81\'5b\'82\'c9\'90\'dd\'92\'e8\'82\'b7\'82\'e9\par
+stick p1            \'90\'94\'92\'6c\'95\'cf\'90\'94p1\'82\'c9\'83\'4c\'81\'5b\'8f\'ee\'95\'f1\'82\'f0\'8a\'69\'94\'5b\'82\'b7\'82\'e9\par
+\tab\tab\tab [\'83\'4c\'81\'5b\'8f\'ee\'95\'f1]\par
+\tab\tab\tab    1  \'83\'4a\'81\'5b\'83\'5c\'83\'8b\'83\'4c\'81\'5b\'8d\'b6(\'81\'a9)\tab    2  \'83\'4a\'81\'5b\'83\'5c\'83\'8b\'83\'4c\'81\'5b\'8f\'e3(\'81\'aa)\par
+\tab\tab\tab    4  \'83\'4a\'81\'5b\'83\'5c\'83\'8b\'83\'4c\'81\'5b\'89\'45(\'81\'a8)\tab    8  \'83\'4a\'81\'5b\'83\'5c\'83\'8b\'83\'4c\'81\'5b\'89\'ba(\'81\'ab)\par
+\tab\tab\tab   16  \'83\'58\'83\'79\'81\'5b\'83\'58\'83\'4c\'81\'5b\tab\tab   32  Enter\'83\'4c\'81\'5b\par
+\tab\tab\tab   64  Ctrl\'83\'4c\'81\'5b\tab\tab\tab  128  ESC\'83\'4c\'81\'5b\par
+\tab\tab\tab  256  \'83\'7d\'83\'45\'83\'58\'82\'cc\'8d\'b6\'83\'7b\'83\'5e\'83\'93\tab  512  \'83\'7d\'83\'45\'83\'58\'82\'cc\'89\'45\'83\'7b\'83\'5e\'83\'93\par
+\tab\tab\tab 1024  TAB\'83\'4c\'81\'5b\par
+--------------------------------------------------------------------------------\par
+\b\par
+Functions\b0\par
+--------------------------------------------------------------------------------\par
+\b Usage         Description\b0\par
+int(p1)         p1\'82\'f0\'90\'ae\'90\'94\'92\'6c\'82\'c6\'82\'b5\'82\'c4\'95\'d4\'82\'b7\par
+double(p1)      p1\'82\'f0\'8e\'c0\'90\'94\'92\'6c(\'94\'7b\'90\'b8\'93\'78\'95\'82\'93\'ae\'8f\'ac\'90\'94\'93\'5f)\'82\'c6\'82\'b5\'82\'c4\'95\'d4\'82\'b7\par
+abs(p1)         p1\'82\'f0\'90\'e2\'91\'ce\'92\'6c\'82\'c6\'82\'b5\'82\'c4\'95\'d4\'82\'b7\par
+str(p1)         p1\'82\'f0\'95\'b6\'8e\'9a\'97\'f1\'82\'c6\'82\'b5\'82\'c4\'95\'d4\'82\'b7\par
+rnd(p1)         0\'82\'a9\'82\'e7p1-1\'82\'dc\'82\'c5\'82\'cc\'97\'90\'90\'94\'92\'6c\'82\'f0\'95\'d4\'82\'b7\par
+powf(p1,p2)     p1\'82\'ccp2\'8f\'e6(\'82\'d7\'82\'ab\'8f\'e6)\'82\'cc\'8c\'8b\'89\'ca\'82\'f0\'8e\'c0\'90\'94\'92\'6c\'82\'c5\'95\'d4\'82\'b7\par
+peek(p1,p2)     \'95\'b6\'8e\'9a\'8c\'5e\'95\'cf\'90\'94p1\'82\'ccp2\'83\'6f\'83\'43\'83\'67\'82\'df\'82\'cc\'83\'6f\'83\'43\'83\'67\'92\'6c\'82\'f0\'8e\'e6\'93\'be\'82\'b5\'82\'c4\'95\'d4\'82\'b7\par
+--------------------------------------------------------------------------------\par
+\par
+\b System variables\b0\par
+--------------------------------------------------------------------------------\par
+\b Name           Description\b0\par
+stat              \'96\'bd\'97\'df\'82\'e2\'8a\'d6\'90\'94\'8e\'c0\'8d\'73\'8c\'e3\'82\'cc\'83\'58\'83\'65\'81\'5b\'83\'5e\'83\'58(\'90\'ae\'90\'94\'92\'6c)\'82\'aa\'8a\'69\'94\'5b\'82\'b3\'82\'ea\'82\'e9\par
+refdval           \'8e\'c0\'90\'94\'8c\'5e\'82\'cc\'96\'df\'82\'e8\'92\'6c\'82\'cdstat\'82\'c5\'82\'cd\'82\'c8\'82\'adrefdval\'82\'c9\'8a\'69\'94\'5b\'82\'b3\'82\'ea\'82\'e9\par
+refstr            \'95\'b6\'8e\'9a\'97\'f1\'8c\'5e\'82\'cc\'96\'df\'82\'e8\'92\'6c\'82\'aa\'8a\'69\'94\'5b\'82\'b3\'82\'ea\'82\'e9\par
+cnt               repeat-loop\'82\'cc\'83\'4a\'83\'45\'83\'93\'83\'5e\'92\'6c\par
+strsize           bload\'96\'bd\'97\'df\'82\'c5\'93\'c7\'82\'dd\'8d\'9e\'82\'f1\'82\'be\'83\'74\'83\'40\'83\'43\'83\'8b\'82\'cc\'83\'6f\'83\'43\'83\'67\'90\'94\'82\'aa\'8a\'69\'94\'5b\'82\'b3\'82\'ea\'82\'e9\par
+mousex            \'83\'7d\'83\'45\'83\'58\'82\'ccx\'8d\'c0\'95\'57\par
+mousey            \'83\'7d\'83\'45\'83\'58\'82\'ccy\'8d\'c0\'95\'57\par
+mousel            \'83\'7d\'83\'45\'83\'58\'82\'cc\'8d\'b6\'83\'7b\'83\'5e\'83\'93\'82\'aa\'89\'9f\'82\'b3\'82\'ea\'82\'c4\'82\'a2\'82\'ea\'82\'ce1\'81\'41\'89\'9f\'82\'b3\'82\'ea\'82\'c4\'82\'a2\'82\'c8\'82\'af\'82\'ea\'82\'ce0\par
+mouser            \'83\'7d\'83\'45\'83\'58\'82\'cc\'89\'45\'83\'7b\'83\'5e\'83\'93\'82\'aa\'89\'9f\'82\'b3\'82\'ea\'82\'c4\'82\'a2\'82\'ea\'82\'ce1\'81\'41\'89\'9f\'82\'b3\'82\'ea\'82\'c4\'82\'a2\'82\'c8\'82\'af\'82\'ea\'82\'ce0\par
+--------------------------------------------------------------------------------\par
+\par
+\b Sample programs\par
+\b0 A text file with the extension ".hs" is a sample program.\par
+\par
+\b Recommended editor for programming\b0\par
+Like CuteHSP, we recommend the cross-platform lightweight editor "Geany" which runs on Windows, macOS, Linux.\par
+\par
+\b Geany\b0\par
+{\field{\*\fldinst{HYPERLINK "https://www.geany.org/Download/Releases"}}{\fldrslt{\ul\cf1 https://www.geany.org/Download/Releases}}}\f0\fs20\par
+\par
+For Linux, you can install from the following command.\par
+\par
+sudo apt-get install geany\par
+\par
+Below is a method to execute while editing a program with Geany.\par
+\par
+1. Launch Geany and select "Set Build Commands" from the menu "Build".\par
+\par
+2. Set the external execution command to "Execute commands".\par
+   For example, enter 'C:\\cutehsp_win\\cutehspx.exe "%f"'.\par
+\par
+3. After that, you can execute the program being edited by "Run" on the toolbar or F5 key.\par
+\par
+\b CuteHSP Homepage\b0\par
+{\field{\*\fldinst{HYPERLINK "https://github.com/kikeroga3/tinyhsp"}}{\fldrslt{\ul\cf1 https://github.com/kikeroga3/tinyhsp}}}\f0\fs20\par
+\par
+\b E-mail\par
+\b0 cutehsp@outlook.jp\par
+\par
+\b The MIT License\b0\par
+Copyright (c) 2017 Kikeroga\par
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\par
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\par
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\par
+\par
+}
+ 
