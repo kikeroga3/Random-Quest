@@ -1,98 +1,169 @@
-title "LinePaint"
+	title "LinePaint"
 
-sdim mds,16,16
-mds(0)="LINE"
-mds(1)="PSET"
-mds(2)="PAINT"
-mds(3)="COLOR"
-mds(4)="BOXF"
-mds(5)="CIRCLE"
+	lfnm=""				;ロードするファイル名(""なら新規)
+	lfnm="grp001.bin"
+	sfnm="grp001.bin"	;セーブするファイル名
 
-sdim bf,64000
+	sdim linbf,64000
+	mode=0 :und=0 :adr=0
+	sta=0 :x1=-1 :y1=-1
+	c_r=0 :c_g=0 :c_b=0
+	o_r=1 :o_g=1 :o_b=1
 
-poke bf,0,248	;F8
+	if lfnm!"" {
+		bload lfnm,linbf :gosub *draw
+	}
 
-mode=255 :i=1
-old_r=0 :old_g=0:old_b=0
-col_r=0 :col_g=0:col_b=0
-
-old_x = -1
-old_y = -1
-now_x = 0
-now_y = 0
-
-color :boxf 480,0,639,479
+	menu(0)="LINE" :menu(1)="PAINT"
+	font "tiny_en.ttf",20
+	gosub *navi
 
 
-bload "cg001.bin",bf :gosub *draw
 
-;pos 10,10:picload "monster.png"
-;redraw 1
 
 repeat
 	stick key
-	if key & 256 {
-		gosub *btn_r
-	}
-	if key & 512 {
-		gosub *btn_l
-	}
-	if key=128 {
-		bsave "cg001.bin",bf
-	}
-	wait 5
-	title "i="+i
-loop
+	if key&256 {
 
-stop
-
-*btn_r
-	if mode=255 {
-		if old_x=-1 {
-			old_x = mousex
-			old_y = mousey
-			poke bf,i,255
-			poke bf,i+1,old_x/2
-			poke bf,i+2,old_y/2
-			i=i+3
+		if mousex<480 {
+			gosub *col_chg
+			if mode {
+				gosub *pai
+			} else {
+				gosub *lset
+			}
 		} else {
-			now_x = mousex
-			now_y = mousey
-			if (old_x ! now_x) or (old_y ! now_y) {
-			line old_x, old_y, now_x, now_y
-			old_x = now_x
-			old_y = now_y
-			poke bf,i,now_x/2
-			poke bf,i+1,now_y/2
-			i=i+2
+			a=mousey/20
+			if a=1 :mode=1-mode :wait 30
+			
+			if a=4 :c_r=(c_r+1)\16
+			if a=5 :c_g=(c_g+1)\16
+			if a=6 :c_b=(c_b+1)\16
+
+			if a=8 {
+				color 255,255,255 :boxf 0,0,480,480
+				color 16*(c_r+1)-1,16*(c_g+1)-1,16*(c_b+1)-1
+				adr=0 :gosub *draw
 			}
 		}
+		gosub *navi
+
 	}
 
-return
+	if key & 512 {
+		x1=-1 :title "LINE START"
+	}
+
+	if key=128 {
+		bsave sfnm,linbf
+		title "SAVE "+sfnm+" c_b="+c_b
+	}
 
 
+	wait 10
+loop
+stop
 
-*btn_l
-	if mode=255 :old_x=-1
+*lset
+	x2=mousex :y2=mousey
+	if x1=-1 {
+		adr=adr-3*sta
+		x1=x2 :y1=y2
+		poke linbf,adr,255
+		poke linbf,adr+1,x1/3
+		poke linbf,adr+2,y1/2
+		und=adr :adr=adr+3 :sta=1
+		title "LINE:"+x1+","+y1
+	}
+	if (x1!x2) or (y1!y2) {
+		line x1,y1,x2,y2
+		poke linbf,adr,x2/3
+		poke linbf,adr+1,y2/2
+		und=adr :adr=adr+2 :sta=0
+		title "LINE:"+x1+","+y1+"-"+x2+","+y2
+		x1=x2 :y1=y2
+	}
+	return
 
-return
+
 
 
 *draw
-	i=1
 	repeat
-		a=peek(bf,i)
-		if a=0 :stop
-		if a=255 {
-			x1=peek(bf,i+1)*2
-			y1=peek(bf,i+2)*2
-			i=i+3
+
+		p=peek(linbf,adr)
+		if p=0 :break
+		if (und!0) and (adr>=und) :break
+
+		if p=253 {
+			c_r=peek(linbf,adr+1)-1
+			c_g=peek(linbf,adr+2)-1
+			c_b=peek(linbf,adr+3)-1
+			adr=adr+4
+			color 16*(c_r+1)-1,16*(c_g+1)-1,16*(c_b+1)-1
+			continue
+		}
+
+		if p=254 {
+			x3=peek(linbf,adr+1)*3
+			y3=peek(linbf,adr+2)*2
+			adr=adr+3
+			paint x3,y3
+			continue
+		}
+
+		if p=255 {
+			x1=peek(linbf,adr+1)*3
+			y1=peek(linbf,adr+2)*2
+			adr=adr+3
 		} else {
-			x2=peek(bf,i)*2
-			y2=peek(bf,i+1)*2
+			x2=peek(linbf,adr)*3
+			y2=peek(linbf,adr+1)*2
 			line x1,y1,x2,y2
 			x1=x2 :y1=y2
-			i=i+2
+			adr=adr+2
 		}
 	loop
+	return
+
+
+
+
+
+*pai
+	x3=mousex :y3=mousey
+    paint x3,y3
+    poke linbf,adr,254
+    poke linbf,adr+1,x3/3
+    poke linbf,adr+2,y3/2
+    und=adr :adr=adr+3
+    return
+
+*col_chg
+if (o_r!c_r) or (o_g!c_g) or (o_b!c_b) {
+    poke linbf,adr,253
+    poke linbf,adr+1,c_r+1
+    poke linbf,adr+2,c_g+1
+    poke linbf,adr+3,c_b+1
+    o_r=c_r :o_g=c_g :o_b=c_b
+    und=adr :adr=adr+4
+;	color 16*(c_r+1)-1,16*(c_g+1)-1,16*(c_b+1)-1
+}
+return
+
+
+
+
+*navi
+	color :boxf 480,0,639,479
+	color 255,255,255
+	pos 500,20 :mes "[MODE] "+menu(mode)
+	pos 500,60 :mes "Current Color"
+	pos 560,80
+	mes "[R] "+c_r
+	mes "[G] "+c_g
+	mes "[B] "+c_b
+	pos 500,160 :mes "[UNDO]"
+	color 16*(c_r+1)-1,16*(c_g+1)-1,16*(c_b+1)-1
+	boxf 500,80,550,130
+	return
