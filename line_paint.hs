@@ -23,7 +23,7 @@
 
 repeat
 	stick key
-	if key&256 {
+	if key=256 {
 
 		if mousex<480 {
 			gosub *col_chg
@@ -50,13 +50,14 @@ repeat
 
 	}
 
-	if key & 512 {
+	if key=512 {
+		mode=0 :gosub *navi
 		x1=-1 :title "LINE START"
 	}
 
 	if key=128 {
 		bsave sfnm,linbf
-		title "SAVE "+sfnm+" c_b="+c_b
+		title "SAVE:"+sfnm+" BYTE:"+adr
 	}
 
 
@@ -65,22 +66,22 @@ loop
 stop
 
 *lset
-	x2=mousex :y2=mousey
+	x2=mousex/2 :y2=mousey/2
 	if x1=-1 {
 		adr=adr-3*sta
 		x1=x2 :y1=y2
 		poke linbf,adr,255
-		poke linbf,adr+1,x1/3
-		poke linbf,adr+2,y1/2
+		poke linbf,adr+1,x1
+		poke linbf,adr+2,y1
 		und=adr :adr=adr+3 :sta=1
-		title "LINE:"+x1+","+y1
+		title "LINE:"+x1*2+","+y1*2
 	}
 	if (x1!x2) or (y1!y2) {
-		line x1,y1,x2,y2
-		poke linbf,adr,x2/3
-		poke linbf,adr+1,y2/2
+		line x1*2,y1*2,x2*2,y2*2
+		poke linbf,adr,x2
+		poke linbf,adr+1,y2
 		und=adr :adr=adr+2 :sta=0
-		title "LINE:"+x1+","+y1+"-"+x2+","+y2
+		title "LINE:"+x1*2+","+y1*2+"-"+x2*2+","+y2*2
 		x1=x2 :y1=y2
 	}
 	return
@@ -89,6 +90,7 @@ stop
 
 
 *draw
+	redraw 0
 	repeat
 
 		p=peek(linbf,adr)
@@ -105,25 +107,26 @@ stop
 		}
 
 		if p=254 {
-			x3=peek(linbf,adr+1)*3
-			y3=peek(linbf,adr+2)*2
+			x3=peek(linbf,adr+1)
+			y3=peek(linbf,adr+2)
 			adr=adr+3
-			paint x3,y3
+			paint x3*2,y3*2
 			continue
 		}
 
 		if p=255 {
-			x1=peek(linbf,adr+1)*3
-			y1=peek(linbf,adr+2)*2
+			x1=peek(linbf,adr+1)
+			y1=peek(linbf,adr+2)
 			adr=adr+3
 		} else {
-			x2=peek(linbf,adr)*3
-			y2=peek(linbf,adr+1)*2
-			line x1,y1,x2,y2
+			x2=peek(linbf,adr)
+			y2=peek(linbf,adr+1)
+			line x1*2,y1*2,x2*2,y2*2
 			x1=x2 :y1=y2
 			adr=adr+2
 		}
 	loop
+	redraw 1
 	return
 
 
@@ -131,11 +134,11 @@ stop
 
 
 *pai
-	x3=mousex :y3=mousey
-    paint x3,y3
+	x3=mousex/2 :y3=mousey/2
+    paint x3*2,y3*2
     poke linbf,adr,254
-    poke linbf,adr+1,x3/3
-    poke linbf,adr+2,y3/2
+    poke linbf,adr+1,x3
+    poke linbf,adr+2,y3
     und=adr :adr=adr+3
     return
 
@@ -155,6 +158,7 @@ return
 
 
 *navi
+	redraw 0
 	color :boxf 480,0,639,479
 	color 255,255,255
 	pos 500,20 :mes "[MODE] "+menu(mode)
@@ -166,4 +170,5 @@ return
 	pos 500,160 :mes "[UNDO]"
 	color 16*(c_r+1)-1,16*(c_g+1)-1,16*(c_b+1)-1
 	boxf 500,80,550,130
+	redraw 1
 	return
