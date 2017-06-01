@@ -21,11 +21,32 @@ LINE:000,000-000,000	連続して線をひける状態
 [LOAD]	データをロードします。
 [SAVE]	データをセーブします。
 
-※LOADとSAVEのファイル名は実行前のプログラムに設定しておく必要があります。
+※LOADとSAVEのファイル名は実行前にプログラムに記述しておく必要があります。
 
 ■Tips
 
 1. picloadで下絵を表示して線をなぞり、一旦セーブする。
 2. 下絵なしでセーブしたデータをロードし、ペイントする。
 3. 完成した絵をセーブ。
+
+■Files description
+
+line_paint.hs	This is a graphics tool program drawing with lines and paint.
+
+grp_sum.hs		This is a tool that concatenates graphic data.
+
+grp_pic.hs		This is a sample program that draws graphics on the screen.
+
+grp000.bin		These are graphic data files.
+grp001.bin
+grp002.bin
+grp003.bin
+grp004.bin
+grp005.bin
+grp006.bin
+grp007.bin
+grp008.bin
+grp009.bin
+
+grpsum.bin		This is a file that concatenates "grp000.bin" to "grp009.bin".
 
