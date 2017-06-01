@@ -6,7 +6,7 @@
 ;以下repeatの回数には連結するデータファイル数を指定。
 ;例えば10と指定すればgrp000～009.binを連結しgrpsum.binとして保存する。
 
-	repeat 3
+	repeat 6
 		p1=cnt :p2=2 :gosub *strf
 		bload "grp"+refstr+".bin",linbf	;連結元ファイル読み込み
 		sz=strsize

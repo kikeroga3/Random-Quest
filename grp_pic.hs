@@ -2,7 +2,7 @@
 	bload "grpsum.bin",sumbf
 
 	;変数grp_noに画像の番号を指定
-	grp_no=0 :gosub *draw
+	grp_no=5 :gosub *draw
 	stop
 
 *draw

@@ -7,7 +7,9 @@
 	menu(0)="LINE" :menu(1)="PAINT"
 
 *reload
-	color 255,255,255 :boxf 0,0,480,480
+	title "LINE START"
+	color :boxf 0,0,639,479
+	color 255,255,255 :boxf 1,2,478,478
 ;	pos 0,0 :picload "sketch.png"
 
 	mode=0 :und=0 :adr=0
@@ -25,22 +27,22 @@
 
 ;メインルーチン
 	repeat
-		stick key
+		wait 10 :stick key
 		if key=256 {
 			if mousex<480 { gosub *rgb_set
 				if mode { gosub *col_set } else { gosub *lin_set }
 			} else {
 				n=mousey/20
-				if n=1 :mode=1-mode :wait 20
+				if n=1 :mode=1-mode
 				if n=4 :c_r=(c_r+1)\17
 				if n=5 :c_g=(c_g+1)\17
 				if n=6 :c_b=(c_b+1)\17
 				if n=8 {
-					color 255,255,255 :boxf 0,0,480,480
+					color 255,255,255 :boxf 1,2,478,478
 					adr=0 :gosub *draw
 				}
 				if n=10 :break
-				if n=12 {
+				if n=13 {
 					bsave sfnm,linbf
 					title "SAVE:"+sfnm+" BYTES:"+adr
 					if lfnm="" :lfnm=sfnm
@@ -53,7 +55,6 @@
 			title "LINE START"
 		}
 		if key=128 :n=-1 :break
-		wait 10
 	loop
 	if n=10 :goto *reload
 	end
@@ -105,9 +106,10 @@
 	poke linbf,adr,254
 	poke linbf,adr+1,x3+1 :poke linbf,adr+2,y3+1
 	und=adr :adr=adr+3
+	title "PAINT:"+(x3*2)+","+(y3*2)
 	return
 
-;色情報をセット
+;色情報を格納
 *rgb_set
 	if (o_r!c_r) or (o_g!c_g) or (o_b!c_b) {
 		poke linbf,adr,253
