@@ -23,18 +23,21 @@
 	color 80,80,255 :boxf 0,0,640,480
 	color 255,255,255
 	repeat 12
-		pos 30,30+30*cnt :mes ttl(cnt)
+		pos 40,30+30*cnt :mes ttl(cnt)
 	loop
 
 	repeat
-		wait 10 :stick key
-		if key=256 {
-			n=mousey/30
-			if n>0 and n<13 :break
+		wait 10 :stick k
+		n=mousey/30
+		if n>0 and n<13 {
+			redraw 0
+			color 80,80,255 :boxf 0,0,39,480
+			color 255,255,255 :pos 10,30*n :mes "->"
+			redraw 1
+			if k=256 :break
 		}
 	loop
 
-	boxf 0,0,640,480
-	color
+	wait 30
+	boxf 0,0,640,480 :color
 	run fnm(n-1)+".hs"
-	stop
