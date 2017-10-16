@@ -1,0 +1,108 @@
+<pre>
+*000
+MYSTERY HOUSE,open
+*001
+Meta-Detective TAKAHASHI,open,act1-2,act1-3,act1-4,act1-5,act2
+*002
+Be An Interplanetary Spy,open
+*003
+Choose Your Own Adventure,open
+*004
+Cretan Chronicles,open
+*005
+Doctor Who: Decide Your Destiny,open
+*006
+Dragontales,open
+*007
+DuelMaster,open
+*008
+Endless Quest,open
+*009
+Escape from Tenopia,open
+*010
+Escape from the Kingdom of Frome,open
+*011
+Explore-A-Quest,open
+*012
+Fabled Lands,open
+*013
+Falcon,open
+*014
+Fighting Fantasy,open
+*015
+Follow Your Heart Romance,open
+*016
+Forbidden Gateway,open
+*017
+Freeway Warrior,open
+*018
+Give Yourself Goosebumps,open
+*019
+Golden Dragon,open
+*020
+GrailQuest,open
+*021
+Hark,open
+*022
+HeroQuest,open
+*023
+Knightmare,open
+*024
+Legends of Skyfall,open
+*025
+Lone Wolf,open
+*026
+Maze,open
+*027
+Narnia Solo Games,open
+*028
+Nintendo Adventure Books,open
+*029
+Sagard the Barbarian,open
+*030
+Sagas of the Demonspawn,open
+*031
+Sonic Adventures,open
+*032
+Sorcery!,open
+*033
+Super Eye Adventures,open
+*034
+Time Machine,open
+*035
+Tolkien Quest,open
+*036
+Twistaplot,open
+*037
+Twisted Journeys,open
+*038
+Virtual Reality,open
+*039
+Way of the Tiger,open
+*040
+Wizards Warriors & You,open
+*041
+Usborne Puzzle Adventures,open
+*042
+Alternamorphs: The First Journey,open
+*043
+Die Insel der Sternenbestie (Isle of the Star Beast),open
+*044
+Pretty Little Mistakes,open
+*045
+Million Little Mistakes,open
+*046
+Life's Lottery,open
+*047
+To Be or Not to Be,open
+*048
+Witchsnare,open
+*049
+Raven,open
+*050
+Reiter der schwarzen Sonne,open
+*051
+La nuit je suis Buffy Summers,open
+*052
+Blood Sword,open
+</pre>
