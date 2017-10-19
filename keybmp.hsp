@@ -1,0 +1,40 @@
+font "Cambria",50
+color 0,0,0:boxf
+repeat 12
+	x=cnt\6 :y=cnt/6 :n=1+x+6*(1-y) :s=str(n)
+	font "Cambria",50
+	if n>9 :font "Cambria",24,1
+	if n=10 :s="Save"
+	if n=11 :s="Load"
+	if n=12 :s="Quit"
+	color 0,0,80
+	boxf 53*x+1,53*y+1,53*x+51+1,53*y+51+1
+	color 40,40,200
+	pos 53*x+10-8*(n>9),53*y-5+15*(n>9) :mes s
+
+	y=y+2
+	if n=10 :s="0"
+	font "Cambria",50
+	if n>10 :font "Cambria",30,1
+	if n=11 :s="Get"
+	if n=12 :s="Ret"
+	color 0,0,80
+	boxf 53*x+1,53*y+1,53*x+51+1,53*y+51+1
+	color 40,40,200
+	pos 53*x+10-6*(n>10),53*y-5+13*(n>10) :mes s
+
+	y=y+2
+	color 0,0,80
+	boxf 53*x+1,53*y+1,53*x+52+1,53*y+51+1
+loop
+font "Cambria",50
+	color 40,40,200
+	y=4
+	pos 40,53*y-5 :mes "TITLE LIST"
+	y=5
+	pos 20,53*y-5 :mes "GAME START"
+
+	color 0,0,0 :line 318,0,318,480
+
+	bmpsave "key.bmp"
+stop

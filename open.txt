@@ -1,63 +1,67 @@
-������ �~�X�e���[�n�E�X ������
+◇◇◇ ミステリーハウス ◇◇◇
 *Start
---- �Ƃ̊O ---
-�ڂ̑O�Ƀ��B�N�g���A���̍r��ʂĂ����~������܂��B
-���Ȃ��͍����̑O�ɗ����Ă��܂��B
-1:���ւɍs���@2:�l����@3:�A��
+--- 家の外 ---
+目の前にヴィクトリア風の荒れ果てた屋敷があります。
+あなたは今その前に立っています。
+1:玄関に行く　2:考える　3:帰る
 @SEL Lb00
 @SEL Think
 @SEL Owari
 @INP
 
 *Think
-���Ȃ��͂�����ˑR�A��̐l������͂������ҏ�ŁA���̊ڂɏ�����܂����B
-�������Ƃ͎v���܂������������Ђ���Ă����܂ł���Ă����̂ł��B
+あなたはある日突然、謎の人物から届いた招待状で、
+この舘に招かれました。怪しいとは思いましたが
+興味をひかれてここまでやってきたのです。
 @INP
 @JMP Start
 
 *Lb00
---- ���� ---
-���ւ̑O�ɂ��܂����B
-1:�h�A���J����@2:�m�b�N����@3:�͂Ȃ��
+--- 玄関 ---
+玄関の前にきました。
+1:ドアを開ける　2:ノックする　3:はなれる
 @SEL Lb01
 @SEL Knock
 @SEL Start
 @INP
 
 *Knock
-�Ԏ��͂���܂���B
+返事はありません。
 @JMP Lb00
 
 *Lb01
---- �G���g�����X�E�z�[�� ---
-�h�A���J���Ē��ɓ���ƁA���Ō��̕܂鉹�����܂����B
-�߂��ăm�u���܂킵�Ă݂܂������h�A�͂����J���܂���B
-�C�z�������ĐU��Ԃ�ƃz�[���̒����ɐ��l�̒j���������Ă��܂��B
-1:��������݂�@2:�b��
+--- エントランス・ホール ---
+ドアを開けて中に入ると後ろで鍵の閉まる音がしました。
+戻ってノブをまわしてみましたがドアはもう開きません。
+気配を感じて振り返るとホールの中央に数人の男女が
+立っています。
+1:あたりをみる　2:話す
 @SEL Lb03
 @SEL Lb02
 @INP
 
 *Lb02
-���Ȃ��͗��������Ď��ȏЉ�����A�ނ�̂��Ƃ������˂܂����B
+落ち着いて自己紹介をし、彼らのことをたずねました。
 
-�@�B�H�̃T��
-��x�l�̃W���[�C
-���Ȉ�̃O���[��
-���j�q�̃T���[
-�����̃r��
-�z�ǍH�̃g��
-�R�b�N�̃f�C�W�[
+機械工のサム
+墓堀人のジョーイ
+歯科医のグリーン
+お針子のサリー
+肉屋のビル
+配管工のトム
+コックのデイジー
+
 *Lb03
-�ނ�V�l�����Ȃ��Ɠ����悤�ɁA��̐l�����炱�̊ڂɏ����ꂽ�悤�ł��B
+彼ら７人もあなたと同じように、謎の人物からこの舘に
+招かれたようです。
 @INP
 
 *Entrance
---- �G���g�����X�E�z�[�� ---
-���A��A���Ƀh�A������A�Q�K�ւƂ�����K�i������܂��B
-���Ƀ����������Ă���B
-1:���@2:��@3:���@4:�Q�K
-5:�����𒲂ׂ�
+--- エントランス・ホール ---
+西、南、東にドアがあり、２階へあがる階段があります。
+床にメモが落ちている。
+1:西　2:南　3:東　4:２階
+5:メモを調べる
 @SEL Kichin
 @SEL Dining
 @SEL Genkan
@@ -66,23 +70,24 @@
 @INP
 
 *Memo-1
-������ǂ�ł݂��
-"���̊ڂɂ͍����ȕ�΂��B����Ă���B�ŏ��Ɍ������z�̕���"
-�Ə�����Ă���B
+メモを読んでみると
+"この舘には高価な宝石が隠されている。
+　最初に見つけた奴の物だ"
+と書かれている。
 @IF 0 1 Entrance
 @INP
-����グ��ƁA�������V�l�͏��������Ă����B
-�ǂ����N�����̃�����ǂ�ł��Ȃ������悤���B
-�����A���Ȃ����s�����Ȃ���΁B
+顔を上げると、早くも７人は消え失せていた。
+どうやら誰もこのメモを読んでいなかったようだ。
+早速、あなたも行動しなければ。
 @FLG 0 1
 @INP
 @JMP Entrance
 
 *Kichin
---- �䏊 ---
-���A���Ƀh�A������܂��B�①�ɁA�K�X��A�˒I������B
-1:���@2:��
-3:�①�Ɂ@4:�K�X��@5:�˒I���݂�
+--- 台所 ---
+西、東にドアがあります。冷蔵庫、ガス台、戸棚がある。
+1:西　2:東
+3:冷蔵庫　4:ガス台　5:戸棚をみる
 @SEL Kichin-W
 @SEL Entrance
 @SEL Reizo
@@ -92,47 +97,48 @@
 
 *Kichin-W
 @IF 5 1 Mori
-�J�M���������Ă���B
+カギがかかっている。
 @JMP Kichin
 
 *Reizo
 @IF 1 1 Non
-�①�ɂ̒��ɐ��������������B�󂾂����̂Ő�������ł����B
+冷蔵庫の中に水差しがあった。
+空だったので水を汲んでおく。
 @INP
-����H�����ɉ��������Ă���B�o�^�[�i�C�t���B
-���������Ă����Ƃ��悤�B
+おや？流しに何か落ちている。バターナイフだ。
+これも取っておくとしよう。
 @FLG 1 1
 @INP
 @JMP Kichin
 
 *Todana
 @IF 2 1 Non
-�˒I�̒��Ƀ}�b�`���݂����B
+戸棚の中にマッチをみつけた。
 @FLG 2 1
 @JMP Kichin
 
 *Gas
 @IF 4 1 Pantry
-�΂����Ȃ��B�K�X����������ĂȂ��悤�ł��B
+火がつかない。ガスが供給されてないようです。
 @IF 3 0 Kichin
-�K�X��̉��̔����J���Ă݂�Ɣz�ǂ����O����Ă����B
-���̕ǂ͎��򂪔j��ă����K���I�o���Ă���B
+ガス台の下の扉を開けてみると配管が取り外されていた。
+奥の壁は漆喰が破れてレンガが露出している。
 @INP
-���Ȃ��͋��ƂŃ����K��@���Ă݂��B
-����ƕǂ͂��낭����A�l���ʂ��قǂ̌����J�����B
+あなたは金槌でレンガを叩いてみた。
+すると壁はもろく崩れ、人が通れるほどの穴が開いた。
 @FLG 4 1
 @JMP Kichin
 
 *Non
-��������܂���B
+何もありません。
 @JMP Kichin
 
 *Dining
---- �H�� ---
-�k�A��Ƀh�A������܂��B���񂾂񔖈Â��Ȃ��Ă��܂����B
-�e�[�u���̏�Ƀ��[�\�N������܂��B
-1:�k�@2:��
-3:���������
+--- 食堂 ---
+北、南にドアがあります。日が暮れ、薄暗くなってきた。
+テーブルの上にローソクがあります。
+1:北　2:南
+3:灯りをつける
 @SEL Entrance
 @SEL Uraniwa
 @SEL Lights
@@ -141,68 +147,70 @@
 *Lights
 @IF 5 1 Key-1
 @IF 2 1 Fire
-�}�b�`�������Ă��Ȃ��B
+マッチをもっていない。
 @JMP Dining
 
 *Fire
-�}�b�`�Ń��[�\�N�ɉ΂����܂����B
-�������A�Ȃ�ƈ��΂��ď��ɔR���L�����Ă��܂��܂����I
+マッチでローソクに火をつけました。
+しかし、なんと引火して床に燃え広がってしまいました！
 @INP
 @IF 1 1 Mizu
-���Ȃ��͔R�����鉊���瓦���ꂸ�ɏĂ�����ł��܂���...
+あなたは燃え盛る炎から逃られず焼け死んでしまった...
 Game Over...
 @INP
 @JMP Owari
 
 *Mizu
-����ĂĐ������ɋ���ł��������������ĉ΂������~�߂܂����B
+水差しに汲んでおいた水をかけて火を消し止めました。
 @INP
-�Ă��ł����O�~�Ɍ����J���A�Ă��Ղ���J�M���݂��܂����B
-����͈�̉����̃J�M�ł��傤�H
+絨毯に焦げ穴が開き、焼け跡からカギをみつけました。
+これは一体どこのカギでしょう？
 @FLG 5 1
 @INP
 @JMP Dining
 
 *Key-1
-���[�\�N�͐��Z���A�}�b�`�͂�������܂���B
+ローソクは水浸し、マッチはもうありません。
 @JMP Dining
 
 *Genkan
 @IF 5 1 Genkan-2
-�m�u���܂킵�Ă݂܂������h�A�͂����J���܂���B
+ノブをまわしてみましたがドアはもう開きません。
 @JMP Entrance
 
 *Genkan-2
-�h�A�͐H���ł݂����J�M�ŊJ���܂����B
+ドアは食堂でみつけたカギで開きました。
 @IF 20 1 HappyEnd
-�������A�O�ɏo�悤�Ƃ����u�ԁI
-�����Ȃ�i�C�t�����ł��āA���Ȃ��̋��ɓ˂��h����܂����I
+しかし、外に出ようとした瞬間！
+いきなりナイフが飛んできて胸に突き刺さりました！
 Game Over...
 @INP
 @JMP Owari
 
 *Uraniwa
 @IF 0 1 Uraniwa-2
---- ���� ---
-�_���Ɉ͂܂ꂽ����ɏo�܂����B�k�Ƀh�A�A���ɖ،˂�����܂��B
-1:�k�@2:��
+--- 裏庭 ---
+垣根に囲まれた裏庭に出ました。
+北にドア、東に木戸があります。
+1:北　2:東
 @SEL Dining
 @SEL Cemetery
 @INP
 
 *Uraniwa-2
---- ���� ---
-�_���Ɉ͂܂ꂽ����ɏo�܂����B�k�Ƀh�A�A���ɖ،˂�����܂��B
-���̂�����B�@�B�H�̃T�����E����Ă���I
-1:�k�@2:��
-3:���̂��݂�
+--- 裏庭 ---
+垣根に囲まれた裏庭に出ました。
+北にドア、東に木戸があります。
+死体がある。機械工のサムが殺されている！
+1:北　2:東
+3:死体をみる
 @SEL Dining
 @SEL Cemetery
 @SEL Dead-Sam
 @INP
 
 *Dead-Sam
-�݊�̂悤�Ȃ��̂œ�������ꂽ�̂������炵���B
+鈍器のようなもので頭を殴られたのが死因らしい。
 @FLG 6 1
 @JMP Uraniwa-2
 
@@ -210,20 +218,20 @@ Game Over...
 @IF 7 2 Cemetery-3
 @IF 6 1 Cemetery-2
 *Cemetery-3
---- ��n ---
-�_���Ɉ͂܂ꂽ��n�ɏo�܂����B�k�A���ɖ،˂�����܂��B
-1:�k�@2:��
+--- 墓地 ---
+垣根に囲まれた墓地に出た。北、西に木戸があります。
+1:北　2:西
 @SEL Nakaniwa
 @SEL Uraniwa
 @INP
 
 *Cemetery-2
---- ��n ---
-�_���Ɉ͂܂ꂽ��n�ɏo�܂����B�k�A���ɖ،˂�����܂��B
-�@��ꂽ�΂���̕挊���U����A��x�l�̃W���[�C������B
-�W���[�C�̂������΂ɂ̓V���x���������Ă���B
-1:�k�@2:��
-3:�b���@4:�V���x�����Ƃ�
+--- 墓地 ---
+垣根に囲まれた墓地に出ました。北、西に木戸がある。
+墓堀人のジョーイが掘った墓穴が６つあり、すぐそばに
+シャベルが落ちている。
+1:北　2:西
+3:話す　4:シャベルをとる
 @SEL Nakaniwa
 @SEL Uraniwa
 @SEL Talk-Joy
@@ -231,64 +239,68 @@ Game Over...
 @INP
 
 *Talk-Joy
-�W���[�C�͉��������܂���B�����l���Ă���̂ł��傤�H
+ジョーイは何も答えません。何を考えているのでしょう？
 @JMP Cemetery-2
 
 *Shovel
 @IF 7 1 Shovel-2
-�V���x���Ɏ���̂΂��ƃW���[�C���ז������Ď��܂���B
+シャベルに手をのばすとジョーイが邪魔をします。
 @FLG 7 1
 @JMP Cemetery-2
 
 *Shovel-2
-�����ɃV���x������낤�Ƃ���ƁA�W���[�C�����낵���`���ŏP���������Ă����B
+強引にシャベルを取ろうとすると
+ジョーイが恐ろしい形相で襲いかかってきた。
 @IF 1 1 Shovel-3
-���Ȃ��͎���i�߂��A�ӎ��������Ȃ��Ă����̂�������...
+あなたは首を絞められ、意識が遠くなっていった...
 Game Over...
 @INP
 @JMP Owari
 
 *Shovel-3
-���Ȃ��̓o�^�[�i�C�t�Ŕ������A�ނ��h���E���ăV���x������ɓ���܂����B
-�����āA�挊�̈�ɃW���[�C�𖄑����܂����B
+あなたはバターナイフで反撃し、彼を刺し殺してシャベルを
+手に入れました。
+そして、墓穴の一つにジョーイを埋葬しました。
 @FLG 7 2
 @JMP Cemetery-3
 
 *Nakaniwa
---- ���� ---
-�k�Ƀh�A�A��ɖ،˂�����܂��B�i�X�Â��Ȃ��Ă��܂����B
-1:�k�@2:��
+--- 中庭 ---
+北にドア、南に木戸があります。
+日が落ち、まわりは薄暗くなっている。
+1:北　2:南
 @SEL Library
 @SEL Cemetery
 @INP
 
 *Library
---- �}���� ---
-�k�ɂQ�K�ւ̊K�i�A��Ƀh�A������܂��B
-�����g���Ă��Ȃ��悤�ŕ������Ƀz�R�������܂��Ă���B
-���Ƀ����������Ă���B
-1:�Q�K�@2:��
-3:�������݂�
+--- 図書館 ---
+北に２階への階段、南にドアがあります。
+長く使われていないのか部屋中にホコリが溜まっている。
+床にメモが落ちている。
+1:２階　2:南
+3:メモをみる
 @SEL 2F
 @SEL Nakaniwa
 @SEL Memo-2
 @INP
 
 *Memo-2
-������ǂ�ł݂��
-"�V�|�U���P�B����Ŏ����̕��ɂȂ�"
-�Ə�����Ă���B
+メモを読んでみると
+"７－６＝１。それで自分の物になる"
+と書かれている。
 @INP
-�ǂ����ז��҂������ĕ�΂�Ɛ肷�����̓z������悤���B
-�������Ȃ��A"�W�|�V"�ł͂Ȃ��񂾂낤���H
+邪魔者を消して宝石を独占するつもりの奴がいるようだ。
+しかしなぜ、"８－７"ではないのだろうか？
 @JMP Library
 
 *2F
---- 2F�E�z�[�� ---
-�k�A���A���Ƀh�A������܂��B
-��ɂP�K�G���g�����X�ւ̊K�i�A����ɐ}���قւ̊K�i������܂��B
-1:�k�@2:���@3:��
-4:�G���g�����X�@5:�}����
+--- 2F・ホール ---
+北、西、東にドアがあります。
+南に１階エントランスへの階段、東南に図書館への階段が
+あります。
+1:北　2:西　3:東
+4:エントランス　5:図書館
 @SEL Shosai
 @SEL Kidsroom
 @SEL Bedroom
@@ -298,66 +310,66 @@ Game Over...
 
 *Bedroom
 @IF 9 0 Bedroom-2
---- ��Q�� ---
-���A���Ƀh�A������܂��B�_�u���x�b�h������B
-1:���@2:���@3:�Q��
+--- 大寝室 ---
+西、東にドアがあります。ダブルベッドがある。
+1:西　2:東　3:寝る
 @SEL 2F
 @SEL Cubicle
 @SEL Sleep
 @INP
 
 *Bedroom-2
---- ��Q�� ---
-�����ɓ���ƁA�����Ȃ蕔���̊O����i�C�t�����ł���
-���Ȃ��̉��������߂ăx�b�h�ɓ˂��h����܂����I
+--- 大寝室 ---
+部屋に入ると、いきなり部屋の外からナイフが飛んできて
+あなたの横をかすめてベッドに突き刺さりました！
 @INP
-�ǂ����A���Ȃ����^�[�Q�b�g�ɂ���Ă���悤�ł��B
-�C�����Ȃ��Ă�...
+どうやら、あなたもターゲットにされているようです。
+気をつけなくては...
 @FLG 9 1
 @JMP Bedroom
 
 *Cubicle
 @IF 6 1 Cubicle-2
---- ���Q�� ---
-���Ƀh�A������܂��B�ȈՃx�b�h������B
-1:���@2:�Q��
+--- 小寝室 ---
+西にドアがあります。簡易ベッドがある。
+1:西　2:寝る
 @SEL Bedroom
 @SEL Sleep
 @INP
 
 *Sleep
-���Ȃ��͏��������������Ńx�b�h�ɉ������B
+あなたは少しだけ眠るつもりでベッドに横たわる。
 @INP
-�ڂ���āA�܂ǂ�݂��������̎��I�ˑR�A���ɒɂ݂��������I
-���Ȃ��͂��̂܂܂Q�x�Ɩڊo�߂邱�Ƃ͂Ȃ�����...
+目を閉じて、まどろみかけたその時！突然の激痛！
+あなたはそのまま２度と目覚めることはなかった...
 Game Over...
 @INP
 @JMP Owari
 
 *Cubicle-2
---- ���Q�� ---
-���Ƀh�A������܂��B�ȈՃx�b�h������B
-���̂�����B���j�q�̃T���[���E����Ă���I
-1:���@2:�Q��
-3:���̂��݂�
+--- 小寝室 ---
+西にドアがあります。簡易ベッドがある。
+死体がある。お針子のサリーが殺されている！
+1:西　2:寝る
+3:死体をみる
 @SEL Bedroom
 @SEL Sleep
 @SEL Dead-Sari
 @INP
 
 *Dead-Sari
-�����͓��ɂ���傫�ȃ^���R�u�̂悤���B
-�悭�݂�ƁA�ޏ��̕��ɋ��F�̔��̖т����Ă���B
-�T���[�͋����ł͂Ȃ��B����Ƃ��ꂪ�Ɛl�̔��̖т��낤���H
+死因は頭にある大きなコブのようだ。
+よくみると、彼女の服に金色の髪の毛がついている。
+サリーは金髪ではない。するとこれは犯人の髪の毛か？
 @FLG 8 1
 @JMP Cubicle-2
 
 *Shosai
---- ���� ---
-���A��Ƀh�A������܂��B�������ɂ������n�V�S������B
-�ǂɊG���������Ă���B
-1:���@2:��@3:�n�V�S
-4:�G���݂�
+--- 書斎 ---
+東、南にドアがあります。屋根裏にあがるハシゴがある。
+壁に絵がかかっている。
+1:東　2:南　3:ハシゴ
+4:絵をみる
 @SEL Bath
 @SEL 2F
 @SEL Yaneura
@@ -365,16 +377,16 @@ Game Over...
 @INP
 
 *Paint
-���ʂ̕��i�悾�B�z�̗��ɂ������Ȃ��B
+普通の風景画だ。額の裏にも何もない。
 @JMP Shosai
 
 *Bath
 @IF 8 1 Bath-2
---- ���C�� ---
-���ɍ������Ă����h�A������܂��B
-�����ɂ͐��ʑ�A�V�����[�A�o�X�^�u������B
-1:���@
-2:���ʑ�@3:�V�����[�@4:�o�X�^�u
+--- 風呂場 ---
+西に今入ってきたドアがあります。
+室内には洗面台、シャワー、バスタブがある。
+1:西　
+2:洗面台　3:シャワー　4:バスタブ
 @SEL Shosai
 @SEL Washstand
 @SEL Shower
@@ -382,32 +394,32 @@ Game Over...
 @INP
 
 *Washstand
-��Ǝ�����Ă����ς肵���B
-���̉��̕ǂɂ������Ă����^�I�������܂����B
+顔と手を洗ってさっぱりした。
+鏡の横の壁にかかっていたタオルを取りました。
 @FLG 10 1
 @JMP Bath
 
 *Shower
-�V�����[���o���Ă݂܂����B�o�X�^�u�ɂ��������܂��Ă����܂��B
-�������A���͗��тĂ���ꍇ���Ⴀ��܂���B
+シャワーを出すとバスタブにお湯がたまっていきます。
+しかし、今は浴びている場合じゃありません。
 @FLG 11 1
 @JMP Bath
 
 *Bathtub
 @IF 11 1 Bathtub-2
-�o�X�^�u�͋���ۂł��B
+バスタブは空っぽです。
 @JMP Bath
 
 *Bathtub-2
-�������������܂��Ă���B
+お湯が少したまっている。
 @JMP Bath
 
 *Bath-2
---- ���C�� ---
-���Ƀh�A������܂��B�����ɂ͐��ʑ�A�V�����[�A������
-�o�X�^�u�Ɏ��̂�����B�����̃r�����E����Ă���I
-1:���@
-2:���ʑ�@3:�V�����[�@4:�o�X�^�u
+--- 風呂場 ---
+西にドアがあります。室内には洗面台、シャワー、そして
+バスタブに死体がある。肉屋のビルが殺されている！
+1:西　
+2:洗面台　3:シャワー　4:バスタブ
 @SEL Shosai
 @SEL Washstand
 @SEL Shower
@@ -415,125 +427,125 @@ Game Over...
 @INP
 
 *Dead-Bill
-�����͍i�E�炵���B��ɃX�g�b�L���O���������Ă���B
-�Ɛl�͏����H���邢�͂������������悤�Ƃ��Ă���̂�...
+死因は絞殺らしい。首にストッキングが巻きついている。
+犯人は女性？あるいはそう見せようとしているのか...
 @FLG 12 1
 @JMP Bath-2
 
 *Kidsroom
 @IF 12 1 Kidsroom-2
---- �q������ ---
-���A���Ƀh�A������܂��B
-1:���@2:��
+--- 子供部屋 ---
+西、東にドアがあります。
+1:西　2:東
 @SEL Nursery
 @SEL 2F
 @INP
 
 *Kidsroom-2
---- �q������ ---
-���A���Ƀh�A������܂��B
-���̂�����B���Ȉ�̃O���[�������E����Ă���I
-1:���@2:��
-3:���̂��݂�
+--- 子供部屋 ---
+西、東にドアがあります。
+死体がある。歯科医のグリーン氏が殺されている！
+1:西　2:東
+3:死体をみる
 @SEL Nursery
 @SEL 2F
 @SEL Dead-Green
 @INP
 
 *Dead-Green
-����͎c����Ă��Ȃ����A�h���E����Ă���悤���B
+凶器は残されていないが、刺し殺されているようだ。
 @FLG 13 1
 @JMP Kidsroom-2
 
 *Nursery
---- �q���̐Q�� ---
-���Ƀh�A������܂��B�����ɂ������������Ă���B
-1:���@2:�������݂�
+--- 子供の寝室 ---
+東にドアがあります。ここにもメモが落ちている。
+1:東　2:メモをみる
 @SEL Kidsroom
 @SEL Memo-3
 @INP
 
 *Memo-3
-������ǂ�ł݂��
-"��΂͒N�ɂ��������Ȃ��B���̕����I"
-�Ə�����Ă���B
+メモを読んでみると
+"宝石は誰にも見つけられない。私の物だ！"
+と書かれている。
 @INP
 @JMP Nursery
 
 *Yaneura
 @IF 14 1 Yaneura-3
 @IF 3 1 Yaneura-2
---- ������ ---
-���Ƀh�A������܂��B���ɂ����n�V�S������B
-���Ƃ������Ă���B
-1:���@2:�n�V�S
-3:���Ƃ��Ƃ�
+--- 屋根裏 ---
+西にドアがあります。下におりるハシゴがある。
+金槌が落ちている。
+1:西　2:ハシゴ
+3:金槌をとる
 @SEL Closet
 @SEL Shosai
 @SEL Hammer
 @INP
 
 *Hammer
-���Ƃ����܂����B
+金槌を取りました。
 @FLG 3 1
 @JMP Yaneura
 
 *Yaneura-2
---- ������ ---
-���Ƀh�A������܂��B���ɂ����n�V�S������B
-1:���@2:�n�V�S
+--- 屋根裏 ---
+西にドアがあります。下におりるハシゴがある。
+1:西　2:ハシゴ
 @SEL Closet
 @SEL Shosai
 @INP
 
 *Yaneura-3
---- ������ ---
-���Ƀh�A������܂��B���ɂ����n�V�S������B
-�V��ɉB���˂�����B
-1:���@2:�n�V�S�@3:�B����
+--- 屋根裏 ---
+西にドアがあります。下におりるハシゴがある。
+天井に隠し戸がある。
+1:西　2:ハシゴ　3:隠し戸
 @SEL Closet
 @SEL Shosai
 @SEL Secret
 @INP
 
 *Closet
---- ���u ---
-���Ƀh�A������܂��B���ɔ����u���Ă���B
-1:���@2:���𒲂ׂ�
+--- 物置 ---
+東にドアがあります。床に箱が置いてある。
+1:東　2:箱を調べる
 @SEL Yaneura
 @SEL Box
 @INP
 
 *Box
-���ɂ̓J�M���������Ă���B
+箱にはカギがかかっている。
 @IF 15 0 Closet
-�n�����ł݂����J�M�ŊJ���邱�Ƃ��ł��܂����B
+地下室でみつけたカギで開けることができました。
 @IF 16 1 Box-2
-���ɂ͋��͂ȕ��킪�����Ă����B
-�s�X�g������ɓ��ꂽ�I
+中には強力な武器が入っていた。
+ピストルを手に入れた！
 @FLG 16 1
 @INP
 @JMP Closet
 
 *Box-2
-���̒��͋���ۂł��B
+箱の中は空っぽです。
 @JMP Closet
 
 *Pantry
---- �z�V�� ---
-�n���֍~���K�i�Ƒ䏊�֖߂錊������B
-1:�n���@2:�䏊
+--- 配膳室 ---
+地下へ降りる階段と台所へ戻る穴がある。
+1:地下　2:台所
 @SEL Basement
 @SEL Kichin
 @INP
 
 *Basement
 @IF 13 1 Basement-2
---- �n���� ---
-���K�i������A����̕ǂɑ傫�Ȍ����J���Ă���B
-�Â��ăW���W�����������ŁA��������������ɒu���Ă���B
-1:�K�i�@2:���ɓ���
-3:��������݂�@4:�����݂�
+--- 地下室 ---
+上り階段があり、一方の壁に大きな穴が開いている。
+暗くジメジメした部屋に机が一つだけ部屋に置いてある。
+1:階段　2:穴に入る
+3:あたりをみる　4:机をみる
 @SEL Pantry
 @SEL Tunnel
 @SEL Koke
@@ -542,23 +554,23 @@ Game Over...
 
 *Desk
 @IF 15 1 Desk-2
-���̏�ɃJ�M������B���Ȃ��͂�������܂����B
+机の上にカギがある。あなたはそれを取りました。
 @FLG 15 1
 @INP
 @JMP Basement
 
 *Desk-2
-��������܂���B
+何もありません。
 @JMP Basement
 
 *Basement-2
---- �n���� ---
-���K�i������A����̕ǂɑ傫�Ȍ����J���Ă���B
-�Â��ăW���W�����������ŁA��������������ɒu���Ă���B
-���̂�����B�z�ǍH�̃g�����E����Ă���I
-1:�K�i�@2:���ɓ���
-3:��������݂�@4:�����݂�
-5:���̂𒲂ׂ�
+--- 地下室 ---
+上り階段があり、一方の壁に大きな穴が開いている。
+暗くジメジメした部屋に机が一つだけ部屋に置いてある。
+死体がある。配管工のトムが殺されている！
+1:階段　2:穴に入る
+3:あたりをみる　4:机をみる
+5:死体を調べる
 @SEL Pantry
 @SEL Tunnel
 @SEL Koke
@@ -567,44 +579,47 @@ Game Over...
 @INP
 
 *Dead-Tom
-�h���E����Ă���悤���B��ɂȂ����q�i�M�N�̉Ԃ������Ă���B
-����̓_�C�C���O�E���b�Z�[�W���낤���H
+刺し殺されている。手にヒナギクの花をにぎっている。
+ひょっとしてダイイング・メッセージなのか？
 @FLG 17 1
 @JMP Basement-2
 
 *Koke
-�ǈ�ʂ��R�P�ɕ����Ă���B
+壁一面がコケに覆われている。
 @IF 10 0 Basement
 @IF 18 1 Koke-2
-�^�I���ŃR�P��@������Ă݂�ƁA�ǂ̎��򂪔j��Ă��镔�������ꂽ�B
-�����K���͂ߍ��܂�Ă���̂ŁA���O���Ă݂��...
+タオルでコケを拭い取ってみると、壁の漆喰が破れている
+部分が現れた。
+レンガがはめ込まれているので取り外してみると...
 @INP
-���ɁA�B����Ă�����΂��������I
-��͉��~��E�o���邾�����B
+ついに、隠されていた宝石を見つけた！
+後は屋敷を脱出するだけだ。
 @FLG 18 1
 @INP
 @JMP Basement
 
 *Koke-2
-��΂͎�ɓ��ꂽ�B��͉��~��E�o���邾�����B
+宝石は手に入れた。後は屋敷を脱出するだけだ。
 @INP
 @JMP Basement
 
 *Tunnel
---- �g���l�� ---
-��k�ɔ�����ʘH�ɂȂ��Ă���悤���B�쑤�ɂ͌���������B
-1:��@2:�k
+--- トンネル ---
+南北に抜ける通路になっているようだ。
+南側には光が見える。
+1:南　2:北
 @SEL Pinus
 @SEL Basement
 @INP
 
 *Pinus
 @IF 4 0 Mori
---- �X ---
-�؁X�������΂�X�̒��ɏo�܂����B�ڂ̑O�ɑ傫�ȏ��̖؂�����B
-�k���ɂ̓g���l��������܂��B
-1:���@2:���@3:�k�@4:��
-5:���̖؂ɓo��
+--- 森 ---
+木々が生い茂る森の中に出ました。
+目の前に大きな松の木がある。
+北側にはトンネルがあります。
+1:西　2:東　3:北　4:南
+5:松の木に登る
 @SEL Mori-A
 @SEL Mori-B
 @SEL Tunnel
@@ -613,22 +628,23 @@ Game Over...
 @INP
 
 *Noboru
-�������̖؂̂Ă��؂�ɓo��܂����B
-���̂��]�������u���Ă������̂ŉ��~�̂ق������Ă݂��...
+高い松の木のてっぺんに登りました。
+何故か屋敷のほうに向けて望遠鏡が枝に括りつけてあった
+ので覗いてみると...
 @INP
-�����̏�ɏ���������̂������܂����B
-�����ɊJ���˂�����A��������オ��Γ��ꂻ���ł��B
-�����炭�����������̂�����ł��傤�B
+屋根の上に小屋があるのを見つけました。
+屋根に開き戸があり、そこから上がれば入れそうです。
+おそらく屋根裏部屋のあたりでしょう。
 @FLG 14 1
 @INP
-���̖؂��炨��܂����B
+松の木からおりました。
 @JMP Pinus
 
 *Mori
---- �X ---
-�؁X�������΂�A���ݍ��ނƖ����Ă��܂������Ȑ[���X�ł��B
-�����ɉ��~�̃h�A������B
-1:���@2:���@3:�k�@4:��
+--- 森 ---
+木々が生い茂り、踏み込むと迷いそうな深い森です。
+東側に屋敷のドアがある。
+1:西　2:東　3:北　4:南
 @SEL Mori-A
 @SEL Kichin
 @SEL Mori-B
@@ -636,9 +652,9 @@ Game Over...
 @INP
 
 *Mori-A
---- �X ---
-�؁X�����΂�X�̒��ł��B�ǂ���֍s���΂����̂�...
-1:���@2:���@3:�k�@4:��
+--- 森 ---
+木々生い茂る森の中です。どちらへ行けばいいのか...
+1:西　2:東　3:北　4:南
 @SEL Mori
 @SEL Mori-B
 @SEL Pinus
@@ -646,15 +662,9 @@ Game Over...
 @INP
 
 *Mori-B
-@IF 19 1 Mori-B_2
---- �X ---
-�����ɉ����d���������Ă����̂ŏE���܂����B
-@FLG 19 1
-@INP
-*Mori-B_2
---- �X ---
-�؁X�����΂�X�̒��ł��B�ǂ��������Ă��܂����炵���B
-1:���@2:���@3:�k�@4:��
+--- 森 ---
+木々生い茂る森の中です。迷ってしまったらしい。
+1:西　2:東　3:北　4:南
 @SEL Mori-C
 @SEL Pinus
 @SEL Mori-A
@@ -662,9 +672,9 @@ Game Over...
 @INP
 
 *Mori-C
---- �X ---
-�؁X�����΂�X�̒��ł��B���𗊂�ɐi�ނ����Ȃ��B
-1:���@2:���@3:�k�@4:��
+--- 森 ---
+木々生い茂る森の中です。勘を頼りに進むしかない。
+1:西　2:東　3:北　4:南
 @SEL Mori-B
 @SEL Mori-A
 @SEL Mori
@@ -675,55 +685,54 @@ Game Over...
 @IF 17 0 Secret-2
 @IF 18 0 Secret-2
 @IF 20 1 Secret-2
---- �B������ ---
-���ɉ����������ɓ���J���˂�����܂��B
-���Ƀ����������Ă���B
-1:�J���ˁ@2:�������݂�
+--- 隠し部屋 ---
+床に屋根裏部屋に入る開き戸があります。
+床にメモが落ちている。
+1:開き戸　2:メモをみる
 @SEL Daisy
 @SEL Memo-4
 @INP
 
 *Memo-4
-������ǂ�ł݂��
-"�B��l����ɂł���A����͒n�����ɂ���B"
-�Ə�����Ă���B
+メモを読んでみると
+"唯一人が手にできる、それは地下室にある。"
+と書かれている。
 @JMP Secret
 
 *Daisy
-�����������ɖ߂낤�ƊJ���˂Ɏ�������悤�Ƃ������I
-��������i�C�t���������R�b�N�̃f�C�W�[�����ꂽ�B
+屋根裏部屋に戻ろうと開き戸に手をかけようとした時！
+そこからナイフを持ったコックのデイジーが現れた。
 @INP
-�����ޏ��A�f�C�W�[(�Ђȋe)�����̘A���E�l���̔Ɛl�������̂��B
-�f�C�W�[�͗₽�����Ńi�C�t��U�肠���A���Ȃ��ɏP�����������I
+そう！デイジー(ひな菊)がこの殺人劇の犯人だったのだ。
+彼女は冷たい瞳でナイフを振りあげ、襲いかかってきた！
 @INP
-���Ȃ���...
-1:�o�^�[�i�C�t�@2:���Ɓ@3:�V���x���@4:�s�X�g��
-5:�����d��
+あなたは...
+1:バターナイフ　2:金槌　3:シャベル　4:ピストル
 @SEL Atk-Knife
 @SEL Atk-Hammer
 @SEL Atk-Shovel
 @SEL Atk-Pistol
-@SEL Atk-Torch
 @INP
 
 *NotHave
-����ȕ��͂����ĂȂ��I
-���Ȃ��̓f�C�W�[�̍Ō�̋]���҂ƂȂ���...
+そんな物はもってない！
+あなたはデイジーの最後の犠牲者となった...
 Game Over...
 @INP
 @JMP Owari
 
 *Atk-Knife
 @IF 1 0 NotHave
-�o�^�[�i�C�t�ŉ��킵�����Ԃɍ��킸�A�h���E����Ă��܂���...
+バターナイフで応戦したが、刺し殺されてしまった...
 Game Over...
 @INP
 @JMP Owari
 
 *Atk-Hammer
 @IF 3 0 NotHave
-���Ƃŉ��킵�f�C�W�[�̍������ӂ������A�v�������󂯂Ă��܂���...
-�ӎ������̂����A�f�C�W�[���Ƃǂ߂��h���ɔ���̂��������B
+金槌で反撃しデイジーの鎖骨を砕いたが、致命傷を受けて
+しまった...
+遠のく意識の中で彼女がとどめを刺しに迫るのがみえた。
 Game Over...
 @INP
 @JMP Owari
@@ -732,44 +741,35 @@ Game Over...
 @IF 7 2 Aiuchi
 @JMP NotHave
 *Aiuchi
-�V���x����U�肨�낵�f�C�W�[�̓����ӂ������A�ޏ��̃i�C�t��������
-���Ȃ��̋��ɓ˂��h����A�������ɂȂ����̂�����...
+シャベルを振りおろしデイジーの頭を砕いたが、
+彼女のナイフも同時にあなたの胸に突き刺さっていた。
 Game Over...
 @INP
 @JMP Owari
 
 *Atk-Pistol
 @IF 16 0 NotHave
-���΂₭�s�X�g�������o���A�f�C�W�[�̋��������������I
-�f�C�W�[�͐����Ȃ��▽���A����ǂ肤���ĉ�������]�������Ă������B
-@FLG 20 1
-@INP
-
-Atk-Torch
-@IF 19 0 NotHave
-���Ȃ��̓f�C�W�[�ɉ����d���̌��𗁂т����B
-�ޏ���ῂ����Ɉ�u�Ђ�񂾂��������Ă����B
-@INP
-��������I���Ɣޏ��̐g�̂��݂�݂鏬�����Ȃ��Ă����I
-@INP
-���Ȃ��͖����݂Ă���悤�ȋC���̂܂܏������Ȃ���
-�f�C�W�[���܂݂����A���̊O�ɕ��蓊�����B
+素早くピストルを抜き、デイジーの胸を撃ち抜く！
+彼女は声もなく絶命し、もんどりうって屋根から転げ落ち
+ていった。
 @FLG 20 1
 @INP
 
 *Secret-2
---- �B������ ---
-���ɉ����������ɓ���J���˂�����܂��B
-���Ƀ����������Ă���B
-1:�J���ˁ@2:�������݂�
+--- 隠し部屋 ---
+床に屋根裏部屋に入る開き戸があります。
+床にメモが落ちている。
+1:開き戸　2:メモをみる
 @SEL Yaneura
 @SEL Memo-4
 @INP
 
 *HappyEnd
-���~�̑O�ɏo�Ă��܂����B���߂łƂ��I
-���Ȃ��͂��Ƀ~�X�e���[�n�E�X���U�������̂ł��B
+屋敷の前に出てきました。おめでとう！
+あなたはついにミステリーハウスを攻略したのです。
 Congratulation!
+@INP
 
 *Owari
 @END
+

@@ -1,0 +1,288 @@
+#include "hsp3dish.as"		;HSP3Dish
+
+;エンコードシナリオ実行プログラム
+
+	;Dish用に追加
+	celload "keymap.png",1 :celdiv 1,320,106
+	font msgothic,12,0
+	sdim cui,40,120
+
+	sdim fnm,64 :sdim msg,5000 :sdim bf,65500
+	dim sel,16 :dim flg,256 :sdim svdat,5300
+	fnm="open.scn"
+	exist fnm :sz=strsize
+	if sz<1 {
+		bload "open.org",bf
+		bsave fnm,bf,strsize
+		msg="MYSTERY HOUSE"
+		bsave "title.txt",msg,strlen(msg)
+	}
+	home="http://www.geocities.jp/tko_soft/txtavg/"
+	gosub *title_menu
+
+*restat
+	gosub *decod :po=0 :po_ret=po :sl=0 :bg=0
+*main
+	tok=peek(bf,po)
+	if tok>9 {
+		if tok<14 :po=po+1 :goto *main
+		;文章の表示
+		repeat
+			a=peek(bf,po)
+			if a<10 :a=0 :po=po-1
+			poke msg,cnt,a :po=po+1
+			if a=0 :break
+		loop
+		gosub *set_cui
+	} else {
+		;各コードの処理
+		;@END
+		if tok=1 :end
+		;@INP
+		if tok=2 :po=po+1 :gosub *cu_inp
+		;@RET
+		if tok=3 :po=po_ret
+		;@SEL Label
+		if tok=4 :sel(sl)=peek(bf,po+1) :sl=sl+1 :po=po+2
+		;@JMP Label
+		if tok=5 :lbn=peek(bf,po+1) :po=po+2 :po_ret=po :gosub *lb_srch
+		;@FLG FlgNo Val
+		if tok=6 {
+			a=peek(bf,po+1)-1 :b=peek(bf,po+2)-1 :po=po+3
+			if b>100 :flg(a)=rnd(b-100)					;乱数をセット
+			if b>90 and b<101 :flg(a)=flg(a)-(b-90)		;デクリメント
+			if b>80 and b<91 :flg(a)=flg(a)+(b-80)		;インクリメント
+			if b<11 :flg(a)=b
+		}
+		if flg(a)<0 :flg(a)=0
+		if flg(a)>254 :flg(a)=254
+		;@IF FlgNo Val Label
+		if tok=7 {
+			a=peek(bf,po+1)-1 :b=peek(bf,po+2)-1 :lbn=peek(bf,po+3) :po=po+4
+			if flg(a)=b :po_ret=po :gosub *lb_srch
+		}
+		;@RUN Filename
+		if tok=8 :p1=po+1 :getstr fnm,bf,p1 :goto *restat
+		;*Label
+		if tok=9 :po=po+2
+	}
+	goto *main
+
+;Sub Functions
+
+;シナリオデコード(復元化)
+*decod
+	bload fnm,bf :sz=strsize
+	repeat sz
+		a=peek(bf,cnt) :if a=0 :a=255
+		poke bf,cnt,255-a
+	loop
+	return
+
+;キー入力待ち
+*cu_inp
+	gosub *touch
+	if a=12 :msg="[Quit]" :gosub *set_cui :wait 100 :end
+	if a=11 :gosub *load :goto *cu_inp
+	if a=10 :gosub *save :goto *cu_inp
+	if sl=0 :msg="\n" :gosub *set_cui :return
+	po_ret=po
+	if a>sl or a<1 :goto *cu_inp
+	msg="["+a+"]\n" :gosub *set_cui
+	lbn=sel(a-1) :gosub *lb_srch
+	sl=0 :return
+
+;ラベルサーチ
+*lb_srch
+	i=0
+	repeat sz
+		p1=peek(bf,i) :p2=peek(bf,i+1)
+		if p1=9 and p2=lbn :po=i+2 :break
+		if p1>9 or p1=1 or p1=2 or p1=3 or p1=8 :i=i+1
+		if p1=4 or p1=5 or p1=9 :i=i+2
+		if p1=6 :i=i+3
+		if p1=7 :i=i+4
+		if i>sz :break
+	loop
+	return
+
+;データセーブ
+*save
+	repeat 5300 :poke svdat,cnt,255 :loop
+	;シナリオファイル名
+	repeat 16
+		a=peek(fnm,cnt) :if a=0 :break
+		poke svdat,cnt,a
+	loop
+	;シナリオ実行中ポジション
+	p1=po\128 :p2=(po/128)&127 :p3=po/16384
+	poke svdat,16,p1+128
+	poke svdat,17,p2+128
+	poke svdat,18,p3+128
+	;シナリオ復帰ポジション(@RET)
+	p1=po_ret\128 :p2=(po_ret/128)&127 :p3=po_ret/16384
+	poke svdat,19,p1+128
+	poke svdat,20,p2+128
+	poke svdat,21,p3+128
+	;選択肢数
+	poke svdat,22,sl+1
+	;選択肢飛び先(ラベルNo.)
+	repeat sl
+		poke svdat,23+cnt,sel(cnt)
+	loop
+	;フラグ
+	repeat 250
+		poke svdat,39+cnt,flg(cnt)+1
+	loop
+	;直前の文章
+	repeat 5000
+		a=peek(msg,cnt) :poke svdat,295+cnt,a
+		if a=0 :break
+	loop
+	bsave "save.dat",svdat
+	msg="[Save]" :gosub *set_cui
+	return
+
+;データロード
+*load
+	bload "save.dat",svdat
+	;シナリオファイル名
+	repeat 16
+		a=peek(svdat,cnt) :if a=255 :a=0
+		poke fnm,cnt,a :if a=0 :break
+	loop
+	gosub *decod
+	;シナリオ実行中ポジション
+	p1=peek(svdat,16)-128
+	p2=peek(svdat,17)-128
+	p3=peek(svdat,18)-128
+	po=16384*p3+128*p2+p1
+	;シナリオ復帰ポジション(@RET)
+	p1=peek(svdat,19)-128
+	p2=peek(svdat,20)-128
+	p3=peek(svdat,21)-128
+	po_ret=16384*p3+128*p2+p1
+	;選択肢数
+	sl=peek(svdat,22)-1
+	;選択肢飛び先(ラベルNo.)
+	repeat sl
+		sel(cnt)=peek(svdat,23+cnt)
+	loop
+	;フラグ
+	repeat 250
+		flg(cnt)=peek(svdat,39+cnt)-1
+	loop
+	;直前の文章
+	repeat 5000
+		a=peek(svdat,295+cnt) :poke msg,cnt,a
+		if a=0 :break
+	loop
+	msg="[Load]\n"+msg :gosub *set_cui
+	return
+
+;CUI表示
+*put_msg
+	redraw 0 :color 0,0,0 :boxf
+	pos 0,374 :celput 1,bg
+	color 255,255,255
+	repeat 23
+		pos 0,16*cnt :mes cui(cnt)
+	loop
+	redraw 1
+	return
+
+;CUIに文章をセット
+*set_cui
+	notesel msg
+	repeat notemax
+		repeat 22 :cui(cnt)=cui(cnt+1) :loop
+		noteget cui(22),cnt
+		gosub *put_msg :wait 1
+	loop
+	return
+
+;タッチ入力
+*touch
+	ky_old=0 :dv=53
+	gosub *put_msg
+	repeat
+		wait 1 :getkey ky_now,1
+		mx=mousex/dv:my=mousey/dv
+		if ky_now=0 and ky_old=1 :a=mx+6*(8-my)+1 :break
+		ky_old=ky_now
+	loop
+	return
+
+;Webサイトからデータ取得
+*web_get
+	httpload url
+	if stat :goto *bad	; リクエスト失敗
+*dl_stat
+	; "DOWNLOAD 開始" 結果待ちループ
+	httpinfo res,HTTPINFO_MODE
+	if res=HTTPMODE_READY {			; "DOWNLOAD 完了"
+		httpinfo bf,HTTPINFO_DATA	;
+		httpinfo sz,HTTPINFO_SIZE	;
+		return
+	}
+	if res<=HTTPMODE_NONE :goto *bad
+	await 50 :goto *dl_stat
+*bad
+	; エラー
+	msg="Network Access Error" :gosub *set_cui
+	return
+
+;タイトル・メニュー画面
+*title_menu
+	bg=2 :msg="READY" :gosub *set_cui
+	repeat 80 :poke msg,cnt,0 :loop
+	bload "title.txt",msg
+	msg="RUN \""+msg :gosub *set_cui
+	gosub *touch
+	if a<7 :msg="OK" :gosub *set_cui :return
+
+	;タイトル一覧取得
+	sdim lst,1000,160 :sdim scn,40,80
+	bg=1 :msg="--- TITLE LIST ---" :gosub *set_cui
+	url=home+"index.htm" :gosub *web_get
+
+	;一覧を配列変数(lst)にセット
+	notesel bf :tc=0
+	repeat notemax
+		noteget msg,cnt
+		if peek(msg,0)='*' :noteget lst(tc),cnt+1 :tc=tc+1
+	loop
+
+	;CUIに一覧出力
+	a=15 :s=""
+	repeat tc
+		split lst(cnt),",",scn
+		msg=strf("%03d:",cnt)+scn(0)
+		gosub *set_cui
+		if (cnt+1)\23=0 :gosub *touch
+		if a<13 :break
+	loop
+	msg="NO.?" :gosub *set_cui
+
+*no_inp
+	;戻る(Ret)
+	if a=12 :goto *title_menu
+	;シナリオファイル取得(Get)
+	if a=11 {
+		cui(22)=cui(22)+" Get"
+		n=int(s) :split lst(n),",",scn :c=stat-1
+		bsave "title.txt",scn(0),strlen(scn(0))
+		repeat c
+			url=home+strf("%03d",n)+"/"+scn(cnt+1)+".scn"
+			gosub *web_get :bsave scn(cnt+1)+".scn",bf,sz
+		loop
+		goto *title_menu
+	}
+	;番号入力
+	if a<11 {
+		s=s+str(a\10) :s=strmid(s,-1,3)
+		cui(22)="NO."+s :gosub *put_msg
+	}
+	gosub *touch
+	goto *no_inp
+
