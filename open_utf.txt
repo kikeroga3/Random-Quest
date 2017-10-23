@@ -1,0 +1,898 @@
+◇◇◇ ミステリーハウス ◇◇◇
+*Start
+--- 家の外 ---
+目の前にヴィクトリア風の荒れ果てた屋敷がある。
+あなたは今その前に立っています。
+1:玄関に行く　2:考える　3:帰る
+@SEL Lb00
+@SEL Think
+@SEL Owari
+@INP
+
+*Think
+あなたはある日突然、謎の人物から届いた招待状で、
+この舘に招かれました。怪しいとは思いましたが
+興味をひかれてここまでやってきたのです。
+@INP
+@JMP Start
+
+*Lb00
+--- 玄関 ---
+玄関の前にきました。
+1:ドアを開ける　2:ノックする　3:はなれる
+@SEL Lb01
+@SEL Knock
+@SEL Start
+@INP
+
+*Knock
+返事はありません。
+@INP
+@JMP Lb00
+
+*Lb01
+--- エントランス・ホール ---
+ドアを開けて中に入ると後ろで鍵の閉まる音がしました。
+戻ってノブをまわしてみましたがドアはもう開きません。
+気配を感じて振り返るとホールの中央に数人の男女が
+立っています。
+1:あたりをみる　2:話す
+@SEL Lb03
+@SEL Lb02
+@INP
+
+*Lb02
+落ち着いて自己紹介をし、彼らのことをたずねました。
+
+機械工のサム
+墓堀人のジョー
+歯科医のグリーン
+お針子のサリー
+肉屋のビル
+配管工のトム
+コックのデイジー
+
+*Lb03
+彼ら７人もあなたと同じように、謎の人物からこの舘に
+招かれたようです。
+@INP
+
+*Entrance
+--- エントランス・ホール ---
+西、南、東にドアがあり、２階へあがる階段がある。
+床にメモが落ちている。
+1:西　2:南　3:東　4:２階
+5:メモを調べる
+@SEL Kichin
+@SEL Dining
+@SEL Genkan
+@SEL 2F
+@SEL Memo-1
+@INP
+
+*Memo-1
+メモを読んでみると
+"この舘には高価な宝石が隠されている。
+　最初に見つけた奴の物だ"
+と書かれている。
+@INP
+@IF 0 1 Entrance
+顔を上げると、早くも７人は消え失せていた。
+どうやら誰もこのメモを読んでいなかったようだ。
+早速、あなたも行動しなければ。
+@FLG 0 1
+@INP
+@JMP Entrance
+
+*Kichin
+--- 台所 ---
+西と東にドアがある。
+室内には冷蔵庫、ガス台、戸棚がある。
+1:西　2:東
+3:冷蔵庫　4:ガス台　5:戸棚
+@SEL Kichin-W
+@SEL Entrance
+@SEL Reizo
+@SEL Gas
+@SEL Todana
+@INP
+
+*Kichin-W
+@IF 5 1 Mori
+カギがかかっている。
+@INP
+@JMP Kichin
+
+*Reizo
+@IF 1 1 Non
+冷蔵庫の中に空の水筒があった。
+あなたは水を入れ、持ち歩くことにした。
+@INP
+水を汲んでいると、おや？流しに何か落ちている。
+バターナイフだ。何かの役に立つかもしれない。
+取っておくとしよう。
+@FLG 1 1
+@INP
+@JMP Kichin
+
+*Todana
+@IF 2 1 Non
+戸棚の中にマッチをみつけた。
+@FLG 2 1
+@INP
+@JMP Kichin
+
+*Gas
+@IF 4 1 Pantry
+火がつかない。ガスが供給されてないようだ。
+@INP
+@IF 3 0 Kichin
+ガス台の下の扉を開けてみると配管が取り外されており、
+奥の壁は漆喰が破れてレンガが露出している。
+@INP
+あなたは金槌でレンガを叩いてみた。
+すると壁はもろく崩れ、人が通れるほどの穴が開いた。
+@FLG 4 1
+@INP
+@JMP Kichin
+
+*Non
+何もありません。
+@INP
+@JMP Kichin
+
+*Dining
+--- 食堂 ---
+北と南にドアがある。日が暮れ、薄暗くなってきた。
+テーブルの上に燭台があり、ローソクが立っている。
+1:北　2:南
+3:灯りをつける
+@SEL Entrance
+@SEL Uraniwa
+@SEL Lights
+@INP
+
+*Lights
+@IF 5 1 Key-1
+@IF 2 1 Fire
+マッチをもっていない。
+@INP
+@JMP Dining
+
+*Fire
+マッチでローソクに火をつけた。
+しかし、なんと引火して床に燃え広がってしまった！
+@INP
+@IF 1 1 Mizu
+あなたは燃え盛る炎から逃られず焼け死んでしまった...
+Game Over...
+@INP
+@JMP Owari
+
+*Mizu
+水筒の水をかけて火を消しました。
+@INP
+絨毯の焦げた穴からカギをみつけた。
+これは一体どこのカギでしょう？
+@FLG 5 1
+@INP
+@JMP Dining
+
+*Key-1
+ローソクは水浸し、マッチはもうありません。
+@INP
+@JMP Dining
+
+*Genkan
+@IF 5 1 Genkan-2
+ノブを何度も回してみたが、ドアはもう開きません。
+@INP
+@JMP Entrance
+
+*Genkan-2
+ドアは食堂でみつけたカギで開きました。
+@INP
+@IF 20 1 HappyEnd
+しかし、外に出ようとした瞬間！
+いきなりナイフが飛んできて胸に突き刺さりました！
+Game Over...
+@INP
+@JMP Owari
+
+*Uraniwa
+@IF 0 1 Uraniwa-2
+--- 裏庭 ---
+垣根に囲まれた裏庭に出ました。
+北にドア、東に木戸がある。
+1:北　2:東
+@SEL Dining
+@SEL Cemetery
+@INP
+
+*Uraniwa-2
+--- 裏庭 ---
+垣根に囲まれた墓地に出ました。
+北にドア、東に木戸がある。
+死体がある。機械工のサムが殺されている！
+1:北　2:東
+3:死体をみる
+@SEL Dining
+@SEL Cemetery
+@SEL Dead-Sam
+@INP
+
+*Dead-Sam
+鈍器のようなもので頭を殴られたのが死因らしい。
+@FLG 6 1
+@INP
+@JMP Uraniwa-2
+
+*Cemetery
+@IF 7 2 Cemetery-3
+@IF 6 1 Cemetery-2
+*Cemetery-3
+--- 墓地 ---
+垣根に囲まれた墓地に出ました。北、西に木戸がある。
+1:北　2:西
+@SEL Nakaniwa
+@SEL Uraniwa
+@INP
+
+*Cemetery-2
+--- 墓地 ---
+垣根に囲まれた墓地に出ました。北、西に木戸がある。
+墓堀人のジョーが掘った墓穴が６つあり、
+すぐそばにシャベルが落ちている。
+1:北　2:西
+3:話す　4:シャベルをとる
+@SEL Nakaniwa
+@SEL Uraniwa
+@SEL Talk-Joy
+@SEL Shovel
+@INP
+
+*Talk-Joy
+ジョーは何も答えない。何を考えているのでしょう？
+@INP
+@JMP Cemetery-2
+
+*Shovel
+@IF 7 1 Shovel-2
+シャベルに手をのばすとジョーが邪魔をします。
+@FLG 7 1
+@INP
+@JMP Cemetery-2
+
+*Shovel-2
+強引にシャベルを取ろうとすると
+ジョーが恐ろしい形相で襲いかかってきた。
+@INP
+@IF 21 1 Shovel-4
+@IF 1 1 Shovel-3
+あなたは首を絞められ、意識が遠くなっていった...
+Game Over...
+@INP
+@JMP Owari
+
+*Shovel-3
+あなたはバターナイフで反撃しましたが、
+ジョーの振り回すシャベルの一撃で殺されてしまった...
+Game Over...
+@INP
+@JMP Owari
+
+*Shovel-7
+あなたはジョーの振り回すシャベルをかいくぐり、短剣で
+反撃しました。手加減する余裕などなく、彼を刺し殺し、
+シャベルを手に入れました。
+@INP
+そして、墓穴の一つにジョーを埋葬しました。
+@FLG 7 2
+@INP
+@JMP Cemetery-3
+
+*Nakaniwa
+--- 中庭 ---
+北にドア、南に木戸がある。
+日が落ち、まわりが薄暗くなってきている。
+1:北　2:南
+@SEL Library
+@SEL Cemetery
+@INP
+
+*Library
+--- 図書館 ---
+北側には２階への階段、南にドアがある。
+長く使われていないせいか部屋中が埃っぽい。
+床にメモが落ちている。
+1:２階　2:南
+3:メモをみる
+@SEL 2F
+@SEL Nakaniwa
+@SEL Memo-2
+@INP
+
+*Memo-2
+メモを読んでみると
+"７－６＝１。それで自分の物になる"
+と書かれている。
+@INP
+邪魔者を消して宝石を独占するつもりの奴がいるようだ。
+しかしなぜ"８－７"ではないのか？
+@INP
+あなたを含めれば全部で８人のはずなのに...
+@INP
+@JMP Library
+
+*2F
+--- 2F・ホール ---
+北、西、東にドアがある。
+南側には１階エントランスへおりる階段、
+東南に図書館へおりる階段がある。
+1:北　2:西　3:東
+4:エントランス　5:図書館
+@SEL Shosai
+@SEL Kidsroom
+@SEL Bedroom
+@SEL Entrance
+@SEL Library
+@INP
+
+*Bedroom
+@IF 9 0 Bedroom-2
+@IF 21 0 Bedroom-3
+--- 大寝室 ---
+西と東にドアがある。
+室内には大きいダブルベッドが置いてある。
+1:西　2:東　3:寝る
+@SEL 2F
+@SEL Cubicle
+@SEL Sleep
+@INP
+
+*Bedroom-2
+--- 大寝室 ---
+部屋に入ると、いきなり部屋の外から短剣が飛んできて
+あなたの横をかすめてベッドに突き立った！
+@INP
+走り去る影がみえたような気がしたが、見失った。
+どうやら、あなたもターゲットにされているようだ。
+気をつけなくては...
+@FLG 9 1
+@INP
+@JMP Bedroom
+
+*Bedroom-3
+@IF 9 0 Bedroom-2
+--- 大寝室 ---
+西と東にドアがある。
+室内には大きいダブルベッドが置いてある。
+そのシーツに短剣が刺さっている。
+1:西　2:東　3:寝る　4:短剣
+@SEL 2F
+@SEL Cubicle
+@SEL Sleep
+@SEL Get-Dagger
+@INP
+
+*Get-Dagger
+短剣を取りました。
+@FLG 21 1
+@INP
+@JMP Bedroom
+
+*Cubicle
+@IF 6 1 Cubicle-2
+--- 小寝室 ---
+西にドアがある。室内には簡易ベッドが置いてある。
+1:西　2:寝る
+@SEL Bedroom
+@SEL Sleep
+@INP
+
+*Sleep
+あなたは少しだけ眠るつもりでベッドに横たわる。
+@INP
+目を閉じて、まどろみかけたその時！背中に激痛が走る！
+あなたはそのまま２度と目覚めることはなかった...
+Game Over...
+@INP
+@JMP Owari
+
+*Cubicle-2
+--- 小寝室 ---
+西にドアがある。簡易ベッドの上に死体がある。
+お針子のサリーが殺されている！
+1:西　2:寝る
+3:死体をみる
+@SEL Bedroom
+@SEL Sleep
+@SEL Dead-Sari
+@INP
+
+*Dead-Sari
+死因は頭にある大きなコブのようだ。
+よくみると、彼女の服に金色の髪の毛がついている。
+サリーは金髪ではない。するとこれは犯人の髪の毛か？
+@FLG 8 1
+@INP
+@JMP Cubicle-2
+
+*Shosai
+@IF 22 1 Shosai-2
+--- 書斎 ---
+東、南にドアがあります。屋根裏にあがるハシゴがある。
+壁に絵がかかっている。
+1:東　2:南　3:ハシゴ
+4:絵を調べる
+@SEL Bath
+@SEL 2F
+@SEL Yaneura
+@SEL Paint
+@INP
+
+*Paint
+絵を外すと壁にボタンがあった。
+@FLG 22 1
+@INP
+
+*Shosai-2
+--- 書斎 ---
+東、南にドアがあります。屋根裏にあがるハシゴがある。
+壁にボタンがある。
+1:東　2:南　3:ハシゴ
+4:ボタンを押す
+@SEL Bath
+@SEL 2F
+@SEL Yaneura
+@SEL Button
+@INP
+
+*Button
+突然、立っていた床が抜けた。
+@INP
+あなたは通気口をぬけて地下室へと落ちた。
+@INP
+@JMP Basement-B
+
+*Bath
+@IF 8 1 Bath-2
+--- 風呂場 ---
+西に今入ってきたドアがある。
+室内には洗面台、シャワー、バスタブがある。
+1:西　
+2:洗面台　3:シャワー　4:バスタブ
+@SEL Shosai
+@SEL Washstand
+@SEL Shower
+@SEL Bathtub
+@INP
+
+*Washstand
+顔と手を洗ってさっぱりした。
+鏡の横の壁にかかっていたタオルを取った。
+@FLG 10 1
+@INP
+@JMP Bath
+
+*Shower
+シャワーを出すとバスタブにお湯がたまっていきます。
+しかし、今は浴びている場合じゃありません。
+@FLG 11 1
+@INP
+@JMP Bath
+
+*Bathtub
+@IF 11 1 Bathtub-2
+バスタブは空っぽです。
+@INP
+@JMP Bath
+
+*Bathtub-2
+お湯が少したまっている。
+@INP
+@JMP Bath
+
+*Bath-2
+--- 風呂場 ---
+西にドアがある。室内には洗面台、シャワー、そして
+バスタブに死体がある。肉屋のビルが殺されている！
+1:西　
+2:洗面台　3:シャワー　4:バスタブ
+@SEL Shosai
+@SEL Washstand
+@SEL Shower
+@SEL Dead-Bill
+@INP
+
+*Dead-Bill
+死因は絞殺らしい。首にストッキングが巻きついている。
+犯人は女性？あるいはそう見せようとしているのか...
+@FLG 12 1
+@INP
+@JMP Bath-2
+
+*Kidsroom
+@IF 12 1 Kidsroom-2
+--- 子供部屋 ---
+西と東にドアがある。
+1:西　2:東
+@SEL Nursery
+@SEL 2F
+@INP
+
+*Kidsroom-2
+--- 子供部屋 ---
+西と東にドアがある。死体がある。
+歯科医のグリーン氏が殺されている！
+1:西　2:東
+3:死体をみる
+@SEL Nursery
+@SEL 2F
+@SEL Dead-Green
+@INP
+
+*Dead-Green
+凶器は残されていないが、刺し殺されているようだ。
+@FLG 13 1
+@INP
+@JMP Kidsroom-2
+
+*Nursery
+--- 子供の寝室 ---
+東にドアがある。ここにもメモが落ちている。
+1:東　2:メモをみる
+@SEL Kidsroom
+@SEL Memo-3
+@INP
+
+*Memo-3
+メモを読んでみると
+"宝石は誰にも見つけられない。私の物だ！"
+と書かれている。
+@INP
+@JMP Nursery
+
+*Yaneura
+@IF 14 1 Yaneura-3
+@IF 3 1 Yaneura-2
+--- 屋根裏 ---
+西にドアがある。下におりるハシゴがある。
+床に金槌が落ちている。
+1:西　2:ハシゴ
+3:金槌をとる
+@SEL Closet
+@SEL Shosai
+@SEL Hammer
+@INP
+
+*Hammer
+金槌を取りました。
+@FLG 3 1
+@INP
+@JMP Yaneura
+
+*Yaneura-2
+--- 屋根裏 ---
+西にドアがある。下におりるハシゴがある。
+1:西　2:ハシゴ
+@SEL Closet
+@SEL Shosai
+@INP
+
+*Yaneura-3
+--- 屋根裏 ---
+西にドアがある。下におりるハシゴがある。
+天井に隠し戸がある。
+1:西　2:ハシゴ　3:隠し戸
+@SEL Closet
+@SEL Shosai
+@SEL Secret
+@INP
+
+*Closet
+--- 物置 ---
+東にドアがある。床に箱が置いてある。
+1:東　2:箱を調べる
+@SEL Yaneura
+@SEL Box
+@INP
+
+*Box
+箱にはカギがかかっている。
+@INP
+@IF 15 0 Closet
+地下室でみつけたカギで開けることができた。
+@IF 16 1 Box-2
+中には強力な武器が入っていた。
+ピストルを手に入れた！
+@FLG 16 1
+@INP
+@JMP Closet
+
+*Box-2
+箱の中は空っぽです。
+@INP
+@JMP Closet
+
+*Pantry
+--- 配膳室 ---
+地下へ降りる階段と台所へ戻る穴がある。
+1:地下　2:台所
+@SEL Basement
+@SEL Kichin
+@INP
+
+*Basement-B
+@IF 13 1 Basement-B2
+--- 地下室B ---
+南にドア、天井に通気口がある。
+1:南　2:通気口
+@SEL Basement
+@SEL Hole
+@INP
+
+*Hole
+通気口には届かない。
+@INP
+@JMP Basement-B
+
+*Basement-B2
+--- 地下室B ---
+南にドア、天井に通気口がある。
+死体がある。配管工のトムが殺されている！
+1:南　2:通気口
+3:死体を調べる
+@SEL Basement
+@SEL Hole
+@SEL Dead-Tom
+@INP
+
+*Dead-Tom
+刺し殺されている。手にヒナギクの花をにぎっている。
+これはダイイング・メッセージだろうか？
+@FLG 17 1
+@INP
+@JMP Basement-B2
+
+*Basement
+--- 地下室 ---
+北にドア、上にのぼる階段があり、
+一方の壁には大きな穴が開いている。
+暗くジメジメした室内に机が一つだけ置いてある。
+1:北　2:階段　3:穴に入る
+4:あたりをみる　5:机をみる
+@SEL Basement-B2
+@SEL Pantry
+@SEL Tunnel
+@SEL Koke
+@SEL Desk
+@INP
+
+*Desk
+@IF 15 1 Desk-2
+机の上にカギがある。あなたはそれを取りました。
+@FLG 15 1
+@INP
+@JMP Basement
+
+*Desk-2
+何もありません。
+@INP
+@JMP Basement
+
+*Koke
+壁一面がコケに覆われている。
+@INP
+@IF 10 0 Basement
+@IF 18 1 Koke-2
+タオルでコケを拭い取ってみると...
+壁の漆喰が破れている部分が現れた。
+@INP
+はめ込まれているレンガを取り外してみると...
+@INP
+あなたはついに隠されていた宝石を見つけた！
+後は屋敷を無事脱出するだけだ。
+@FLG 18 1
+@INP
+@JMP Basement
+
+*Koke-2
+宝石は手に入れた。後は屋敷を脱出するだけだ。
+@INP
+@JMP Basement
+
+*Tunnel
+--- トンネル ---
+南北に抜ける通路になっているようだ。
+南側には光が見える。
+1:南　2:北
+@SEL Pinus
+@SEL Basement
+@INP
+
+*Pinus
+@IF 4 0 Mori
+--- 森 ---
+木々が生い茂る森の中に出ました。
+目の前に大きな松の木が、北側にはトンネルがある。
+1:西　2:東　3:北　4:南
+5:松の木に登る
+@SEL Mori-A
+@SEL Mori-B
+@SEL Tunnel
+@SEL Mori-C
+@SEL Noboru
+@INP
+
+*Noboru
+高い松の木のてっぺんに登りました。
+何故か屋敷のほうに向けて望遠鏡が枝に括りつけて
+あったので覗いてみると...
+@INP
+屋敷の屋根の上に後から付け加えたような小屋がある。
+@INP
+小屋の近くの屋根には開き戸のようなものが見える、
+そこから上がれば入れそうだ。
+@INP
+位置はたぶん屋根裏部屋の上あたりだろう。
+@FLG 14 1
+@INP
+松の木からおりました。
+@INP
+@JMP Pinus
+
+*Mori
+--- 森 ---
+木々が生い茂り、踏み込むと迷いそうな深い森です。
+東側に屋敷のドアがある。
+1:西　2:東　3:北　4:南
+@SEL Mori-A
+@SEL Kichin
+@SEL Mori-B
+@SEL Mori-C
+@INP
+
+*Mori-A
+--- 森 ---
+木々生い茂る森の中です。どちらへ行けばいいのか...
+1:西　2:東　3:北　4:南
+@SEL Mori
+@SEL Mori-B
+@SEL Pinus
+@SEL Mori-C
+@INP
+
+*Mori-B
+@IF 19 1 Mori-B_2
+--- 森 ---
+足元に懐中電灯が落ちていたので拾いました。
+...使えるのかな？
+@FLG 19 1
+@INP
+*Mori-B_2
+--- 森 ---
+木々生い茂る森の中です。どうやら迷ってしまったらしい。
+1:西　2:東　3:北　4:南
+@SEL Mori-C
+@SEL Pinus
+@SEL Mori-A
+@SEL Mori
+@INP
+
+*Mori-C
+--- 森 ---
+木々生い茂る森の中です。勘を頼りに進むしかない。
+1:西　2:東　3:北　4:南
+@SEL Mori-B
+@SEL Mori-A
+@SEL Mori
+@SEL Pinus
+@INP
+
+*Secret
+@IF 17 0 Secret-2
+@IF 18 0 Secret-2
+@IF 20 1 Secret-2
+--- 隠し部屋 ---
+床に屋根裏部屋に入る開き戸がある。メモが落ちている。
+1:開き戸　2:メモをみる
+@SEL Daisy
+@SEL Memo-4
+@INP
+
+*Memo-4
+メモを読んでみると
+"唯一人が手にできる、それは地下室にある。"
+と書かれている。
+@INP
+@JMP Secret
+
+*Daisy
+屋根裏部屋に戻ろうと開き戸に手をかけようとした時！
+そこからナイフを持ったコックのデイジーが現れた。
+@INP
+そう！デイジー(ひな菊)がこの殺人劇の犯人だったのだ。
+彼女は冷たい瞳でナイフを振りあげ、襲いかかってきた！
+@INP
+あなたは...
+1:バターナイフ　2:金槌　3:シャベル　4:ピストル
+5:懐中電灯
+@SEL Atk-Knife
+@SEL Atk-Hammer
+@SEL Atk-Shovel
+@SEL Atk-Pistol
+@SEL Atk-Torch
+@INP
+
+*NotHave
+そんな物はもってない！
+あなたはデイジーの最後の犠牲者となった...
+Game Over...
+@INP
+@JMP Owari
+
+*Atk-Knife
+@IF 1 0 NotHave
+バターナイフで応戦したが、刺し殺されてしまった...
+Game Over...
+@INP
+@JMP Owari
+
+*Atk-Hammer
+@IF 3 0 NotHave
+金槌で反撃してデイジーの鎖骨を砕いたが、
+あなたも致命傷を受けてしまった...
+遠のく意識の中で彼女がとどめを刺しに迫るのがみえた。
+Game Over...
+@INP
+@JMP Owari
+
+*Atk-Shovel
+@IF 7 2 Aiuchi
+@JMP NotHave
+*Aiuchi
+シャベルを振りおろしデイジーの頭を砕いたが、
+彼女のナイフも同時にあなたの胸に突き刺さっていた。
+Game Over...
+@INP
+@JMP Owari
+
+*Atk-Pistol
+@IF 16 0 NotHave
+素早くピストルを抜き、デイジーの胸を撃ち抜く！
+彼女は声もなく絶命し、もんどりうって
+屋根から転げ落ちていった。
+@FLG 20 1
+@INP
+@JMP Secret-2
+
+*Atk-Torch
+@IF 19 0 NotHave
+あなたはデイジーの顔に懐中電灯の光を浴びせた。
+彼女は眩しさに一瞬ひるんだが向かってきた。
+@INP
+だが見よ！何と彼女の身体がみるみる小さくなっていく！
+@INP
+あなたは夢をみているような気分のまま、小さくなった
+デイジーをつまみあげ、窓の外に放り投げた。
+@FLG 20 1
+@INP
+
+*Secret-2
+--- 隠し部屋 ---
+床に屋根裏部屋に入る開き戸がある。メモが落ちている。
+1:開き戸　2:メモをみる
+@SEL Yaneura
+@SEL Memo-4
+@INP
+
+*HappyEnd
+屋敷の前に出てきました。おめでとう！
+あなたはついにミステリーハウスを攻略しました。
+Congratulation!
+@INP
+
+*Owari
+@END
+
