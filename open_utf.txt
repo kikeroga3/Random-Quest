@@ -427,7 +427,7 @@ Game Over...
 4:絵を調べる
 @SEL Bath
 @SEL 2F
-@SEL Yaneura
+@SEL Attic
 @SEL Paint
 @INP
 
@@ -444,7 +444,7 @@ Game Over...
 4:ボタンを押す
 @SEL Bath
 @SEL 2F
-@SEL Yaneura
+@SEL Attic
 @SEL Button
 @INP
 
@@ -552,9 +552,9 @@ Game Over...
 @INP
 @JMP Nursery
 
-*Yaneura
-@IF 14 1 Yaneura-3
-@IF 3 1 Yaneura-2
+*Attic
+@IF 14 1 Attic-3
+@IF 3 1 Attic-2
 --- 屋根裏 ---
 西にドアがある。下におりるハシゴがある。
 床に金槌が落ちている。
@@ -569,9 +569,9 @@ Game Over...
 金槌を取った。
 @FLG 3 1
 @INP
-@JMP Yaneura
+@JMP Attic
 
-*Yaneura-2
+*Attic-2
 --- 屋根裏 ---
 西にドアがある。下におりるハシゴがある。
 1:西　2:ハシゴ
@@ -579,7 +579,7 @@ Game Over...
 @SEL Shosai
 @INP
 
-*Yaneura-3
+*Attic-3
 --- 屋根裏 ---
 西にドアがある。下におりるハシゴがある。
 天井に隠し戸がある。
@@ -593,7 +593,7 @@ Game Over...
 --- 物置 ---
 東にドアがある。床に箱が置いてある。
 1:東　2:箱を調べる
-@SEL Yaneura
+@SEL Attic
 @SEL Box
 @INP
 
@@ -618,9 +618,9 @@ Game Over...
 --- 配膳室 ---
 調理器具、豪華なガラスの器や飾皿が棚に並んでいる。
 地下へ降りる階段がある。
-1:地下　2:みる
+1:地下　2:あたりをみる
 @SEL Basement
-@SEL LookPantry
+@SEL Rack
 @INP
 
 *Pantry
@@ -628,13 +628,14 @@ Game Over...
 --- 配膳室 ---
 調理器具、豪華なガラスの器や飾皿が棚に並んでいる。
 地下へ降りる階段と台所へ戻る穴がある。
-1:地下　2:みる　3:台所
+1:地下　2:あたりをみる
+3:台所
 @SEL Basement
-@SEL LookPantry
+@SEL Rack
 @SEL Kichin
 @INP
 
-*LookPantry
+*Rack
 どれも埃まみれだ。
 大きな中華鍋があったのでフタを開けてみたが、
 鍋底にネズミの死骸があるだけだった。
@@ -644,7 +645,7 @@ Game Over...
 *BasementBar
 @IF 13 1 BasementBar-2
 --- 地下室のバー ---
-埃まみれのボトルラックとバーカウンターがある。
+暗い室内にバーカウンターとボトルラックがある。
 南にドア、天井に通気口がある。
 1:南　2:通気口
 @SEL Basement
@@ -657,7 +658,8 @@ Game Over...
 @JMP BasementBar
 
 *BasementBar-2
---- 地下室B ---
+--- 地下室のバー ---
+暗い室内にバーカウンターとボトルラックがある。
 南にドア、天井に通気口がある。
 死体がある。配管工のトムが殺されている！
 1:南　2:通気口
@@ -834,7 +836,7 @@ Game Over...
 そう！デイジー(ひな菊)がこの殺人劇の犯人だったのだ。
 彼女は冷たい瞳でナイフを振りあげ、襲いかかってきた！
 @INP
-*Atk-Sel
+*Attack
 君は...
 1:バターナイフ　2:金槌　3:シャベル　4:ピストル
 5:懐中電灯　6:短剣
@@ -884,7 +886,7 @@ Game Over...
 君は短剣をふるって殺人者デイジーと格闘したが、
 相手の迷いのない鋭い攻撃の前に追い詰められていく！
 @INP
-@JMP Atk-Sel
+@JMP Attack
 
 *Atk-Pistol
 @IF 16 0 NotHave
@@ -911,11 +913,12 @@ Game Over...
 --- 隠し部屋 ---
 床に屋根裏部屋に入る開き戸がある。メモが落ちている。
 1:開き戸　2:メモをみる
-@SEL Yaneura
+@SEL Attic
 @SEL Memo-4
 @INP
 
 *HappyEnd
+--- 家の外 ---
 屋敷の前に出てきました。おめでとう！
 君はついにミステリーハウスを攻略した。
 Congratulation!
