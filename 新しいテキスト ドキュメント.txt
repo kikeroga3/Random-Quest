@@ -4,7 +4,7 @@
 
 
 TINY-TREK
-ƒgƒŒƒbƒL[Œä—p’B‚ÌƒNƒ‰ƒVƒJƒ‹ƒQ[ƒ€‚ðHSP3Dish(Android)‚Å—V‚×‚é‚æ‚¤‚É‚µ‚Ü‚µ‚½B
+ãƒˆãƒ¬ãƒƒã‚­ãƒ¼å¾¡ç”¨é”ã®ã‚¯ãƒ©ã‚·ã‚«ãƒ«ã‚²ãƒ¼ãƒ ã‚’HSP3Dish(Android)ã§éŠã¹ã‚‹ã‚ˆã†ã«ã—ã¾ã—ãŸã€‚
 EXCELONION
 USUAJIN
 
@@ -16,64 +16,64 @@ Teru
 
 
 
-ƒeƒLƒXƒgƒAƒhƒxƒ“ƒ`ƒƒ[ƒQ[ƒ€
+ãƒ†ã‚­ã‚¹ãƒˆã‚¢ãƒ‰ãƒ™ãƒ³ãƒãƒ£ãƒ¼ã‚²ãƒ¼ãƒ 
 
-‚«‚í‚ß‚ÄƒVƒ“ƒvƒ‹‚ÈƒQ[ƒ€‚Å‚·‚ªA‚±‚ÌƒWƒƒƒ“ƒ‹‚Ù‚ÇŽèŒy‚ÉŒÂl»ì‚Å‚«‚é‚à‚Ì‚Í‚È‚¢‚ÆŽv‚¢‚Ü‚·B
-¬à“¯—lAƒ[ƒRƒXƒg‚ÅŽn‚ß‚ç‚êA“à—eŽŸ‘æ‚Åƒ†[ƒU‚ð–²’†‚É‚³‚¹‚é‚±‚Æ‚¾‚Á‚Ä‰Â”\‚Å‚·B
+ãã‚ã‚ã¦ã‚·ãƒ³ãƒ—ãƒ«ãªã‚²ãƒ¼ãƒ ã§ã™ãŒã€ã“ã®ã‚¸ãƒ£ãƒ³ãƒ«ã»ã©æ‰‹è»½ã«å€‹äººè£½ä½œã§ãã‚‹ã‚‚ã®ã¯ãªã„ã¨æ€ã„ã¾ã™ã€‚
+å°èª¬åŒæ§˜ã€ãƒ­ãƒ¼ã‚³ã‚¹ãƒˆã§å§‹ã‚ã‚‰ã‚Œã€å†…å®¹æ¬¡ç¬¬ã§ãƒ¦ãƒ¼ã‚¶ã‚’å¤¢ä¸­ã«ã•ã›ã‚‹ã“ã¨ã ã£ã¦å¯èƒ½ã§ã™ã€‚
 
-ƒVƒiƒŠƒI‚Ì‘‚«•û‚ÍuTINY-ƒ~ƒXƒeƒŠ[ƒnƒEƒXv‚ÌƒVƒiƒŠƒIƒ\[ƒX‚ðŒöŠJ‚µ‚Ä‚¢‚é‚Ì‚ÅŽQl‚É‚µ‚Ä‚­‚¾‚³‚¢B
+ã‚·ãƒŠãƒªã‚ªã®æ›¸ãæ–¹ã¯ã€ŒTINY-ãƒŸã‚¹ãƒ†ãƒªãƒ¼ãƒã‚¦ã‚¹ã€ã®ã‚·ãƒŠãƒªã‚ªã‚½ãƒ¼ã‚¹ã‚’å…¬é–‹ã—ã¦ã„ã‚‹ã®ã§å‚è€ƒã«ã—ã¦ãã ã•ã„ã€‚
 
-Android”ÅƒAƒvƒŠutxtavgv‚ðWeb‚©‚çV‚µ‚¢ƒVƒiƒŠƒI‚ðŽæ“¾‚Å‚«‚é‚æ‚¤‚É‚µ‚½‚Ì‚Å
-–Ê”’‚¢ì•i‚ª‚Å‚«‚½‚ç‚º‚Ð‚¨’m‚ç‚¹‚­‚¾‚³‚¢B
-‚±‚¿‚ç‚ÌƒTƒCƒg‚Å”z•z‚³‚¹‚Ä‚¢‚½‚¾‚«‚½‚¢‚ÆŽv‚¢‚Ü‚·B
+Androidç‰ˆã‚¢ãƒ—ãƒªã€Œtxtavgã€ã‚’Webã‹ã‚‰æ–°ã—ã„ã‚·ãƒŠãƒªã‚ªã‚’å–å¾—ã§ãã‚‹ã‚ˆã†ã«ã—ãŸã®ã§
+é¢ç™½ã„ä½œå“ãŒã§ããŸã‚‰ãœã²ãŠçŸ¥ã‚‰ã›ãã ã•ã„ã€‚
+ã“ã¡ã‚‰ã®ã‚µã‚¤ãƒˆã§é…å¸ƒã•ã›ã¦ã„ãŸã ããŸã„ã¨æ€ã„ã¾ã™ã€‚
 ---
-«‚±‚±‚ðŽQl‚É‚·‚é
+â†“ã“ã“ã‚’å‚è€ƒã«ã™ã‚‹
 textadventures.co.uk - Create and play text adventure games
 
-Text Adventure Game ‚Ìì‚è•û
+Text Adventure Game ã®ä½œã‚Šæ–¹
 
-1.ƒeƒLƒXƒg‚ð‘‚­
+1.ãƒ†ã‚­ã‚¹ãƒˆã‚’æ›¸ã
 
-@D‚«‚ÈƒeƒLƒXƒgƒGƒfƒBƒ^‚ÅƒVƒiƒŠƒI‚ð‘‚­
-@WindowsŠÂ‹«‚È‚ç•¶ŽšƒR[ƒh‚ÍSJISA‚»‚êˆÈŠO‚ÌŠÂ‹«‚È‚çUTF-8‚ÅB
+ã€€å¥½ããªãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒ‡ã‚£ã‚¿ã§ã‚·ãƒŠãƒªã‚ªã‚’æ›¸ã
+ã€€Windowsç’°å¢ƒãªã‚‰æ–‡å­—ã‚³ãƒ¼ãƒ‰ã¯SJISã€ãã‚Œä»¥å¤–ã®ç’°å¢ƒãªã‚‰UTF-8ã§ã€‚
 
-@ŽQÆFƒVƒiƒŠƒI‹Lq–½—ß
+ã€€å‚ç…§ï¼šã‚·ãƒŠãƒªã‚ªè¨˜è¿°å‘½ä»¤
 
-2.ˆÃ†‰»‚·‚é
+2.æš—å·åŒ–ã™ã‚‹
 
-@2-1.ƒRƒ}ƒ“ƒvƒƒ“ƒvƒg‚©‚çˆÈ‰ºƒRƒ}ƒ“ƒh‚ðŽÀs
+ã€€2-1.ã‚³ãƒžãƒ³ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆã‹ã‚‰ä»¥ä¸‹ã‚³ãƒžãƒ³ãƒ‰ã‚’å®Ÿè¡Œ
 
-@cutehspcl enc_scn.hs
+ã€€cutehspcl enc_scn.hs
 
-@2-2.ˆÃ†‰»‚µ‚½‚¢ƒtƒ@ƒCƒ‹–¼‚ð“ü—Í
+ã€€2-2.æš—å·åŒ–ã—ãŸã„ãƒ•ã‚¡ã‚¤ãƒ«åã‚’å…¥åŠ›
 
-@open.txt ‚ð•ÏŠ·‚µ‚½‚¢ê‡AŠg’£Žq‚È‚µ‚Ì open ‚Æ“ü—Í‚µA[Enter]
+ã€€open.txt ã‚’å¤‰æ›ã—ãŸã„å ´åˆã€æ‹¡å¼µå­ãªã—ã® open ã¨å…¥åŠ›ã—ã€[Enter]
 
-@2-3.•ÏŠ·‚³‚ê‚é
+ã€€2-3.å¤‰æ›ã•ã‚Œã‚‹
 
-@open.txt ¨ open.scn
+ã€€open.txt â†’ open.scn
 
-3.ŽÀs‚·‚é
+3.å®Ÿè¡Œã™ã‚‹
 
-@3-1.ƒRƒ}ƒ“ƒvƒƒ“ƒvƒg‚©‚çˆÈ‰ºƒRƒ}ƒ“ƒh‚ðŽÀs
+ã€€3-1.ã‚³ãƒžãƒ³ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆã‹ã‚‰ä»¥ä¸‹ã‚³ãƒžãƒ³ãƒ‰ã‚’å®Ÿè¡Œ
 
-@cutehspcl
+ã€€cutehspcl
 
-@cutehspcl ‚ð’P“Æ‚ÅŽÀs‚·‚é‚ÆŽ©“®“I‚ÉƒvƒƒOƒ‰ƒ€ start.hs ‚ª“Ç‚Ýž‚Ü‚ê‚ÄŽÀs‚³‚ê‚Ü‚·B
-@(cutehspcl start.hs ‚Æ‚·‚é‚Ì‚Æ“¯‚¶)
-@start.hs ‚Å‚ÍÅ‰‚É open.scn ‚Æ‚¢‚¤ƒVƒiƒŠƒIƒtƒ@ƒCƒ‹‚ð“Ç‚Ýž‚Þ‚æ‚¤‚É‚È‚Á‚Ä‚¢‚Ü‚·B
+ã€€cutehspcl ã‚’å˜ç‹¬ã§å®Ÿè¡Œã™ã‚‹ã¨è‡ªå‹•çš„ã«ãƒ—ãƒ­ã‚°ãƒ©ãƒ  start.hs ãŒèª­ã¿è¾¼ã¾ã‚Œã¦å®Ÿè¡Œã•ã‚Œã¾ã™ã€‚
+ã€€(cutehspcl start.hs ã¨ã™ã‚‹ã®ã¨åŒã˜)
+ã€€start.hs ã§ã¯æœ€åˆã« open.scn ã¨ã„ã†ã‚·ãƒŠãƒªã‚ªãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚€ã‚ˆã†ã«ãªã£ã¦ã„ã¾ã™ã€‚
 
-ˆÃ†‰»ƒc[ƒ‹‚Í WindowsAmacOSALinuxARaspberry Pi ‚ÅŽÀs‰Â”\‚Å‚·B
-ƒVƒiƒŠƒI‚ÌƒvƒŒ[‚Í WindowsAmacOSALinuxARaspberry PiAAndroid ‚ÅŽÀs‰Â”\‚Å‚·B
-
-
+æš—å·åŒ–ãƒ„ãƒ¼ãƒ«ã¯ Windowsã€macOSã€Linuxã€Raspberry Pi ã§å®Ÿè¡Œå¯èƒ½ã§ã™ã€‚
+ã‚·ãƒŠãƒªã‚ªã®ãƒ—ãƒ¬ãƒ¼ã¯ Windowsã€macOSã€Linuxã€Raspberry Piã€Android ã§å®Ÿè¡Œå¯èƒ½ã§ã™ã€‚
 
 
 
 
 
-–{ƒc[ƒ‹‚ÍA‚¢‚©‚È‚éƒRƒ“ƒsƒ…[ƒ^‚É‚¨‚¢‚Ä‚àÅ‚àŒ´Žn“I‚ÈƒRƒ“ƒ\[ƒ‹ƒ‚[ƒh‚Å“®ì‚·‚é‚½‚ßA
-‚Ù‚Æ‚ñ‚Ç‚Ìƒvƒ‰ƒbƒgƒtƒH[ƒ€‚ÅŽÀs—pƒoƒCƒiƒŠ‚ð—pˆÓ‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚µ‚½B
+
+
+æœ¬ãƒ„ãƒ¼ãƒ«ã¯ã€ã„ã‹ãªã‚‹ã‚³ãƒ³ãƒ”ãƒ¥ãƒ¼ã‚¿ã«ãŠã„ã¦ã‚‚æœ€ã‚‚åŽŸå§‹çš„ãªã‚³ãƒ³ã‚½ãƒ¼ãƒ«ãƒ¢ãƒ¼ãƒ‰ã§å‹•ä½œã™ã‚‹ãŸã‚ã€
+ã»ã¨ã‚“ã©ã®ãƒ—ãƒ©ãƒƒãƒˆãƒ•ã‚©ãƒ¼ãƒ ã§å®Ÿè¡Œç”¨ãƒã‚¤ãƒŠãƒªã‚’ç”¨æ„ã™ã‚‹ã“ã¨ãŒã§ãã¾ã—ãŸã€‚
 
 Windows
 macOS
@@ -81,32 +81,6 @@ Linux
 Raspbean
 TinkerOS
 
-Android‚Í(ˆê”Êƒ†[ƒU‚É‚Æ‚Á‚Ä‚Í)‚±‚ÌŒÀ‚è‚Å‚Í‚È‚¢‚Ì‚ªŽc”O‚Å‚·‚ªA‚±‚¿‚ç‚ÍƒVƒ“ƒvƒ‹‚Èê—pƒAƒvƒŠ‚ð—pˆÓ‚µ‚Ä‚¢‚Ü‚·B
-
-
-
-‘ä•—50m
-
-aŒû‚³‚ñ‚Æó‹µ‚ÍŽ—‚Ä‚¢‚é‚©‚à
-
-ó‹µ
-‹C‚ª‹x‚Ü‚ç‚È‚¢ó‘Ô‚ª‘½‚­‚È‚Á‚½
-
-——R
-@‰^—pƒ^ƒXƒN‚ªƒVƒ“ƒvƒ‹‚Å‚È‚¢ŒÚ‹q‚Ì•¡”‘Î‰ž
-@“Á‚ÉDXJ‚Ì”ÏŽG‚³(IDŠÇ—AŽè‘±AˆË—Š‚Ì‘½‚³‚Æ×‚©‚³A”[Šú‚Ì’Z‚³)
-@@‹}‚©‚³‚ê‚éŠ„‚É‚Í‚Â‚È‚ª‚ç‚È‚¢A‰ž“š‚ª’x‚¢‚È‚ÇAƒtƒ‰ƒXƒgƒŒ[ƒVƒ‡ƒ“‚ª‚½‚Ü‚éê–Ê‚à‘½‚¢
-@YSAD‚à–â‡‚¹‚à“ï‰ð‚È‚à‚Ì‚ª‘½‚¢
-@O—l‚Æ’·‚­(1”N)ˆê‚È‚Ì‚Å‚¶‚í‚¶‚í”æ•¾
-
-Šó–]
-’·ŠúŒp‘±‹Î–±‚Ì‚½‚ß‚É‚Ío—ˆ‚é‚¾‚¯‰½Ž–‚àƒVƒ“ƒvƒ‹‚Å‚ ‚è‚½‚¢
-(—\’èŠOA‘z’èŠOAŠ„‚èž‚ÝˆË—Š“™‚Í‹É—Í­‚È‚¢‚Ù‚¤‚ª—Ç‚¢)
-
-‘ÎôˆÄ
-@DXJŠO‚·
-@DXJŽc‚·‚È‚çYsadA‰ÈŒ¤ŠO‚·(‰Â”\‚È‚çEisaiAHollister‚à)
-@‚à‚µ‚­‚ÍDXJAKHKA–q–ì(KHKA–q–ì‚ÍƒVƒ“ƒvƒ‹‚ÅˆÀ’è‚µ‚½ƒ^ƒXƒN)
-@O—l‚Æ‚ÌÈ‚ð—£‚·(’¼Ú‘Î˜b‚ªƒXƒgƒŒƒX“x‚‚¢)
+Androidã¯(ä¸€èˆ¬ãƒ¦ãƒ¼ã‚¶ã«ã¨ã£ã¦ã¯)ã“ã®é™ã‚Šã§ã¯ãªã„ã®ãŒæ®‹å¿µã§ã™ãŒã€ã“ã¡ã‚‰ã¯ã‚·ãƒ³ãƒ—ãƒ«ãªå°‚ç”¨ã‚¢ãƒ—ãƒªã‚’ç”¨æ„ã—ã¦ã„ã¾ã™ã€‚
 
 
