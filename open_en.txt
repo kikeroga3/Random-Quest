@@ -1,69 +1,91 @@
-◆◆◆ ミステリーハウス ◆◆◆
+<><><> Mystery House <><><>
 *Start
---- 家の外 ---
-目の前にヴィクトリア風の荒れ果てた屋敷がある。
-足元から続く石畳の先に玄関がみえる。
-1:玄関に行く　2:考える　3:帰る
+--- FRONT YARD ---
+YOU ARE IN THE FRONT YARD
+  OF A LARGE ABANDONED VICTORIAN HOUSE.
+STONE STEPS LEAD UP TO A WIDE PORCH
+
+1.GO PORCH
+2.THINK THROUGH
+3.GO HOME
+
 @SEL Lb00
 @SEL Think
 @SEL Owari
 @INP
 
 *Think
-あなたはある日突然、謎の人物から届いた招待状で、
-この舘に招かれた。怪しいとは思ったが興味をひかれて
-ここまでやってきたのだ。
+SUDDENLY, AN INVITATION CAME FROM A STRANGER.
+AND YOU WERE INVITED TO THIS HOME.
+YOU THOUGHT WERE SUSPICIOUS.
+BUT YOU ARE INTERESTED AND HAVE COME HERE.
 @INP
 @JMP Start
 
 *Lb00
---- 玄関 ---
-玄関の前にきた。
-1:ドアを開ける　2:ノックする　3:はなれる
+--- PORCH ---
+YOU ARE ON THE PORCH.
+STONE STEPS LEAD DOWN TO THE FRONT YARD
+
+1.OPEN DOOR
+2.KNOCK DOOR
+3.GO BACK
+
 @SEL Lb01
 @SEL Knock
 @SEL Start
 @INP
 
 *Knock
-返事はない。
+NO REPLY.
 @INP
 @JMP Lb00
 
 *Lb01
---- エントランス・ホール ---
-ドアを開けて中に入ると後ろで鍵の閉まる音がした。
-戻ってノブをまわしてみたがドアはもう開かない。
-気配を感じて振り返るとホールの中央に数人の男女が
-立っている。
-1:辺りをみる　2:話す
+--- ENTRY HALL ---
+THE DOOR HAS BEEN VLOSED AND LOCKED
+YOU ARE IN AN ENTRY HALL.
+THERE ARE SEVERAL MEN AND WOMEN
+  IN THE CENTER OF THE HALL.
+
+1.LOOK
+2.TALK
+
 @SEL Lb03
 @SEL Lb02
 @INP
 
 *Lb02
-気持ちを落ち着けて自己紹介し、彼らのことをたずねた。
-それぞれが名前と職業を答える。
+YOU SPOKE TO THEM.
+THEIR NAMES AND OCCUPATIONS ARE AS FOLLOWS.
 
-旋盤工のサム(黒髪)
-墓堀人のジョー(黒髪)
-歯科医のグリーン(黒髪)
-お針子のサリー(赤毛)
-肉屋のビル(金髪)
-配管工のトム(金髪)
-コックのデイジー(金髪)
+TOM IS BLOND AND HIS PROFESSION IS PLUMBER.
+SAM IS BRUNETTE AND HIS PROFESSION IS MECHANIC.
+SALLY IS REDHEAD AND HER PROFESSION IS SEAMSTRESS.
+DR. GREEN IS BRUNETTE AND HIS PROFESSION IS SURGEON.
+JOE IS BRUNETTE AND HIS PROFESSION IS GRAVEDIGGER.
+BILL IS BLOND AND HIS PROFESSION IS BUTCHER.
+DAISY IS BLOND AND HER PROFESSION IS COOK.
 
 *Lb03
-男が５人、女が２人だ。彼ら７人もあなたと同じように
-謎の人物からこの舘に招かれたようだ。
+THERE ARE FIVE MEN AND TWO WOMEN.
+THIS PEOPLE SEEM TO HAVE BEEN INVITED
+  FROM MYSTERY PERSON TO THIS PALACE LIKE YOU.
 @INP
 
 *Entrance
---- エントランス・ホール ---
-北に２階へあがる階段があり、西、南、東にドアがある。
-床にメモが落ちている。
-1:２階　2:西　3:南　4:東
-5:メモを調べる
+--- ENTRY HALL ---
+YOU ARE IN AN ENTRY HALL.
+DOORWAYS GO WEST, EAST AND SOUTH.
+A STAIRWAY GOES UP
+A NOTE IS FALLING ON THE FLOOR.
+
+1.STAIRWAY
+2.WEST
+3.SOUTH
+4.EAST
+5.TAKE NOTE
+
 @SEL 2F
 @SEL Kichin
 @SEL Dining
@@ -72,25 +94,29 @@
 @INP
 
 *Memo-1
-メモを読むと
-"この舘には高価な宝石が隠されている。
-　最初に見つけた奴の物だ"
-と書かれている。
+READ A NOTE.
+"VALUABLE JEWELS ARE HIDDEN IN THIS HOUSE.
+  FINDERS-KEEPERS."
 @INP
 @IF 0 1 Entrance
-顔を上げると、早くも７人は消え失せていた。
-どうやら誰もこのメモに気づいていなかったようだ。
-早速、あなたも行動しなければ。
+THEY WENT QUICKLY TO OTHER ROOMS.
+LET'S HURRY TOO.
 @FLG 0 1
 @INP
 @JMP Entrance
 
 *Kichin
---- 台所 ---
-西と東にドアがあり、
-室内には冷蔵庫、ガス台、戸棚がある。
-1:西　2:東
-3:冷蔵庫　4:ガス台　5:戸棚
+--- KITCHEN ---
+YOU ARE IN THE KITCHEN.
+DOORWAYS GO WEST AND EAST.
+THERE IS A REFRIGERATOR, STOVE AND CABINET
+
+1.WEST
+2.EAST
+3.REFRIGERATOR
+4.STOVE
+5.CABINET
+
 @SEL Kichin-West
 @SEL Entrance
 @SEL Reizou
@@ -100,57 +126,58 @@
 
 *Kichin-West
 @IF 5 1 Mori
-カギがかかっている。
+IT IS LOCKED.
 @INP
 @JMP Kichin
 
 *Reizou
 @IF 1 1 Non
-冷蔵庫の中に空の水筒があった。
-あなたは水を入れて持ち歩くことにした。
+THERE IS A PITCHER IN THE REFRIGERATOR.
+YOU WERE TO GET PITCHER.
 @INP
-水筒に水を汲んでいると、おや？
-流しに何か落ちている。
+YOU GO THE SINK, GOT WATER IN A PITCHER.
 @INP
-バターナイフだ。
-何かの役に立つかもしれない。取っておくとしよう。
+THERE IS A BUTTERKNIFE IN SINK.
+YOU WERE TO GET BUTTERKNIFE.
 @FLG 1 1
 @INP
 @JMP Kichin
 
 *Todana
-@IF 2 1 Non
-戸棚の中にマッチをみつけた。
-@FLG 2 1
-@INP
-@JMP Kichin
-
-*Gasdai
 @IF 4 1 Pantry
-火がつかない。ガスが供給されてないようだ。
+YOU OPEN CABINET.
+THE WALL IS BRICKED UP BEHIND IT.
 @INP
 @IF 3 0 Kichin
-ガス台の下の扉を開けてみると配管が外されていた。
-奥の壁は漆喰が破れてレンガが露出している。
-@INP
-あなたは金槌でレンガを叩いてみた。
-すると壁はもろく崩れ、人が通れるほどの穴が開いた。
+YOU BREAK WALL WITH A HAMMER.
+THE BRICKS BREAK APART LEAVING A LARGE HOLE.
 @FLG 4 1
 @INP
 @JMP Kichin
 
+*Gasdai
+@IF 2 1 Non
+YOU FOUND A MATCHES BESIDE THE STOVE.
+@FLG 2 1
+@INP
+@JMP Kichin
+
 *Non
-何もない。
+THERE IS NOTHING.
 @INP
 @JMP Kichin
 
 *Dining
---- 食堂 ---
-北と南にドアがある。
-テーブルには燭台があり、ローソクが立っている。
-日が暮れ、辺りは薄暗くなってきている
-1:北　2:南
-3:灯りをつける
+--- DINING ---
+IT IS GETTING DARK
+YOU ARE IN THE DINING ROOM.
+THERE ARE DOORWAY TO THE NORTH AND THE SOUTH.
+THERE IS A CANDLESTICK ON THE TABLE.
+
+1.NORTH
+2.SOUTH
+3.LIGHT CANDLE
+
 @SEL Entrance
 @SEL Uraniwa
 @SEL Lights
@@ -159,74 +186,87 @@
 *Lights
 @IF 5 1 Key-1
 @IF 2 1 Fire
-マッチをもっていない。
+YOU DON'T HAVE A MATCHES.
 @INP
 @JMP Dining
 
 *Fire
-マッチでローソクに火をつけた。
-しかし、なんと引火して床に燃え広がってしまった！
+YOU TRIP OVER RUG AND FALL.
+OH,OH, YOU STARTED A FIRE WITH YOUR CANDLE!
 @INP
 @IF 1 1 Mizu
-あなたは燃え盛る炎から逃られず焼け死んでしまった...
+YOU HAVE BURNED TO DEATH.
 Game Over...
 @INP
 @JMP Owari
 
 *Mizu
-水筒の水をかけて火を消した。
+POUR WATER, THE FIRE IS OUT.
+THE PITCHER IS EMPTY.
 @INP
-絨毯の焦げた穴からカギをみつけた。
-一体どこのカギだろう？
+YOU HAVE FOUND A KEY ON THE BURNT HOLE OF THE RUG.
 @FLG 5 1
 @INP
 @JMP Dining
 
 *Key-1
-ローソクは水浸しで、マッチはもうない。
+THE CANDLE WAS WET AND THERE IS NO MATCHES.
 @INP
 @JMP Dining
 
 *Genkan
 @IF 5 1 Genkan-2
-ノブを何度か回してみたが、ドアは開かない。
+IT IS LOCKED.
 @INP
 @JMP Entrance
 
 *Genkan-2
-ドアは食堂でみつけたカギで開いた。
+THE DOOR OPENED WITH THE KEY
+  YOU FOUND IN THE DINING ROOM.
 @INP
 @IF 20 1 HappyEnd
-しかし、外に出ようとした瞬間！
-突然ナイフが飛んできて、あなたの背中に突き刺さった！
+THE MOMENT YOU TRIED TO GO OUTSIDE,
+  THE KNIFE CAME FLYING!
+AND STUCK IN YOUR BACK.
 Game Over...
 @INP
 @JMP Owari
 
 *Uraniwa
 @IF 0 1 Uraniwa-2
---- 裏庭 ---
-垣根に囲まれた裏庭に出た。
-北に屋敷のドア、東に木戸がある。
-1:北　2:東
+--- BACK YARD ---
+IT IS GETTING DARK
+YOU ARE IN THE FENCED BACK YARD.
+THERE IS A DOOR OF HOUSE IN THE NORTH
+  AND A WICKET IN THE EAST.
+
+1.NORTH
+2.EAST
+
 @SEL Dining
 @SEL Cemetery
 @INP
 
 *Uraniwa-2
---- 裏庭 ---
-垣根に囲まれた裏庭に出た。
-北に屋敷のドア、東に木戸がある。
-死体が...旋盤工のサムが殺されている！
-1:北　2:東
-3:死体をみる
+--- BACK YARD ---
+IT IS GETTING DARK
+YOU ARE IN THE FENCED BACK YARD.
+THERE IS A DOOR OF HOUSE IN THE NORTH
+  AND A WICKET IN THE EAST.
+THERE IS A DEAD BODY HERE.
+
+1.NORTH
+2.EAST
+3.LOOK BODY
+
 @SEL Dining
 @SEL Cemetery
 @SEL Dead-Sam
 @INP
 
 *Dead-Sam
-鈍器のようなもので頭を殴られたのが死因らしい。
+IT IS SAM, THE MECHANIC.
+HE HAS BEEN HIT IN THE HEAD BY A BLUNT OBJECT
 @FLG 6 1
 @INP
 @JMP Uraniwa-2
@@ -235,21 +275,21 @@ Game Over...
 @IF 7 2 Cemetery-3
 @IF 6 1 Cemetery-2
 *Cemetery-3
---- 墓地 ---
-垣根に囲まれた墓地に出た。北と西に木戸がある。
-1:北　2:西
+--- CEMETERY ---
+垣根に囲まれたCEMETERYに出た。北と西に木戸がある。
+1.北   2.西
 @SEL Nakaniwa
 @SEL Uraniwa
 @INP
 
 *Cemetery-2
---- 墓地 ---
-垣根に囲まれた墓地に出た。北と西に木戸がある。
+--- CEMETERY ---
+垣根に囲まれたCEMETERYに出た。北と西に木戸がある。
 墓堀人のジョーがこちらを見ている。
 彼が掘ったばかりらしい墓穴が６つあり、すぐそばに
 シャベルが落ちている。
-1:北　2:西
-3:話す　4:シャベルをとる
+1.北   2.西
+3.話す   4.シャベルをとる
 @SEL Nakaniwa
 @SEL Uraniwa
 @SEL Talk-Joy
@@ -300,30 +340,34 @@ Game Over...
 @JMP Cemetery-3
 
 *Nakaniwa
---- 中庭 ---
-北に屋敷のドア、南に木戸がある。
-日が暮れ、辺りは薄暗くなってきている
-1:北　2:南
+--- SIDE YARD ---
+IT IS GETTING DARK
+YOU ARE IN THE SIDE YARD.
+YOU CAN FOLLOW THE HOUSE TO THE NORTH
+  AND THE FENCE TO THE SOUTH.
+1.NORTH
+2.SOUTH
 @SEL Library
 @SEL Cemetery
 @INP
 
 *Library
---- 図書館 ---
+--- LIBRARY ---
+IT IS GETTING DARK
+YOU ARE IN THE OLD, DUSTY LIBRARY
 北に２階へあがる階段、南にドアがある。
 室内は長く使われていないせいか埃まみれだ。
 床にメモが落ちている。
-1:２階　2:南
-3:メモをみる
+1.２階   2.南
+3.メモをみる
 @SEL 2F
 @SEL Nakaniwa
 @SEL Memo-2
 @INP
 
 *Memo-2
-メモを読むと
-"７－６＝１。それで自分の物になる"
-と書かれている。
+READ A NOTE.
+"7-6=1 THEN I AM DONE!"
 @INP
 邪魔者を消して宝石を独占するつもりの奴がいるようだ。
 しかしなぜ"８－７"ではないのか？
@@ -337,8 +381,8 @@ Game Over...
 目の前の戸口から北、西、東にドアがある。
 南には１階のエントランスへとおりる階段、
 東南に図書館へとおりる階段がある。
-1:北　2:西　3:東
-4:エントランス　5:図書館
+1.北   2.西   3.東
+4.エントランス   5.図書館
 @SEL Shosai
 @SEL Kidsroom
 @SEL Bedroom
@@ -352,7 +396,7 @@ Game Over...
 --- 大寝室 ---
 西と東にドアがある。
 室内には大きなダブルベッドが置いてある。
-1:西　2:東　3:寝る
+1.西   2.東   3.寝る
 @SEL 2F
 @SEL Cubicle
 @SEL Sleep
@@ -360,8 +404,9 @@ Game Over...
 
 *Bedroom-2
 --- 大寝室 ---
-部屋に入ると、いきなり部屋の外から短剣が飛んできて
-あなたの横をかすめてベッドに突き立った！
+YOU ARE IN A LARGE BEDROOM
+A DAGGER IS THROWN AT YOU FROM OUTSIDE THE ROOM.
+IT MISSES!
 @INP
 走り去る影がみえたような気がしたが、見失った。
 どうやら、あなたもターゲットにされているようだ。
@@ -373,10 +418,11 @@ Game Over...
 *Bedroom-3
 @IF 9 0 Bedroom-2
 --- 大寝室 ---
+YOU ARE IN A LARGE BEDROOM
 西と東にドアがある。
 室内には大きなダブルベッドが置いてある。
 そのシーツに短剣が刺さっている。
-1:西　2:東　3:寝る　4:短剣
+1.西   2.東   3.寝る   4.短剣
 @SEL 2F
 @SEL Cubicle
 @SEL Sleep
@@ -392,8 +438,9 @@ Game Over...
 *Cubicle
 @IF 6 1 Cubicle-2
 --- 小寝室 ---
+YOU ARE IN A SMALL BEDROOM.
 西にドアがある。室内には簡易ベッドが置いてある。
-1:西　2:寝る
+1.西   2.寝る
 @SEL Bedroom
 @SEL Sleep
 @INP
@@ -409,10 +456,12 @@ Game Over...
 
 *Cubicle-2
 --- 小寝室 ---
+YOU ARE IN A SMALL BEDROOM.
 西にドアがある。簡易ベッドの上に死体が...
+THERE IS A DEAD BODY HERE.
 お針子のサリーが殺されている！
-1:西　2:寝る
-3:死体をみる
+1.西   2.寝る
+3.死体をみる
 @SEL Bedroom
 @SEL Sleep
 @SEL Dead-Sari
@@ -431,8 +480,8 @@ Game Over...
 --- 書斎 ---
 東と南にドアがあり、屋根裏へとあがれるハシゴがある。
 壁に絵が掛けてある。
-1:東　2:南　3:ハシゴ
-4:絵を調べる
+1.東   2.南   3.ハシゴ
+4.絵を調べる
 @SEL Bath
 @SEL 2F
 @SEL Attic
@@ -448,8 +497,8 @@ Game Over...
 --- 書斎 ---
 東と南にドアがあり、屋根裏へとあがれるハシゴがある。
 壁にボタンがある。
-1:東　2:南　3:ハシゴ
-4:ボタンを押す
+1.東   2.南   3.ハシゴ
+4.ボタンを押す
 @SEL Bath
 @SEL 2F
 @SEL Attic
@@ -467,8 +516,8 @@ Game Over...
 --- 風呂場 ---
 西に今入ってきたドアがある。
 室内には洗面台、シャワー、バスタブがある。
-1:西　
-2:洗面台　3:シャワー　4:バスタブ
+1.西   
+2.洗面台   3.シャワー   4.バスタブ
 @SEL Shosai
 @SEL Washstand
 @SEL Shower
@@ -503,9 +552,10 @@ Game Over...
 *Bath-2
 --- 風呂場 ---
 西にドアがある。室内には洗面台とシャワー、そして
+THERE IS A DEAD BODY HERE.
 バスタブに死体が...肉屋のビルが殺されている！
-1:西　
-2:洗面台　3:シャワー　4:バスタブ
+1.西   
+2.洗面台   3.シャワー   4.バスタブ
 @SEL Shosai
 @SEL Washstand
 @SEL Shower
@@ -522,18 +572,21 @@ Game Over...
 *Kidsroom
 @IF 12 1 Kidsroom-2
 --- 子供部屋 ---
+YOU ARE IN AN OLD NURSERY.
 西と東にドアがある。
-1:西　2:東
+1.西   2.東
 @SEL Nursery
 @SEL 2F
 @INP
 
 *Kidsroom-2
 --- 子供部屋 ---
+YOU ARE IN AN OLD NURSERY.
 西と東にドアがある。死体が...
+THERE IS A DEAD BODY HERE.
 歯科医のグリーン氏が殺されている！
-1:西　2:東
-3:死体をみる
+1.西   2.東
+3.死体をみる
 @SEL Nursery
 @SEL 2F
 @SEL Dead-Green
@@ -548,15 +601,14 @@ Game Over...
 *Nursery
 --- 子供の寝室 ---
 東にドアがある。ここにもメモが落ちている。
-1:東　2:メモをみる
+1.東   2.メモをみる
 @SEL Kidsroom
 @SEL Memo-3
 @INP
 
 *Memo-3
-メモを読むと
-"宝石は誰にも見つけられない。私の物だ！"
-と書かれている。
+READ A NOTE.
+"YOU WILL NEVER FIND IT! IT'S ALL MINE!!"
 @INP
 @JMP Nursery
 
@@ -566,8 +618,8 @@ Game Over...
 --- 屋根裏 ---
 西にドアがあり、下へとおりるハシゴがある。
 床には金槌が落ちている。
-1:西　2:ハシゴ
-3:金槌をとる
+1.西   2.ハシゴ
+3.金槌をとる
 @SEL Closet
 @SEL Shosai
 @SEL Hammer
@@ -582,7 +634,7 @@ Game Over...
 *Attic-2
 --- 屋根裏 ---
 西にドアがあり、下へとおりるハシゴがある。
-1:西　2:ハシゴ
+1.西   2.ハシゴ
 @SEL Closet
 @SEL Shosai
 @INP
@@ -591,7 +643,7 @@ Game Over...
 --- 屋根裏 ---
 西にドアがあり、下へとおりるハシゴがある。
 天井には隠し戸がある。
-1:西　2:ハシゴ　3:隠し戸
+1.西   2.ハシゴ   3.隠し戸
 @SEL Closet
 @SEL Shosai
 @SEL Secret
@@ -600,13 +652,13 @@ Game Over...
 *Closet
 --- 物置 ---
 東にドアがある。床に箱が置いてある。
-1:東　2:箱を調べる
+1.東   2.箱を調べる
 @SEL Attic
 @SEL Box
 @INP
 
 *Box
-箱にはカギがかかっている。
+IT IS LOCKED.
 @INP
 @IF 15 0 Closet
 地下室でみつけたカギで開けることができた。
@@ -623,21 +675,23 @@ Game Over...
 @JMP Closet
 
 *Pantry-2
---- 配膳室 ---
+--- PANTRY ---
+YOU ARE IN A SMALL PANTRY
 調理器具、豪華なガラスの器や飾皿が棚に並んでいる。
 地下へとおりる階段がある。
-1:地下　2:辺りをみる
+1.地下   2.辺りをみる
 @SEL Basement
 @SEL Rack
 @INP
 
 *Pantry
 @IF 4 0 Pantry-2
---- 配膳室 ---
+--- PANTRY ---
+YOU ARE IN A SMALL PANTRY
 調理器具、豪華なガラスの器や飾皿が棚に並んでいる。
 地下へとおりる階段、台所へと戻る穴がある。
-1:地下　2:台所
-3:辺りをみる
+1.地下   2.台所
+3.辺りをみる
 @SEL Basement
 @SEL Kichin
 @SEL Rack
@@ -656,7 +710,7 @@ Game Over...
 --- 地下室のバー ---
 暗い室内にバーカウンターとボトルラックがある。
 南にドア、天井に通気口がある。
-1:南　2:通気口
+1.南   2.通気口
 @SEL Basement
 @SEL Hole
 @INP
@@ -672,8 +726,9 @@ Game Over...
 暗い室内にバーカウンターとボトルラックがある。
 南にドア、天井に通気口がある。
 死体が...配管工のトムが殺されている！
-1:南　2:通気口
-3:死体を調べる
+THERE IS A DEAD BODY HERE.
+1.南   2.通気口
+3.死体を調べる
 @SEL Basement
 @SEL Hole
 @SEL Dead-Tom
@@ -687,12 +742,13 @@ Game Over...
 @JMP BasementBar-2
 
 *Basement
---- 地下室 ---
+--- BASEMENT ---
+YPU ARE IN A MOIST BASEMENT.
 北にドアがあり、東に上へとあがる階段がある。
 西の壁には大きな穴が開いている。
 暗くジメジメした室内に机が一つだけ置いてある。
-1:北　2:階段　3:穴に入る
-4:辺りをみる　5:机をみる
+1.北   2.階段   3.穴に入る
+4.辺りをみる   5.机をみる
 @SEL BasementBar
 @SEL Pantry
 @SEL Tunnel
@@ -708,12 +764,12 @@ Game Over...
 @JMP Basement
 
 *Desk-2
-何もない。
+THERE IS NOTHING.
 @INP
 @JMP Basement
 
 *Koke
-壁一面がコケに覆われている。
+ALGAE COVERS THE WALLS.
 @INP
 @IF 10 0 Basement
 @IF 18 1 Koke-2
@@ -737,7 +793,7 @@ Game Over...
 --- トンネル ---
 南北に抜ける通路になっているようだ。
 南側に微かに明かりが見える。
-1:南　2:北
+1.南   2.北
 @SEL Pinus
 @SEL Basement
 @INP
@@ -746,8 +802,8 @@ Game Over...
 --- 森 ---
 木々が生い茂る森の中に出た。
 目の前に大きな松の木が、北側にはトンネルがある。
-1:西　2:東　3:北　4:南
-5:松の木に登る
+1.西   2.東   3.北   4.南
+5.松の木に登る
 @SEL Mori-A
 @SEL Mori-B
 @SEL Tunnel
@@ -776,7 +832,7 @@ Game Over...
 --- 森 ---
 木々が生い茂り、踏み込むと迷いそうな深い森だ。
 東側に屋敷のドアがある。
-1:西　2:東　3:北　4:南
+1.西   2.東   3.北   4.南
 @SEL Mori-A
 @SEL Kichin-East
 @SEL Mori-B
@@ -785,14 +841,14 @@ Game Over...
 
 *Kichin-East
 @IF 5 1 Kichin
-カギがかかっている。
+IT IS LOCKED.
 @INP
 @JMP Mori
 
 *Mori-A
 --- 森 ---
 木々生い茂る森の中だ。どちらへ行けばいいのか...
-1:西　2:東　3:北　4:南
+1.西   2.東   3.北   4.南
 @SEL Mori
 @SEL Mori-B
 @SEL Pinus
@@ -809,7 +865,7 @@ Game Over...
 *Mori-B_2
 --- 森 ---
 木々生い茂る森の中だ。どうやら迷ってしまったらしい。
-1:西　2:東　3:北　4:南
+1.西   2.東   3.北   4.南
 @SEL Mori-C
 @SEL Pinus
 @SEL Mori-A
@@ -819,7 +875,7 @@ Game Over...
 *Mori-C
 --- 森 ---
 木々生い茂る森の中だ。勘を頼りに進むしかない。
-1:西　2:東　3:北　4:南
+1.西   2.東   3.北   4.南
 @SEL Mori-B
 @SEL Mori-A
 @SEL Mori
@@ -832,15 +888,14 @@ Game Over...
 @IF 20 1 Secret-2
 --- 隠し部屋 ---
 床に屋根裏部屋に入る開き戸がある。メモが落ちている。
-1:開き戸　2:メモを調べる
+1.開き戸   2.メモを調べる
 @SEL Daisy
 @SEL Memo-4
 @INP
 
 *Memo-4
-メモを読むと
-"唯一人が手にできる、それは地下室にある。"
-と書かれている。
+READ A NOTE.
+"IT'S IN THE BASEMENT!"
 @INP
 @JMP Secret
 
@@ -853,8 +908,8 @@ Game Over...
 @INP
 *Attack
 あなたは...
-1:バターナイフ　2:金槌　3:シャベル　4:ピストル
-5:懐中電灯　6:短剣
+1.バターナイフ   2.金槌   3.シャベル   4.ピストル
+5.懐中電灯   6.短剣
 @SEL Atk-Knife
 @SEL Atk-Hammer
 @SEL Atk-Shovel
@@ -927,7 +982,7 @@ Game Over...
 *Secret-2
 --- 隠し部屋 ---
 床に屋根裏部屋に入る開き戸がある。メモが落ちている。
-1:開き戸　2:メモをみる
+1.開き戸   2.メモをみる
 @SEL Attic
 @SEL Memo-4
 @INP
