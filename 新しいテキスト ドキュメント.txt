@@ -43,7 +43,7 @@ chmod 777 cutehspcl
 
 別のシナリオで遊びたいときは
 「cutehspcl」と「start.hs」だけを新しいシナリオファイルのあるディレクトリにコピーし、
-実行してください。
+「cutehspcl」を実行すればOKです。
 
 Android用はコチラ
 
