@@ -16,7 +16,7 @@ STONE STEPS LEAD UP TO A WIDE PORCH
 
 *Think
 SUDDENLY, AN INVITATION CAME FROM A STRANGER.
-AND YOU WERE INVITED TO THIS HOME.
+  AND YOU WERE INVITED TO THIS HOME.
 YOU THOUGHT WERE SUSPICIOUS.
 BUT YOU ARE INTERESTED AND HAVE COME HERE.
 @INP
@@ -171,7 +171,7 @@ THERE IS NOTHING.
 --- DINING ---
 IT IS GETTING DARK
 YOU ARE IN THE DINING ROOM.
-THERE ARE DOORWAY TO THE NORTH AND THE SOUTH.
+DOORWAYS GO NORTH AND SOUTH.
 THERE IS A CANDLESTICK ON THE TABLE.
 
 1.NORTH
@@ -227,7 +227,7 @@ THE DOOR OPENED WITH THE KEY
 @IF 20 1 HappyEnd
 THE MOMENT YOU TRIED TO GO OUTSIDE,
   THE KNIFE CAME FLYING!
-AND STUCK IN YOUR BACK.
+  AND STUCK IN YOUR BACK.
 Game Over...
 @INP
 @JMP Owari
@@ -237,7 +237,7 @@ Game Over...
 --- BACK YARD ---
 IT IS GETTING DARK
 YOU ARE IN THE FENCED BACK YARD.
-THERE IS A DOOR OF HOUSE IN THE NORTH
+DOORWAYS GO THE HOUSE IN THE NORTH
   AND A WICKET IN THE EAST.
 
 1.NORTH
@@ -251,7 +251,7 @@ THERE IS A DOOR OF HOUSE IN THE NORTH
 --- BACK YARD ---
 IT IS GETTING DARK
 YOU ARE IN THE FENCED BACK YARD.
-THERE IS A DOOR OF HOUSE IN THE NORTH
+DOORWAYS GO THE HOUSE IN THE NORTH
   AND A WICKET IN THE EAST.
 THERE IS A DEAD BODY HERE.
 
@@ -276,20 +276,29 @@ HE HAS BEEN HIT IN THE HEAD BY A BLUNT OBJECT
 @IF 6 1 Cemetery-2
 *Cemetery-3
 --- CEMETERY ---
-垣根に囲まれたCEMETERYに出た。北と西に木戸がある。
-1.北   2.西
+YOU ARE IN THE FENCED CEMETERY.
+DOORWAYS GO NORTH AND WEST.
+
+1.NORTH
+2.WEST
+
 @SEL Nakaniwa
 @SEL Uraniwa
 @INP
 
 *Cemetery-2
 --- CEMETERY ---
-垣根に囲まれたCEMETERYに出た。北と西に木戸がある。
-墓堀人のジョーがこちらを見ている。
-彼が掘ったばかりらしい墓穴が６つあり、すぐそばに
-シャベルが落ちている。
-1.北   2.西
-3.話す   4.シャベルをとる
+YOU ARE IN THE FENCED CEMETERY.
+DOORWAYS GO NORTH AND WEST.
+THE GRAVEDIGGER JOE IS WATCHING YOU.
+THERE ARE SIX HOLES HE DUG.
+A SHOVEL IS ON THE GROUND.
+
+1.NORTH
+2.WEST
+3.TALK
+4.SHOVEL
+
 @SEL Nakaniwa
 @SEL Uraniwa
 @SEL Talk-Joy
@@ -297,44 +306,44 @@ HE HAS BEEN HIT IN THE HEAD BY A BLUNT OBJECT
 @INP
 
 *Talk-Joy
-ジョーは何も答えず、あなたを見ている。
-何を考えているのでしょう？
+JOE DOES NOT ANSWER, WATCHING YOU.
+WHAT IS HE THINKING?
 @INP
 @JMP Cemetery-2
 
 *Shovel
 @IF 7 1 Shovel-2
-シャベルに手をのばすとジョーが邪魔をする。
+JOE INTERFERES WHEN YOU TRY TO TAKE A SHOVEL.
 @FLG 7 1
 @INP
 @JMP Cemetery-2
 
 *Shovel-2
-強引にシャベルを取ろうとすると
-ジョーが恐ろしい形相で襲いかかってきた。
+JOE WAS ATTACKING
+  WHEN YOU TRIED TO FORCIBLY TAKE THE SHOVEL.
 @INP
 @IF 21 1 Shovel-4
 @IF 1 1 Shovel-3
-あなたはジョーの振り回すシャベルの一撃を食らい、
-首を絞められ、意識が遠くなっていった...
+JOE ATTACKED YOU WITH A SHOVEL.
+  AND YOU LOST CONSCIOUSNESS ...
 Game Over...
 @INP
 @JMP Owari
 
 *Shovel-3
-あなたはバターナイフで反撃したが、
-ジョーの振り回すシャベルの一撃で殺されてしまった...
+YOU FOUGHT BACK WITH A BUTTERKNIFE,
+BUT KILLED BY JOE'S SHOVEL'S BLOW ..
 Game Over...
 @INP
 @JMP Owari
 
 *Shovel-4
-あなたはジョーの振り回すシャベルをかいくぐって
-短剣で反撃した。
-手加減する余裕などなく、彼を刺し殺してしまった。
+YOU AVOID JOE'S SHOVEL ATTACK
+  AND FOUGHT BACK WITH A DAGGER.
+  AND YOU STABBED HIM.
 @INP
-シャベルを手に入れることはできた。
-そして、墓穴の一つにジョーを埋葬したのだった。
+YOU GOT A SHOVEL.
+YOU BURIED JOE IN ONE OF THE GRAVE HOLES.
 @FLG 7 2
 @INP
 @JMP Cemetery-3
@@ -343,10 +352,11 @@ Game Over...
 --- SIDE YARD ---
 IT IS GETTING DARK
 YOU ARE IN THE SIDE YARD.
-YOU CAN FOLLOW THE HOUSE TO THE NORTH
-  AND THE FENCE TO THE SOUTH.
+DOORWAYS GO NORTH AND SOUTH.
+
 1.NORTH
 2.SOUTH
+
 @SEL Library
 @SEL Cemetery
 @INP
@@ -355,11 +365,14 @@ YOU CAN FOLLOW THE HOUSE TO THE NORTH
 --- LIBRARY ---
 IT IS GETTING DARK
 YOU ARE IN THE OLD, DUSTY LIBRARY
-北に２階へあがる階段、南にドアがある。
-室内は長く使われていないせいか埃まみれだ。
-床にメモが落ちている。
-1.２階   2.南
-3.メモをみる
+A STAIRWAY TO THE 2F TO THE NORTH,
+  A DOOR TO THE SOUTH.
+A NOTE IS FALLING ON THE FLOOR.
+
+1.STAIRWAY
+2.SOUTH
+3.TAKE NOTE
+
 @SEL 2F
 @SEL Nakaniwa
 @SEL Memo-2
@@ -369,20 +382,25 @@ YOU ARE IN THE OLD, DUSTY LIBRARY
 READ A NOTE.
 "7-6=1 THEN I AM DONE!"
 @INP
-邪魔者を消して宝石を独占するつもりの奴がいるようだ。
-しかしなぜ"８－７"ではないのか？
-@INP
-あなたを含めれば全部で８人のはずなのに...
+THERE SEEMS TO BE SOMEONE WHO TRIES
+  TO MONOPOLIZE JEWELS BY KILLING OTHERS.
 @INP
 @JMP Library
 
 *2F
---- 2F・ホール ---
-目の前の戸口から北、西、東にドアがある。
-南には１階のエントランスへとおりる階段、
-東南に図書館へとおりる階段がある。
-1.北   2.西   3.東
-4.エントランス   5.図書館
+--- 2F HALLWAY ---
+YOU ARE IN A HALLWAY
+DOORWAYS GO NORTH, WEST AND EAST
+  FROM THE CORRIDOR IN FRONT OF YOU.
+A STAIRWAY TO THE ENTRY HALL IN THE SOUTH.
+A STAIRWAY TO THE LIBRARY IN THE SOUTH EAST.
+
+1.NORTH
+2.WEST
+3.EAST
+4.ENTRY HALL
+5.LIBRARY
+
 @SEL Shosai
 @SEL Kidsroom
 @SEL Bedroom
@@ -393,36 +411,42 @@ READ A NOTE.
 *Bedroom
 @IF 9 0 Bedroom-2
 @IF 21 0 Bedroom-3
---- 大寝室 ---
-西と東にドアがある。
-室内には大きなダブルベッドが置いてある。
-1.西   2.東   3.寝る
+--- LARGE BEDROOM ---
+YOU ARE IN A LARGE BEDROOM
+DOORWAYS GO WEST AND EAST.
+THERE IS A LARGE DOUBLE BED IN THE ROOM.
+
+1.WEST
+2.EAST
+3.REST
+
 @SEL 2F
 @SEL Cubicle
 @SEL Sleep
 @INP
 
 *Bedroom-2
---- 大寝室 ---
+--- LARGE BEDROOM ---
 YOU ARE IN A LARGE BEDROOM
 A DAGGER IS THROWN AT YOU FROM OUTSIDE THE ROOM.
 IT MISSES!
-@INP
-走り去る影がみえたような気がしたが、見失った。
-どうやら、あなたもターゲットにされているようだ。
-気をつけなくては...
 @FLG 9 1
 @INP
 @JMP Bedroom
 
 *Bedroom-3
 @IF 9 0 Bedroom-2
---- 大寝室 ---
+--- LARGE BEDROOM ---
 YOU ARE IN A LARGE BEDROOM
-西と東にドアがある。
-室内には大きなダブルベッドが置いてある。
-そのシーツに短剣が刺さっている。
-1.西   2.東   3.寝る   4.短剣
+DOORWAYS GO WEST AND EAST.
+THERE IS A LARGE DOUBLE BED IN THE ROOM.
+A DAGGER IS STUCK IN THE BED SHEET.
+
+1.WEST
+2.EAST
+3.REST
+4.DAGGER
+
 @SEL 2F
 @SEL Cubicle
 @SEL Sleep
@@ -430,58 +454,69 @@ YOU ARE IN A LARGE BEDROOM
 @INP
 
 *Get-Dagger
-短剣を取った。
+YOU TOOK A DAGGER.
 @FLG 21 1
 @INP
 @JMP Bedroom
 
 *Cubicle
 @IF 6 1 Cubicle-2
---- 小寝室 ---
+--- SMALL BEDROOM ---
 YOU ARE IN A SMALL BEDROOM.
-西にドアがある。室内には簡易ベッドが置いてある。
-1.西   2.寝る
+DOOWAYR GO WEST.
+THERE IS A COT IN THE ROOM.
+
+1.WEST
+2.REST
+
 @SEL Bedroom
 @SEL Sleep
 @INP
 
 *Sleep
-あなたは少しだけ休息をとるつもりでベッドに横たわる。
+YOU RESTED IN BED.
 @INP
-目を閉じて、まどろみかけたその時！背中に激痛が走る！
-あなたはそのまま２度と目覚めることはなかった...
+SUDDENLY YOU FELT PAIN ON MY BACK!
+LATER, YOU NEVER WOKE UP.
 Game Over...
 @INP
 @JMP Owari
 
 *Cubicle-2
---- 小寝室 ---
+--- SMALL BEDROOM ---
 YOU ARE IN A SMALL BEDROOM.
-西にドアがある。簡易ベッドの上に死体が...
+DOORWAYS GO WEST.
 THERE IS A DEAD BODY HERE.
-お針子のサリーが殺されている！
-1.西   2.寝る
-3.死体をみる
+1.WEST
+2.REST
+3.LOOK BODY
+
 @SEL Bedroom
 @SEL Sleep
 @SEL Dead-Sari
 @INP
 
 *Dead-Sari
-死因は後頭部にある大きなコブのようだ。
-よくみると、彼女の手に金色の髪の毛がついている。
-サリーは赤毛だ。これは犯人の髪の毛か？
+IT IS SALLY, THE SEAMSTRESS.
+SHE HAS A LARGE LUMP ON HER HEAD.
+THERE IS A BLOND HAIR ON HER DRESS
 @FLG 8 1
 @INP
 @JMP Cubicle-2
 
 *Shosai
 @IF 22 1 Shosai-2
---- 書斎 ---
-東と南にドアがあり、屋根裏へとあがれるハシゴがある。
-壁に絵が掛けてある。
-1.東   2.南   3.ハシゴ
-4.絵を調べる
+--- STUDY ---
+YOU ARE IN THE STUDY
+DOORWAYS GO EAST AND SOUTH.
+THERE IS A LADDER THAT GOES TO THE ATTIC.
+A PICTURE IS HUNG ON THE WALL.
+
+1.EAST
+2.SOUTH
+3.LADDER
+4.PICTURE
+
 @SEL Bath
 @SEL 2F
 @SEL Attic
@@ -489,16 +524,23 @@ THERE IS A DEAD BODY HERE.
 @INP
 
 *Paint
-絵を外すと壁にボタンをみつけた。
+REMOVE THE PICTURE,
+  THEN THERE WAS A BUTTON ON THE WALL.
 @FLG 22 1
 @INP
 
 *Shosai-2
---- 書斎 ---
-東と南にドアがあり、屋根裏へとあがれるハシゴがある。
-壁にボタンがある。
-1.東   2.南   3.ハシゴ
-4.ボタンを押す
+--- STUDY ---
+YOU ARE IN THE STUDY
+DOORWAYS GO EAST AND SOUTH.
+THERE IS A LADDER THAT GOES TO THE ATTIC.
+THERE WAS A BUTTON ON THE WALL.
+
+1.EAST
+2.SOUTH
+3.LADDER
+4.BUTTON
+
 @SEL Bath
 @SEL 2F
 @SEL Attic
@@ -506,18 +548,25 @@ THERE IS A DEAD BODY HERE.
 @INP
 
 *Button
-突然、立っていた床が扉のように開いて抜け、
-あなたは通気口をぬけて地下へと落ちていった。
+SUDDENLY, A HOLE OPENED IN THE FLOOR!
+YOU WENT THROUGH THE VENT
+  AND FELL INTO THE BASEMENT.
 @INP
 @JMP BasementBar
 
 *Bath
 @IF 8 1 Bath-2
---- 風呂場 ---
-西に今入ってきたドアがある。
-室内には洗面台、シャワー、バスタブがある。
-1.西   
-2.洗面台   3.シャワー   4.バスタブ
+--- BATHROOM ---
+YOU ARE IN THE BATHROOM.
+DOORWAYS GO WEST.
+IN THE ROOM THERE IS A WASHSTAND,
+  SHOWER AND BATHTUB.
+
+1.WEST
+2.WASHSTAND
+3.SHOWER
+4.BATHTUB
+
 @SEL Shosai
 @SEL Washstand
 @SEL Shower
@@ -525,37 +574,42 @@ THERE IS A DEAD BODY HERE.
 @INP
 
 *Washstand
-顔と手を洗ってさっぱりした。
-鏡の横の壁にかかっていたタオルを取った。
+YOU WASHED FACE AND TOOK A TOWEL ON WALL.
 @FLG 10 1
 @INP
 @JMP Bath
 
 *Shower
-シャワーを出すとバスタブにお湯がたまっていく。
-しかし、今は浴びている場合じゃない。
+USED A SHOWER.
+HOT WATER ACCUMULATES IN THE BATHTUB.
 @FLG 11 1
 @INP
 @JMP Bath
 
 *Bathtub
 @IF 11 1 Bathtub-2
-バスタブは空っぽだ。
+BATHTUB IS EMPTY.
 @INP
 @JMP Bath
 
 *Bathtub-2
-お湯が少したまっている。
+THERE IS A LITTLE HOT WATER IN THE BATHTUB.
 @INP
 @JMP Bath
 
 *Bath-2
---- 風呂場 ---
-西にドアがある。室内には洗面台とシャワー、そして
+--- BATHROOM ---
+YOU ARE IN THE BATHROOM.
+DOORWAYS GO WEST.
+IN THE ROOM THERE IS A WASHSTAND,
+  SHOWER AND BATHTUB.
 THERE IS A DEAD BODY HERE.
-バスタブに死体が...肉屋のビルが殺されている！
-1.西   
-2.洗面台   3.シャワー   4.バスタブ
+
+1.WEST
+2.WASHSTAND
+3.SHOWER
+4.LOOK BODY
+
 @SEL Shosai
 @SEL Washstand
 @SEL Shower
@@ -563,45 +617,56 @@ THERE IS A DEAD BODY HERE.
 @INP
 
 *Dead-Bill
-死因は絞殺らしい。首にストッキングが巻きついている。
-犯人は女？あるいはそう見せかけようとしているのか...
+IT IS BILL, THE BUTCHER.
+HE HAS BEEN STRANGLED WITH A PAIR OF PANTYHOSE
 @FLG 12 1
 @INP
 @JMP Bath-2
 
 *Kidsroom
 @IF 12 1 Kidsroom-2
---- 子供部屋 ---
-YOU ARE IN AN OLD NURSERY.
-西と東にドアがある。
-1.西   2.東
+--- KIDSROOM ---
+YOU ARE IN AN OLD KIDSROOM.
+DOORWAYS GO WEST AND EAST.
+
+1.WEST
+2.EAST
+
 @SEL Nursery
 @SEL 2F
 @INP
 
 *Kidsroom-2
---- 子供部屋 ---
-YOU ARE IN AN OLD NURSERY.
-西と東にドアがある。死体が...
+--- KIDSROOM ---
+YOU ARE IN AN OLD KIDSROOM.
+DOORWAYS GO WEST AND EAST.
 THERE IS A DEAD BODY HERE.
-歯科医のグリーン氏が殺されている！
-1.西   2.東
-3.死体をみる
+
+1.WEST
+2.EAST
+3.LOOK BODY
+
 @SEL Nursery
 @SEL 2F
 @SEL Dead-Green
 @INP
 
 *Dead-Green
-凶器は残されていないが、刺し殺されているようだ。
+IT IS DR. GREEN.
+IT APPEARS HE HAS BEEN STABBED
 @FLG 13 1
 @INP
 @JMP Kidsroom-2
 
 *Nursery
---- 子供の寝室 ---
-東にドアがある。ここにもメモが落ちている。
-1.東   2.メモをみる
+--- NURSERY ---
+YOU ARE IN AN OLD NURSERY.
+DOORWAYS GO EAST.
+A NOTE IS FALLING ON THE FLOOR.
+
+1.EAST
+2.TAKE NOTE
+
 @SEL Kidsroom
 @SEL Memo-3
 @INP
@@ -615,44 +680,62 @@ READ A NOTE.
 *Attic
 @IF 14 1 Attic-3
 @IF 3 1 Attic-2
---- 屋根裏 ---
-西にドアがあり、下へとおりるハシゴがある。
-床には金槌が落ちている。
-1.西   2.ハシゴ
-3.金槌をとる
+--- ATTIC ---
+YOU ARE IN THE ATTIC
+DOORWAYS GO WEST AND DESCENDING DOWN A LADDER.
+A HAMMER IS FALLING ON THE FLOOR.
+
+1.WEST
+2.LADDER
+3.HAMMER
+
 @SEL Closet
 @SEL Shosai
 @SEL Hammer
 @INP
 
 *Hammer
-金槌を取った。
+YOU TOOK A HAMMER.
 @FLG 3 1
 @INP
 @JMP Attic
 
 *Attic-2
---- 屋根裏 ---
-西にドアがあり、下へとおりるハシゴがある。
-1.西   2.ハシゴ
+--- ATTIC ---
+YOU ARE IN THE ATTIC
+DOORWAYS GO WEST AND DESCENDING DOWN A LADDER.
+
+1.WEST
+2.LADDER
+
 @SEL Closet
 @SEL Shosai
 @INP
 
 *Attic-3
---- 屋根裏 ---
-西にドアがあり、下へとおりるハシゴがある。
-天井には隠し戸がある。
-1.西   2.ハシゴ   3.隠し戸
+--- ATTIC ---
+YOU ARE IN THE ATTIC
+DOORWAYS GO WEST AND DESCENDING DOWN A LADDER.
+THERE IS A TRAPDOOR ON THE CEILING.
+
+1.WEST
+2.LADDER
+3.TRAPDOOR
+
 @SEL Closet
 @SEL Shosai
 @SEL Secret
 @INP
 
 *Closet
---- 物置 ---
-東にドアがある。床に箱が置いてある。
-1.東   2.箱を調べる
+--- STORAGE ROOM ---
+YOU ARE IN A STORAGE ROOM
+DOORWAYS GO EAST.
+THERE IS A KEY BOX ON THE FLOOR.
+
+1.EAST
+2.KEY BOX
+
 @SEL Attic
 @SEL Box
 @INP
@@ -661,25 +744,28 @@ READ A NOTE.
 IT IS LOCKED.
 @INP
 @IF 15 0 Closet
-地下室でみつけたカギで開けることができた。
+YOU WERE CAN OPEN BOX
+  WITH THE FOUND KEY WITH BASEMENT.
 @IF 16 1 Box-2
-中には強力な武器が入っていた。
-あなたはピストルを手に入れた！
+THERE WAS A POWERFUL WEAPON IN THE BOX.
+YOU GOT A PISTOL!
 @FLG 16 1
 @INP
 @JMP Closet
 
 *Box-2
-箱の中はもう空っぽだ。
+BOX IS EMPTY.
 @INP
 @JMP Closet
 
 *Pantry-2
 --- PANTRY ---
 YOU ARE IN A SMALL PANTRY
-調理器具、豪華なガラスの器や飾皿が棚に並んでいる。
-地下へとおりる階段がある。
-1.地下   2.辺りをみる
+YOU CAN GO STAIRCASE TO GET DOWN TO THE BASEMENT.
+
+1.BASEMENT
+2.LOOK
+
 @SEL Basement
 @SEL Rack
 @INP
@@ -688,67 +774,81 @@ YOU ARE IN A SMALL PANTRY
 @IF 4 0 Pantry-2
 --- PANTRY ---
 YOU ARE IN A SMALL PANTRY
-調理器具、豪華なガラスの器や飾皿が棚に並んでいる。
-地下へとおりる階段、台所へと戻る穴がある。
-1.地下   2.台所
-3.辺りをみる
+YOU CAN GO STAIRCASE TO GET DOWN TO THE BASEMENT
+  AND A HOLE BACK TO THE KITCHEN.
+
+1.BASEMENT
+2.KITCHEN
+3.LOOK
+
 @SEL Basement
 @SEL Kichin
 @SEL Rack
 @INP
 
 *Rack
-高級そうな食器が、どれも埃まみれだ。
+COOKWARE, LAVISH GLASSWARE AND
+  DECORATIVE DISHES ARE LINING UP ON THE SHELF.
 @INP
-大きな中華鍋があったのでフタを開けてみたが、
-鍋底にネズミの死骸があるだけだった。
+YOU OPENED THE LID OF A BIG CHINESE POT.
+A MOUSE WAS DEAD IN POT BOTTOM.
 @INP
 @JMP Pantry
 
 *BasementBar
 @IF 13 1 BasementBar-2
---- 地下室のバー ---
-暗い室内にバーカウンターとボトルラックがある。
-南にドア、天井に通気口がある。
-1.南   2.通気口
+--- BASEMENTBAR ---
+YOU ARE IN A BASEMENTBAR
+DOORWAYS GO SOUTH AND VENT IN CEILING.
+
+1.SOUTH
+2.VENT
+
 @SEL Basement
 @SEL Hole
 @INP
 
 *Hole
-バーカウンターの上にのって手をのばしてみたが、
-通気口には届かない。
+DOES NOT REACH VENTS.
 @INP
 @JMP BasementBar
 
 *BasementBar-2
---- 地下室のバー ---
-暗い室内にバーカウンターとボトルラックがある。
-南にドア、天井に通気口がある。
-死体が...配管工のトムが殺されている！
+--- BASEMENTBAR ---
+YOU ARE IN A BASEMENTBAR
+DOORWAYS GO SOUTH AND VENT IN CEILING.
 THERE IS A DEAD BODY HERE.
-1.南   2.通気口
-3.死体を調べる
+
+1.SOUTH
+2.VENT
+3.LOOK BODY
+
 @SEL Basement
 @SEL Hole
 @SEL Dead-Tom
 @INP
 
 *Dead-Tom
-刺し殺されている。手にヒナギクの花をにぎっている。
-ダイイング・メッセージ...？
+IT IS TOM, THE PLUMBER.
+HE SEEMS TO HAVE BEEN STABBED.
+THERE IS A DASY IN HIS HAND
 @FLG 17 1
 @INP
 @JMP BasementBar-2
 
 *Basement
 --- BASEMENT ---
-YPU ARE IN A MOIST BASEMENT.
-北にドアがあり、東に上へとあがる階段がある。
-西の壁には大きな穴が開いている。
-暗くジメジメした室内に机が一つだけ置いてある。
-1.北   2.階段   3.穴に入る
-4.辺りをみる   5.机をみる
+YOU ARE IN A MOIST BASEMENT.
+DOORWAYS GO NORTH, A STAIRWAY GOES UP,
+ A BIG HOLE IN THE WALL.
+THERE IS A DESK IN THE ROOM.
+
+1.NORTH
+2.STAIRWAY
+3.HOLE
+4.LOOK WALL
+5.DESK
+
 @SEL BasementBar
 @SEL Pantry
 @SEL Tunnel
@@ -758,7 +858,7 @@ YPU ARE IN A MOIST BASEMENT.
 
 *Desk
 @IF 15 1 Desk-2
-机の上にカギがある。あなたはそれを取った。
+A KEY ON THE DESK. YOU TOOK IT.
 @FLG 15 1
 @INP
 @JMP Basement
@@ -773,37 +873,44 @@ ALGAE COVERS THE WALLS.
 @INP
 @IF 10 0 Basement
 @IF 18 1 Koke-2
-タオルでコケを拭い取ってみると...
-壁の漆喰が破れている部分が現れた。
+WIPE OFF THE ALGAE WITH A TOWEL
 @INP
-はめ込まれているレンガを取り外してみると...
+THE WALL IS EXPOSED.
+THERE IS A LOOSE BRICK
 @INP
-あなたはついに隠されていた宝石を見つけた！
-後は屋敷を無事脱出するだけだ。
+YOU HAVE FOUND THE JEWELS!
 @FLG 18 1
 @INP
 @JMP Basement
 
 *Koke-2
-宝石は手に入れた。後は屋敷を脱出するだけだ。
+YOU GOT A JEWEL.
 @INP
 @JMP Basement
 
 *Tunnel
---- トンネル ---
-南北に抜ける通路になっているようだ。
-南側に微かに明かりが見える。
-1.南   2.北
+--- TUNNEL ---
+YOU ARE IN THE TUNNEL LEADING TO SOUTH AND NORTH.
+LIGHT CAN BE SEEN ON THE SOUTH SIDE.
+
+1.SOUTH
+2.NORTH
+
 @SEL Pinus
 @SEL Basement
 @INP
 
 *Pinus
---- 森 ---
-木々が生い茂る森の中に出た。
-目の前に大きな松の木が、北側にはトンネルがある。
-1.西   2.東   3.北   4.南
-5.松の木に登る
+--- WOODS ---
+YOU ARE IN THE FOREST.
+THERE IS A VERY TALL PINE TREE IN FRONT OF YOU
+
+1.WEST
+2.EAST
+3.TUNNEL
+4.SOUTH
+5.PINE TREE
+
 @SEL Mori-A
 @SEL Mori-B
 @SEL Tunnel
@@ -812,27 +919,27 @@ ALGAE COVERS THE WALLS.
 @INP
 
 *Noboru
-高い松の木のてっぺんに登った。
-何故か屋敷のほうに向けて望遠鏡が枝に括りつけて
-あったので覗いてみると...
+YOU ARE AT THE TOP OF A VERY TALL PINE TREE.
+THERE WAS A TELESCOPE THERE AND YOU LOOKED INTO IT.
 @INP
-屋敷の屋根の上に後から増築したような小屋がある。
-@INP
-小屋の近くの屋根には開き戸のようなものが見える、
-そこから上がれば入れそうだ。
-@INP
-位置はちょうど屋根裏部屋の上辺りだろうか。
+YOU ARE LOOKONG THROUGH THE ATTIC WINDOW.
+YOU SEE A TRAPDOOR IN THE ATTIC CEILING.
 @FLG 14 1
 @INP
-松の木からおりた。
+YOU GOT OFF THE PINE TREE.
 @INP
 @JMP Pinus
 
 *Mori
---- 森 ---
-木々が生い茂り、踏み込むと迷いそうな深い森だ。
-東側に屋敷のドアがある。
-1.西   2.東   3.北   4.南
+--- WOODS ---
+YOU ARE IN THE FOREST.
+DOORWAYS GO EAST TO THE HOUSE.
+
+1.WEST
+2.EAST
+3.NORTH
+4.SOUTH
+
 @SEL Mori-A
 @SEL Kichin-East
 @SEL Mori-B
@@ -846,9 +953,14 @@ IT IS LOCKED.
 @JMP Mori
 
 *Mori-A
---- 森 ---
-木々生い茂る森の中だ。どちらへ行けばいいのか...
-1.西   2.東   3.北   4.南
+--- WOODS ---
+YOU ARE IN THE FOREST.
+
+1.WEST
+2.EAST
+3.NORTH
+4.SOUTH
+
 @SEL Mori
 @SEL Mori-B
 @SEL Pinus
@@ -857,15 +969,19 @@ IT IS LOCKED.
 
 *Mori-B
 @IF 19 1 Mori-B_2
---- 森 ---
-足元に懐中電灯が落ちていたので拾った。
-...使えるのかな？
+--- WOODS ---
+YOU PICKED IT UP BECAUSE THE TORCH WAS FALLING.
 @FLG 19 1
 @INP
 *Mori-B_2
---- 森 ---
-木々生い茂る森の中だ。どうやら迷ってしまったらしい。
-1.西   2.東   3.北   4.南
+--- WOODS ---
+YOU ARE IN THE FOREST.
+
+1.WEST
+2.EAST
+3.NORTH
+4.SOUTH
+
 @SEL Mori-C
 @SEL Pinus
 @SEL Mori-A
@@ -873,9 +989,14 @@ IT IS LOCKED.
 @INP
 
 *Mori-C
---- 森 ---
-木々生い茂る森の中だ。勘を頼りに進むしかない。
-1.西   2.東   3.北   4.南
+--- WOODS ---
+YOU ARE IN THE FOREST.
+
+1.WEST
+2.EAST
+3.NORTH
+4.SOUTH
+
 @SEL Mori-B
 @SEL Mori-A
 @SEL Mori
@@ -886,9 +1007,14 @@ IT IS LOCKED.
 @IF 17 0 Secret-2
 @IF 18 0 Secret-2
 @IF 20 1 Secret-2
---- 隠し部屋 ---
-床に屋根裏部屋に入る開き戸がある。メモが落ちている。
-1.開き戸   2.メモを調べる
+--- SECRET ROOM ---
+YOU ARE IN THE SECRET ROOM.
+TRAPDOOR RETURN TO THE ATTIC.
+A NOTE IS FALLING ON THE FLOOR.
+
+1.TRAPDOOR
+2.TAKE NOTE
+
 @SEL Daisy
 @SEL Memo-4
 @INP
@@ -900,16 +1026,22 @@ READ A NOTE.
 @JMP Secret
 
 *Daisy
-屋根裏部屋に戻ろうと開き戸に手をかけようとした時！
-そこからナイフを持ったコックのデイジーが現れた。
+WHEN YOU TRY TO RETURN TO THE ATTIC,
+  DAISY WITH A KNIFE CAME OUT FROM THE TRAPDOOR.
 @INP
-そう！デイジー(ひな菊)がこの殺人劇の犯人だったのだ。
-彼女は冷たい瞳でナイフを振りあげ、襲いかかってきた！
+DAISY WAS THE CULPRIT OF THIS SERIAL KILLING PLAY.
+SHE ATTACKED YOU WITH A KNIFE!
 @INP
 *Attack
-あなたは...
-1.バターナイフ   2.金槌   3.シャベル   4.ピストル
-5.懐中電灯   6.短剣
+YOU PICKED UP WEAPONS AND FOUGHT BATTLE!
+
+1.BUTTERKNIFE
+2.HAMMER
+3.SHOVEL
+4.PISTOL
+5.TORCH
+6.DAGGER
+
 @SEL Atk-Knife
 @SEL Atk-Hammer
 @SEL Atk-Shovel
@@ -919,24 +1051,22 @@ READ A NOTE.
 @INP
 
 *NotHave
-そんな物はもってない！
-あなたはデイジーの最後の犠牲者となった...
+DON'T HAVE!
+YOU WERE THE LAST VICTIM BY DAISY ...
 Game Over...
 @INP
 @JMP Owari
 
 *Atk-Knife
 @IF 1 0 NotHave
-バターナイフで応戦したが、刺し殺されてしまった...
+YOU FOUGHT WITH A BUTTER KNIFE, BUT WAS KILLED ...
 Game Over...
 @INP
 @JMP Owari
 
 *Atk-Hammer
 @IF 3 0 NotHave
-金槌で反撃してデイジーの鎖骨を砕いたが、
-あなたも致命傷を受けてしまった...
-遠のく意識の中で彼女がとどめを刺しに迫るのがみえた。
+YOU FOUGHT WITH A HAMMER, BUT WAS KILLED ...
 Game Over...
 @INP
 @JMP Owari
@@ -945,53 +1075,55 @@ Game Over...
 @IF 7 2 Aiuchi
 @JMP NotHave
 *Aiuchi
-シャベルを振りおろしデイジーの頭を砕いたが、
-彼女のナイフも同時にあなたの胸に突き刺さっていた。
+YOU FOUGHT WITH A SHOVEL, BUT WAS KILLED ...
 Game Over...
 @INP
 @JMP Owari
 
 *Atk-Dagger
 @IF 21 0 NotHave
-あなたは短剣をふるって殺人者デイジーと格闘したが、
-容赦のない鋭い攻撃の前に追い詰められていく！
+YOU FOUGHT WITH A DAGGER!
+YOU BE CHASED BY MERCILESS ATTACK OF MURDERER!
 @INP
 @JMP Attack
 
 *Atk-Pistol
 @IF 16 0 NotHave
-素早くピストルを抜き、デイジーの胸を撃ち抜く！
-彼女は声もなく絶命し、もんどりうって
-屋根から転げ落ちていった。
+DAISY IS NOW DEAD!
+YOUR GUN IS EMPTY.
 @FLG 20 1
 @INP
 @JMP Secret-2
 
 *Atk-Torch
 @IF 19 0 NotHave
-あなたはデイジーの顔に懐中電灯の光を浴びせた。
-彼女は眩しさに一瞬ひるんだが向かってきた。
+YOU GAVE HER THE LIGHT OF A TORCH.
+BEHOLD! HER BODY IS BECOMING SMALLER!
 @INP
-だが見よ！何と彼女の身体がみるみる小さくなっていく！
-@INP
-あなたは夢をみているような気分のまま、小さくなった
-デイジーをつまみあげ、窓の外に放り投げた。
+YOU PICKED UP THE SMALL DAISY AND THREW IT FAR AWAY.
 @FLG 20 1
 @INP
 
 *Secret-2
---- 隠し部屋 ---
-床に屋根裏部屋に入る開き戸がある。メモが落ちている。
-1.開き戸   2.メモをみる
+--- SECRET ROOM ---
+YOU ARE IN THE SECRET ROOM.
+TRAPDOOR RETURN TO THE ATTIC.
+A NOTE IS FALLING ON THE FLOOR.
+
+1.TRAPDOOR
+2.TAKE NOTE
+
 @SEL Attic
 @SEL Memo-4
 @INP
 
 *HappyEnd
---- 家の外 ---
-屋敷の前に出てきた。おめでとう！
-あなたはついにミステリーハウスの謎を攻略したのだ！
-Congratulation!
+--- PORCH ---
+YOU ARE ON THE PORCH.
+STONE STEPS LEAD DOWN TO THE FRONT YARD
+@INP
+CONGRATULATIONS YOU HAVE BEATEN ADVENTURE
+  AND ARE DECLARED A GURU WIZARD
 @INP
 
 *Owari
