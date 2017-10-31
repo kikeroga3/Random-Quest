@@ -1,10 +1,10 @@
 ;エンコードシナリオ実行プログラム
 
 	sdim fnm,64 :sdim msg,5000 :sdim bf,65500
-	dim sel,16 :dim flg,256 :sdim svdat,5300
+	dim po_ret,8 :dim sel,16 :dim flg,256 :sdim svdat,5500
 	fnm="open.scn"
 *restat
-	gosub *decod :po=0 :po_ret=po :sl=0
+	gosub *decod :po=0 :pi=0 :po_ret(pi)=po :sl=0
 *main
 	tok=peek(bf,po)
 	if tok>9 {
@@ -24,11 +24,14 @@
 		;@INP
 		if tok=2 :po=po+1 :gosub *cu_inp
 		;@RET
-		if tok=3 :po=po_ret
+		if tok=3 :po=po_ret(pi) :pi=pi-(pi>0)
 		;@SEL Label
 		if tok=4 :sel(sl)=peek(bf,po+1) :sl=sl+1 :po=po+2
 		;@JMP Label
-		if tok=5 :lbn=peek(bf,po+1) :po=po+2 :po_ret=po :gosub *lb_srch
+		if tok=5 {
+			lbn=peek(bf,po+1) :po=po+2 :po_ret(pi)=po :pi=pi+(pi<7)
+			gosub *lb_srch
+		}
 		;@FLG FlgNo Val
 		if tok=6 {
 			a=peek(bf,po+1)-1 :b=peek(bf,po+2)-1 :po=po+3
@@ -42,7 +45,7 @@
 		;@IF FlgNo Val Label
 		if tok=7 {
 			a=peek(bf,po+1)-1 :b=peek(bf,po+2)-1 :lbn=peek(bf,po+3) :po=po+4
-			if flg(a)=b :po_ret=po :gosub *lb_srch
+			if flg(a)=b :po_ret(pi)=po :pi=pi+(pi<7) :gosub *lb_srch
 		}
 		;@RUN Filename
 		if tok=8 :p1=po+1 :gosub *getstr :fnm=refstr :goto *restat
@@ -90,7 +93,7 @@
 	if s="s" or s="S" :mes "Save." :gosub *save :goto *cu_inp
 	if s="l" or s="L" :mes "Load." :gosub *load :goto *cu_inp
 	if sl=0 :return
-	po_ret=po
+	po_ret(pi)=po :pi=pi+(pi<7) 
 	s1=s :gosub *strval :a=stat
 	if a>sl or a<1 :goto *cu_inp
 	lbn=sel(a-1) :gosub *lb_srch
@@ -123,24 +126,28 @@
 	poke svdat,16,p1+128
 	poke svdat,17,p2+128
 	poke svdat,18,p3+128
+	;シナリオ復帰変数(po_ret)のスタックNo.
+	poke svdat,19,pi+1
 	;シナリオ復帰ポジション(@RET)
-	p1=po_ret\128 :p2=(po_ret/128)&127 :p3=po_ret/16384
-	poke svdat,19,p1+128
-	poke svdat,20,p2+128
-	poke svdat,21,p3+128
+	repeat 8 :a=po_ret(cnt) :b=cnt*3
+		p1=a\128 :p2=(a/128)&127 :p3=a/16384
+		poke svdat,b+20,p1+128
+		poke svdat,b+21,p2+128
+		poke svdat,b+22,p3+128
+	loop
 	;選択肢数
-	poke svdat,22,sl+1
+	poke svdat,44,sl+1
 	;選択肢飛び先(ラベルNo.)
 	repeat sl
-		poke svdat,23+cnt,sel(cnt)
+		poke svdat,45+cnt,sel(cnt)
 	loop
 	;フラグ
 	repeat 250
-		poke svdat,39+cnt,flg(cnt)+1
+		poke svdat,61+cnt,flg(cnt)+1
 	loop
 	;直前の文章
 	repeat 5000
-		a=peek(msg,cnt) :poke svdat,295+cnt,a
+		a=peek(msg,cnt) :poke svdat,320+cnt,a
 		if a=0 :break
 	loop
 	bsave "save.dat",svdat
@@ -160,24 +167,28 @@
 	p2=peek(svdat,17)-128
 	p3=peek(svdat,18)-128
 	po=16384*p3+128*p2+p1
+	;シナリオ復帰変数(po_ret)のスタックNo.
+	pi=peek(svdat,19)-1
 	;シナリオ復帰ポジション(@RET)
-	p1=peek(svdat,19)-128
-	p2=peek(svdat,20)-128
-	p3=peek(svdat,21)-128
-	po_ret=16384*p3+128*p2+p1
+	repeat 8 :b=cnt*3
+		p1=peek(svdat,b+20)-128
+		p2=peek(svdat,b+21)-128
+		p3=peek(svdat,b+22)-128
+		po_ret(cnt)=16384*p3+128*p2+p1
+	loop
 	;選択肢数
-	sl=peek(svdat,22)-1
+	sl=peek(svdat,44)-1
 	;選択肢飛び先(ラベルNo.)
 	repeat sl
-		sel(cnt)=peek(svdat,23+cnt)
+		sel(cnt)=peek(svdat,45+cnt)
 	loop
 	;フラグ
 	repeat 250
-		flg(cnt)=peek(svdat,39+cnt)-1
+		flg(cnt)=peek(svdat,61+cnt)-1
 	loop
 	;直前の文章
 	repeat 5000
-		a=peek(svdat,295+cnt) :poke msg,cnt,a
+		a=peek(svdat,320+cnt) :poke msg,cnt,a
 		if a=0 :break
 	loop
 	mes msg
