@@ -3,6 +3,7 @@
 	sdim fnm,64 :sdim msg,5000 :sdim bf,65500
 	dim po_ret,16 :dim sel,16 :dim flg,256 :sdim svdat,5500
 	fnm="open.scn"
+	fnm="test.scn"
 *restat
 	gosub *decod :po=0 :pi=0 :po_ret(pi)=po :sl=0
 *main
@@ -28,10 +29,7 @@
 		;@SEL Label
 		if tok=4 :sel(sl)=peek(bf,po+1) :sl=sl+1 :po=po+2
 		;@JMP Label
-		if tok=5 {
-			lbn=peek(bf,po+1) :po=po+2 :po_ret(pi)=po :pi=pi+(pi<15)
-			gosub *lb_srch
-		}
+		if tok=5 :lbn=peek(bf,po+1) :po=po+2 :gosub *po_stak :gosub *lb_srch
 		;@FLG FlgNo Val
 		if tok=6 {
 			a=peek(bf,po+1)-1 :b=peek(bf,po+2)-1 :po=po+3
@@ -45,7 +43,7 @@
 		;@IF FlgNo Val Label
 		if tok=7 {
 			a=peek(bf,po+1)-1 :b=peek(bf,po+2)-1 :lbn=peek(bf,po+3) :po=po+4
-			if flg(a)=b :po_ret(pi)=po :pi=pi+(pi<15) :gosub *lb_srch
+			if flg(a)=b :gosub *po_stak :gosub *lb_srch
 		}
 		;@RUN Filename
 		if tok=8 :p1=po+1 :gosub *getstr :fnm=refstr :goto *restat
@@ -95,8 +93,7 @@
 	if sl=0 :return
 	s1=s :gosub *strval :a=stat
 	if a>sl or a<1 :goto *cu_inp
-	po_ret(pi)=po :pi=pi+(pi<15)
-	lbn=sel(a-1) :gosub *lb_srch
+	gosub *po_stak :lbn=sel(a-1) :gosub *lb_srch
 	sl=0 :return
 
 ;ラベルサーチ
@@ -111,6 +108,14 @@
 		if p1=7 :i=i+4
 		if i>sz :break
 	loop
+	return
+
+;シナリオ復帰変数(po_ret)のスタック処理
+*po_stak
+	po_ret(pi)=po :pi=pi+1
+	if pi>15 { pi=15
+		repeat 15 :po_ret(cnt)=po_ret(cnt+1) :loop
+	}
 	return
 
 ;データセーブ
