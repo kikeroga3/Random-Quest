@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Text Adventure Games Love!</title>
+</head>
+<body background="back.png">
+
+<pre>
+
+[<a href="play.htm">PLAY!</a>]  [CREATE]  [<a href="http://txtavg.forums-free.com/">FORUM</a>]
+
+<b>Let's make a text adventure game!</b>
+
+Text adventure game is extremely simple, it can be started with low cost, and it can easily make individual production.
+It is up to the scenario to make users engrossed.
+
+    <a href="scn_cmd.htm">Scenario control command list</a>
+
+The scenario source of "TINY-MYSTERY HOUSE" has been released to the following.
+Please look it.
+
+    <a href="open.htm">open.txt</a>
+
+Download the text adventure game creation tool from the following.
+
+    <a href="txtavg2c.zip">txtavg2c</a>
+
+  Unpacked the directory is divided for Windows, macOS, Linux, Raspberry Pi.
+
+1. Write a scenario in text format.
+
+   Windows user: Please write with character code "SJIS".
+   Other users : Please write with the character code "UTF-8".
+
+2. Encrypt the text file with the scenario conversion program "enc_scn.hs".
+
+   Run from the console as follows:
+
+   cutehspcl enc_scn.hs
+
+<img src="enc_scn.png">
+
+   Since the file name is asked, if the text file is "open.txt", press "open" and press Enter.
+   Then an encrypted scenario file called "open.scn" is generated.
+
+<img src="open_scn.png">
+
+3. Execute "cutehspcl".
+
+   When "cutehspcl" is executed, it reads "start.hs" automatically and executes it.
+   And "start.hs" is executed, it first reads "open.scn".
+
+</body>
+</html>

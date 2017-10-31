@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Text Adventure Games Love!</title>
+</head>
+<body background="back.png">
+
+<pre>
+
+[PLAY!]  [<a href="create.htm">CREATE</a>]  [<a href="http://txtavg.forums-free.com/">FORUM</a>]
+
+<b>Let's play with a text adventure game!</b>
+
+Text adventure is one of the classical genres in computer games.
+It is a type of game in which you read the sentences, branch stories by choices, unravel puzzles and adventure.
+
+<img src="cmdline.png">
+
+Download the file below.
+
+[1] Scenario execution program
+
+    <a href="txtavg.zip">txtavg.zip</a>
+
+  Unpacked the directory is divided for Windows, macOS, Linux, Raspberry Pi.
+
+[2] Scenario file
+
+    <a href="TinyMH.zip">TINY-MYSTERY HOUSE</a>
+
+  Unpacked the directory is divided into scenario "UTF-8" code version and "SJIS" code version.
+  MacOS / Linux / Raspberry Pi uses "UTF-8" version, Windows uses "SJIS" version.
+
+1. Download the zip file of the above [1] and [2].
+
+2. Unpack it.
+
+3. Scenario execution program "cutehspcl" and "start.hs" copy to the same directory as the scenario file.
+
+4. Execute "cutehspcl".
+
+<img src="dir_txtavg.png">
+
+  Users other than Windows should grant execution privilege before executing "cutehspcl".
+  Command execution from the terminal:
+
+  chmod 777 cutehspcl
+
+
+Android is <a href="https://play.google.com/store/apps/details?id=hsp3dish.txtavg&hl=en">here</a>.
+
+<a href="mh_map.htm">Hint Map</a>
+
+P.S.
+We are looking for new scenarios!
+Please tell us if you have completed a new scenario.
+
+</pre>
+
+</body>
+</html>
+
