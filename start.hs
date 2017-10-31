@@ -1,7 +1,7 @@
 ;エンコードシナリオ実行プログラム
 
 	sdim fnm,64 :sdim msg,5000 :sdim bf,65500
-	dim po_ret,8 :dim sel,16 :dim flg,256 :sdim svdat,5500
+	dim po_ret,16 :dim sel,16 :dim flg,256 :sdim svdat,5500
 	fnm="open.scn"
 *restat
 	gosub *decod :po=0 :pi=0 :po_ret(pi)=po :sl=0
@@ -24,12 +24,12 @@
 		;@INP
 		if tok=2 :po=po+1 :gosub *cu_inp
 		;@RET
-		if tok=3 :po=po_ret(pi) :pi=pi-(pi>0)
+		if tok=3 :pi=pi-(pi>0) :po=po_ret(pi)
 		;@SEL Label
 		if tok=4 :sel(sl)=peek(bf,po+1) :sl=sl+1 :po=po+2
 		;@JMP Label
 		if tok=5 {
-			lbn=peek(bf,po+1) :po=po+2 :po_ret(pi)=po :pi=pi+(pi<7)
+			lbn=peek(bf,po+1) :po=po+2 :po_ret(pi)=po :pi=pi+(pi<15)
 			gosub *lb_srch
 		}
 		;@FLG FlgNo Val
@@ -45,7 +45,7 @@
 		;@IF FlgNo Val Label
 		if tok=7 {
 			a=peek(bf,po+1)-1 :b=peek(bf,po+2)-1 :lbn=peek(bf,po+3) :po=po+4
-			if flg(a)=b :po_ret(pi)=po :pi=pi+(pi<7) :gosub *lb_srch
+			if flg(a)=b :po_ret(pi)=po :pi=pi+(pi<15) :gosub *lb_srch
 		}
 		;@RUN Filename
 		if tok=8 :p1=po+1 :gosub *getstr :fnm=refstr :goto *restat
@@ -93,9 +93,9 @@
 	if s="s" or s="S" :mes "Save." :gosub *save :goto *cu_inp
 	if s="l" or s="L" :mes "Load." :gosub *load :goto *cu_inp
 	if sl=0 :return
-	po_ret(pi)=po :pi=pi+(pi<7) 
 	s1=s :gosub *strval :a=stat
 	if a>sl or a<1 :goto *cu_inp
+	po_ret(pi)=po :pi=pi+(pi<15)
 	lbn=sel(a-1) :gosub *lb_srch
 	sl=0 :return
 
@@ -129,21 +129,21 @@
 	;シナリオ復帰変数(po_ret)のスタックNo.
 	poke svdat,19,pi+1
 	;シナリオ復帰ポジション(@RET)
-	repeat 8 :a=po_ret(cnt) :b=cnt*3
+	repeat 16 :a=po_ret(cnt) :b=cnt*3
 		p1=a\128 :p2=(a/128)&127 :p3=a/16384
 		poke svdat,b+20,p1+128
 		poke svdat,b+21,p2+128
 		poke svdat,b+22,p3+128
 	loop
 	;選択肢数
-	poke svdat,44,sl+1
+	poke svdat,68,sl+1
 	;選択肢飛び先(ラベルNo.)
 	repeat sl
-		poke svdat,45+cnt,sel(cnt)
+		poke svdat,69+cnt,sel(cnt)
 	loop
 	;フラグ
 	repeat 250
-		poke svdat,61+cnt,flg(cnt)+1
+		poke svdat,85+cnt,flg(cnt)+1
 	loop
 	;直前の文章
 	repeat 5000
@@ -170,21 +170,21 @@
 	;シナリオ復帰変数(po_ret)のスタックNo.
 	pi=peek(svdat,19)-1
 	;シナリオ復帰ポジション(@RET)
-	repeat 8 :b=cnt*3
+	repeat 16 :b=cnt*3
 		p1=peek(svdat,b+20)-128
 		p2=peek(svdat,b+21)-128
 		p3=peek(svdat,b+22)-128
 		po_ret(cnt)=16384*p3+128*p2+p1
 	loop
 	;選択肢数
-	sl=peek(svdat,44)-1
+	sl=peek(svdat,68)-1
 	;選択肢飛び先(ラベルNo.)
 	repeat sl
-		sel(cnt)=peek(svdat,45+cnt)
+		sel(cnt)=peek(svdat,69+cnt)
 	loop
 	;フラグ
 	repeat 250
-		flg(cnt)=peek(svdat,61+cnt)-1
+		flg(cnt)=peek(svdat,85+cnt)-1
 	loop
 	;直前の文章
 	repeat 5000
