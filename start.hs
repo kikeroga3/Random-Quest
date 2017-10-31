@@ -147,7 +147,7 @@
 	loop
 	;直前の文章
 	repeat 5000
-		a=peek(msg,cnt) :poke svdat,320+cnt,a
+		a=peek(msg,cnt) :poke svdat,336+cnt,a
 		if a=0 :break
 	loop
 	bsave "save.dat",svdat
@@ -188,7 +188,7 @@
 	loop
 	;直前の文章
 	repeat 5000
-		a=peek(svdat,320+cnt) :poke msg,cnt,a
+		a=peek(svdat,336+cnt) :poke msg,cnt,a
 		if a=0 :break
 	loop
 	mes msg
