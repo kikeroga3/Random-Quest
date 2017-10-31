@@ -50,15 +50,17 @@ Label name can be arbitrary name with '*' followed by alphanumeric characters.
   There are 250 flags numbered 0 to 249.
   The value of the flag can be 0 to 79.
   Jump (@JMP) to return (@RET) is possible up to 10 nests.
+   - When nesting is exceeded, the return position is discarded in ascending order.
 
 </pre>
-※仕様制限
+
+※仕様制限等
 
 ・ラベルは１ファイルに250個まで設定可能。
 ・フラグは番号0～249の250個まで使用可能。
 ・フラグの値には0～79を指定可能。
 ・ジャンプ(@JMP)～リターン(@RET)は10ネストまで可能。
-
+　※ネストを超えた場合は、古い順に戻り先を忘れていきます。
 
 </body>
 </html>
