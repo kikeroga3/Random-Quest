@@ -1,34 +1,34 @@
-このシナリオはダミーです。
-
-フラグ処理の作例を紹介します。
-「カギを入手してドアを開ける」という、よくある
-シチュエーションのシナリオを作ってみます。
+USE CASE FLAG
+"Get the key and open the door"
+@INP
 
 *Main
-君は自宅の玄関前にいてドアにはカギがかかっている。
-1.ドアを開ける
-2.ポストを調べる
+You are in front of the entrance.
+
+1.OPEN DOOR
+2.LOOK MAILBOX
+
 @SEL Door
-@SEL Post
+@SEL Box
 @INP
 
 *Door
-@IF FLG 0 0 Nokey
-カギでドアを開け、家に入れました。
-よかった、よかった。
+@IF FLG 0 0 NoKey
+You opened the door and into the home.
+Glad!
 @INP
 @END
 
 *NoKey
-カギが無いと開きません。
+Door is locked.
 @JMP Main
 
-*Post
+*Box
 @IF FLG 0 0 Getkey
-何もありません。
+Nothing.
 @JMP Main
 
 *GetKey
-ポストにカギがありました！
+You found a key.
 @JMP Main
 

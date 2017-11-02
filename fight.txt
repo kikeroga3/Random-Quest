@@ -1,0 +1,73 @@
+When 91 to 100 is specified as the flag value,
+ 1 to 10 are decremented.
+When 81 to 90 are specified as the flag value,
+ 1 to 10 are incremented.
+
+Joe HP:10
+Sam HP:10
+
+@flg 0 10
+@flg 1 10
+
+*Stat
+Joe and Sam fight!
+
+1.Joe punch
+2.Joe kick
+3.Joe heal
+4.Sam punch
+5.Sam kick
+6.Sam heal
+
+@sel JoeP
+@sel JoeK
+@sel JoeH
+@sel SamP
+@sel SamK
+@sel SamH
+@inp
+
+*JoeP
+Joe's punch hit Sam!
+@flg 1 92
+@if 1 0 JoeWon
+@jmp Stat
+
+*JoeK
+Joe's kick hit Sam!
+@flg 1 92
+@if 1 0 JoeWon
+@jmp Stat
+
+*JoeH
+Joe was healed.
+@flg 0 83
+@jmp Stat
+
+*SamP
+Sam's punch hit Joe!
+@flg 0 91
+@if 0 0 SamWon
+@jmp Stat
+
+*SamK
+Sam's kick hit Joe!
+@flg 0 93
+@if 0 0 SamWon
+@jmp Stat
+
+*SamH
+Sam was healed.
+@flg 1 82
+@jmp Stat
+
+*JoeWon
+Joe Won!
+@inp
+@end
+
+*SamWon
+Sam Won!
+@inp
+@end
+

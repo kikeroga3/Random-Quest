@@ -1,0 +1,27 @@
+Continuing to read that text.
+
+For PC, please press enter key.
+For Android, please touch the screen.
+@inp
+
+Please choose.
+
+1. Go Label-1
+2. Go Label-2
+
+@sel LBL001
+@sel LBL002
+@inp
+
+That's all.
+@inp
+@end
+
+*LBL001
+You chose 1.
+@ret
+
+*LBL002
+You chose 2.
+@ret
+

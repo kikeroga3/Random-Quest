@@ -1,0 +1,39 @@
+RANDOM NUMBER TEST
+
+If you specify a value larger than 100 for the flag,
+ a random number will be assigned.
+
+*Start
+@INP
+@FLG 0 106
+Roll a dice.
+
+@IF 0 1 One
+@IF 0 2 Two
+@IF 0 3 Three
+@IF 0 4 Four
+@IF 0 5 Five
+
+Dice is 6!
+@JMP Start
+
+*One
+Dice is 1!
+@JMP Start
+
+*Two
+Dice is 2!
+@JMP Start
+
+*Three
+Dice is 3!
+@JMP Start
+
+*Four
+Dice is 4!
+@JMP Start
+
+*Five
+Dice is 5!
+@JMP Start
+
