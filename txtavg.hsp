@@ -273,7 +273,8 @@
 	;CUIに一覧出力
 	a=15 :s=""
 	repeat tc
-		split lst(cnt),",",scn
+;		split lst(cnt),",",scn
+		n=cnt :gosub *strdiv
 		msg=strf("%03d:",cnt)+scn(0)
 		gosub *set_cui
 		if (cnt+1)\23=0 :gosub *touch
@@ -287,7 +288,8 @@
 	;シナリオファイル取得(Get)
 	if a=11 {
 		cui(22)=cui(22)+" Get"
-		n=int(s) :split lst(n),",",scn :c=stat-1
+;		n=int(s) :split lst(n),",",scn :c=stat-1
+		n=int(s) :gosub *strdiv
 		bsave "title.txt",scn(0),strlen(scn(0))
 		repeat c
 			url=home+strf("%03d",n)+"/"+scn(cnt+1)+".scn"
@@ -303,3 +305,11 @@
 	gosub *touch
 	goto *no_inp
 
+;","で区切られた文字を取得
+*strdiv
+	ln=strlen(lst(n))-1 :i=0
+	repeat 80
+		getstr scn(cnt),lst(n),i,',' :i+=strsize
+		if i>ln :c=cnt :break
+	loop
+	return
