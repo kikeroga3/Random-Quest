@@ -18,6 +18,13 @@ Titles Impressions
 Questions about txtavg
 
 
+Topic!
+Raspberry Pi版はTinker OSでも動作可との情報あり。
+
+
+持ち歩きにはAndroid版「txtavg」をどうぞ！
+For carrying around please use to Android version "txtavg"!
+
 
 
 
