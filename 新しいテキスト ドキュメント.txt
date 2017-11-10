@@ -177,5 +177,122 @@ Raspbean
 TinkerOS
 
 Androidは(一般ユーザにとっては)この限りではないのが残念ですが、こちらはシンプルな専用アプリを用意しています。
+---
+
+自作シナリオの配信
+
+自作シナリオをAndroidアプリ「txtavg」経由で配信可能です。
+
+まずは文字コード「UTF-8」で作成し、"enc_scn.hs"で暗号化したシナリオファイル(拡張子.scn)を用意します。
+
+①下記URLに管理者ログインします。
+
+　http://geocities.co.jp/txtavg/
+
+　ログインID
+　txtavg / gogowest
+
+①"txtavg"ディレクトリ以下に3桁の数字ディレクトリを追加します。
+　例えば既に"000"～"002"まであれば"003"を作成してください。
+
+②追加した数字ディレクトリに自作シナリオファイルを全てアップロードします。
+
+③"txtavg"ディレクトリにある"index.htm"の内容を編集します。
+　例えば"003"ディレクトリに"open.scn"と"hoge.scn"を格納したなら次のように追記します。
+
+*003
+ホゲホゲの冒険,open,hoge
+
+④できたらAndroidアプリ「txtavg」から「TITLE LIST」をタッチしてテストしてみてください。
+　Androidアプリ「txtavg」を使っているユーザーみんなが、あなたの作ったテキストアドベンチャーをゲットして遊ぶことができます！
+
+※管理者はみなさん自身ですので、他の作者さんの作品登録を壊さないように注意してね。
+
+
+
+
+
+
+---
+How to deliver
+
+You can distribute your own scenario via the Android application "txtavg".
+
+First prepare a scenario file (extension .scn) created with the character code "UTF - 8" and encrypted with "enc_scn.hs".
+
+(0) Log in as administrator to the following URL.
+
+Http://geocities.co.jp/txtavg/
+
+Login ID
+Txtavg / gogowest
+
+(1) Add a three-digit number directory below "txtavg" directory.
+For example, if you already have "000" to "002" please create "003".
+
+(2) Upload all your own scenario files to the added number directory.
+
+(3) Edit the contents of "index.htm" in "txtavg" directory.
+For example, if "open.scn" and "hoge.scn" are stored in the "003" directory, it is appended as follows.
+
+*003
+Tales of Hoge,open,hoge
+
+(4) Try to test by touching "TITLE LIST" from Android application "txtavg".
+Everyone using the Android application "txtavg" can get and play the text adventure you made!
+
+note.
+Be careful not to break a works registration of other authors.
+
+
+
+
+
+http://www.geocities.jp/txtavg/
+index.htm
+000
+001
+002
+003
+...
+999
+
+http://www.geocities.jp/txtavg/jp/
+http://www.geocities.jp/txtavg/en/
+play.htm
+create.htm
+index.htm
+How to deliver for Android
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
