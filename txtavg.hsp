@@ -18,7 +18,7 @@
 		msg="MYSTERY HOUSE"
 		bsave "title.txt",msg,strlen(msg)
 	}
-	home="http://www.geocities.jp/tko_soft/txtavg/"
+	home="http://www.geocities.jp/txtavg/"
 	gosub *title_menu
 
 *restat
@@ -261,7 +261,7 @@
 	;タイトル一覧取得
 	sdim lst,1000,160 :sdim scn,40,80
 	bg=1 :msg="--- TITLE LIST ---" :gosub *set_cui
-	url=home+"index.htm" :gosub *web_get
+	url=home+"title.htm" :gosub *web_get
 
 	;一覧を配列変数(lst)にセット
 	notesel bf :tc=0
@@ -274,7 +274,7 @@
 	a=15 :s=""
 	repeat tc
 ;		split lst(cnt),",",scn
-		n=cnt :gosub *strdiv
+		n=cnt :gosub *splits
 		msg=strf("%03d:",cnt)+scn(0)
 		gosub *set_cui
 		if (cnt+1)\23=0 :gosub *touch
@@ -289,7 +289,7 @@
 	if a=11 {
 		cui(22)=cui(22)+" Get"
 ;		n=int(s) :split lst(n),",",scn :c=stat-1
-		n=int(s) :gosub *strdiv
+		n=int(s) :gosub *splits
 		bsave "title.txt",scn(0),strlen(scn(0))
 		repeat c
 			url=home+strf("%03d",n)+"/"+scn(cnt+1)+".scn"
@@ -306,7 +306,7 @@
 	goto *no_inp
 
 ;","で区切られた文字を取得
-*strdiv
+*splits
 	ln=strlen(lst(n))-1 :i=0
 	repeat 80
 		getstr scn(cnt),lst(n),i,',' :i+=strsize
