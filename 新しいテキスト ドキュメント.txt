@@ -1,4 +1,9 @@
 
+OutputStreamをファイルを経由しないでやりとりしたい
+http://www.javaroad.jp/bbs/answer.jsp?q_id=20080219130032895
+
+
+
 We made a simple multi-platform Text-AVG creation tool.
 Please do not miss it.
 
