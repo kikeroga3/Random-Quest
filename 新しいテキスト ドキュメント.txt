@@ -4,15 +4,17 @@ http://www.javaroad.jp/bbs/answer.jsp?q_id=20080219130032895
 http://www.kab-studio.biz/Programing/JavaA2Z/Word/00000893.html
 
 
-bis = new java.io.ByteArrayInputStream(img);
 
-sw = new java.io.StringWriter();
-while ((intIn = bis.read()) != -1) {
-	sw.write(intIn);
+// バイト配列 img の参照先として io_img を指定し
+// 値を bytStr に格納後、文字として _httpResult へ格納する
+
+io_img = new java.io.ByteArrayInputStream( img );
+bytStr = new java.io.StringWriter();
+while ( ( intIn = io_img.read() ) != -1 ) {
+	bytStr.write( intIn );
 }
-sw.flush();
-
-_httpResult = sw.toString();
+bytStr.flush();
+_httpResult = bytStr.toString();
 
 
 
