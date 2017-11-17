@@ -4,6 +4,20 @@ http://www.javaroad.jp/bbs/answer.jsp?q_id=20080219130032895
 
 
 
+bis = new java.io.ByteArrayInputStream(img);
+
+sw = new java.io.StringWriter();
+while ((intIn = bis.read()) != -1) {
+	sw.write(intIn);
+}
+sw.flush();
+
+_httpResult = sw.toString();
+
+
+
+
+
 We made a simple multi-platform Text-AVG creation tool.
 Please do not miss it.
 
