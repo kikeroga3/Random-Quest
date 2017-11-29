@@ -10,6 +10,12 @@
 
 
 
+
+RPi Zero W \3800
+http://www.akibaoo.co.jp/c/03/4528483147938/
+
+
+
 OutputStreamをファイルを経由しないでやりとりしたい
 http://www.javaroad.jp/bbs/answer.jsp?q_id=20080219130032895
 http://www.kab-studio.biz/Programing/JavaA2Z/Word/00000893.html
