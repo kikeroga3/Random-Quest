@@ -1,9 +1,9 @@
-;#include "hspinet.as"		;WindowsŽÀsŽž‚Ì‚Ý(Debug)
+;#include "hspinet.as"		;Windowså®Ÿè¡Œæ™‚ã®ã¿(Debug)
 #include "hsp3dish.as"		;HSP3Dish
 
-;ƒGƒ“ƒR[ƒhƒVƒiƒŠƒIŽÀsƒvƒƒOƒ‰ƒ€
+;ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰ã‚·ãƒŠãƒªã‚ªå®Ÿè¡Œãƒ—ãƒ­ã‚°ãƒ©ãƒ 
 
-	;Dish—p‚É’Ç‰Á
+	;Dishç”¨ã«è¿½åŠ 
 	celload "keymap.png",1 :celdiv 1,320,106
 	font msgothic,12,0
 	sdim cui,40,120
@@ -27,7 +27,7 @@
 	tok=peek(bf,po)
 	if tok>9 {
 		if tok<14 :po=po+1 :goto *main
-		;•¶Í‚Ì•\Ž¦
+		;æ–‡ç« ã®è¡¨ç¤º
 		repeat
 			a=peek(bf,po)
 			if a<10 :a=0 :po=po-1
@@ -36,7 +36,7 @@
 		loop
 		gosub *set_cui
 	} else {
-		;ŠeƒR[ƒh‚Ìˆ—
+		;å„ã‚³ãƒ¼ãƒ‰ã®å‡¦ç†
 		;@END
 		if tok=1 :end
 		;@INP
@@ -50,9 +50,9 @@
 		;@FLG FlgNo Val
 		if tok=6 {
 			a=peek(bf,po+1)-1 :b=peek(bf,po+2)-1 :po=po+3
-			if b>100 :flg(a)=rnd(b-100)					;—”‚ðƒZƒbƒg
-			if b>90 and b<101 :flg(a)=flg(a)-(b-90)		;ƒfƒNƒŠƒƒ“ƒg
-			if b>80 and b<91 :flg(a)=flg(a)+(b-80)		;ƒCƒ“ƒNƒŠƒƒ“ƒg
+			if b>100 :flg(a)=rnd(b-100)					;ä¹±æ•°ã‚’ã‚»ãƒƒãƒˆ
+			if b>90 and b<101 :flg(a)=flg(a)-(b-90)		;ãƒ‡ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ
+			if b>80 and b<91 :flg(a)=flg(a)+(b-80)		;ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ
 			if b<11 :flg(a)=b
 		}
 		if flg(a)<0 :flg(a)=0
@@ -71,7 +71,7 @@
 
 ;Sub Functions
 
-;ƒXƒ^ƒbƒNˆ—(po_ret)
+;ã‚¹ã‚¿ãƒƒã‚¯å‡¦ç†(po_ret)
 *po_push
 	po_ret(pi)=po :pi=pi+1
 	;Deal with stack overflow
@@ -80,17 +80,17 @@
 	}
 	return
 
-;ƒVƒiƒŠƒIƒfƒR[ƒh(•œŒ³‰»)
+;ã‚·ãƒŠãƒªã‚ªãƒ‡ã‚³ãƒ¼ãƒ‰(å¾©å…ƒåŒ–)
 *decod
 	bload fnm,bf :sz=strsize
 	repeat sz
 		a=peek(bf,cnt) :if a=0 :a=255
 		poke bf,cnt,255-a
 	loop
-;	nkfcnv bf8,bf,"sW" :bf=bf8	;WindowsŽÀsŽž‚Ì‚Ý(Debug)
+;	nkfcnv bf8,bf,"sW" :bf=bf8	;Windowså®Ÿè¡Œæ™‚ã®ã¿(Debug)
 	return
 
-;ƒL[“ü—Í‘Ò‚¿
+;ã‚­ãƒ¼å…¥åŠ›å¾…ã¡
 *cu_inp
 	gosub *touch
 	if a=12 :msg="[Quit]" :gosub *set_cui :wait 100 :end
@@ -102,7 +102,7 @@
 	gosub *po_push :lbn=sel(a-1) :gosub *lb_srch
 	sl=0 :return
 
-;ƒ‰ƒxƒ‹ƒT[ƒ`
+;ãƒ©ãƒ™ãƒ«ã‚µãƒ¼ãƒ
 *lb_srch
 	i=0
 	repeat sz
@@ -116,22 +116,22 @@
 	loop
 	return
 
-;ƒf[ƒ^ƒZ[ƒu
+;ãƒ‡ãƒ¼ã‚¿ã‚»ãƒ¼ãƒ–
 *save
 	repeat 5300 :poke svdat,cnt,255 :loop
-	;ƒVƒiƒŠƒIƒtƒ@ƒCƒ‹–¼
+	;ã‚·ãƒŠãƒªã‚ªãƒ•ã‚¡ã‚¤ãƒ«å
 	repeat 16
 		a=peek(fnm,cnt) :if a=0 :break
 		poke svdat,cnt,a
 	loop
-	;ƒVƒiƒŠƒIŽÀs’†ƒ|ƒWƒVƒ‡ƒ“
+	;ã‚·ãƒŠãƒªã‚ªå®Ÿè¡Œä¸­ãƒã‚¸ã‚·ãƒ§ãƒ³
 	p1=po\128 :p2=(po/128)&127 :p3=po/16384
 	poke svdat,16,p1+128
 	poke svdat,17,p2+128
 	poke svdat,18,p3+128
-	;ƒVƒiƒŠƒI•œ‹A•Ï”(po_ret)‚ÌƒXƒ^ƒbƒNNo.
+	;ã‚·ãƒŠãƒªã‚ªå¾©å¸°å¤‰æ•°(po_ret)ã®ã‚¹ã‚¿ãƒƒã‚¯No.
 	poke svdat,19,pi+1
-	;ƒVƒiƒŠƒI•œ‹Aƒ|ƒWƒVƒ‡ƒ“(@RET)
+	;ã‚·ãƒŠãƒªã‚ªå¾©å¸°ãƒã‚¸ã‚·ãƒ§ãƒ³(@RET)
 	repeat 16 :a=po_ret(cnt) :b=cnt*3
 		p1=a\128 :p2=(a/128)&127 :p3=a/16384
 		poke svdat,b+20,p1+128
@@ -139,15 +139,15 @@
 		poke svdat,b+22,p3+128
 	loop
 	poke svdat,68,sl+1
-	;‘I‘ðŽˆ”ò‚Ñæ(ƒ‰ƒxƒ‹No.)
+	;é¸æŠžè‚¢é£›ã³å…ˆ(ãƒ©ãƒ™ãƒ«No.)
 	repeat sl
 		poke svdat,69+cnt,sel(cnt)
 	loop
-	;ƒtƒ‰ƒO
+	;ãƒ•ãƒ©ã‚°
 	repeat 250
 		poke svdat,85+cnt,flg(cnt)+1
 	loop
-	;’¼‘O‚Ì•¶Í
+	;ç›´å‰ã®æ–‡ç« 
 	repeat 5000
 		a=peek(msg,cnt) :poke svdat,336+cnt,a
 		if a=0 :break
@@ -156,40 +156,40 @@
 	msg="[Save]" :gosub *set_cui
 	return
 
-;ƒf[ƒ^ƒ[ƒh
+;ãƒ‡ãƒ¼ã‚¿ãƒ­ãƒ¼ãƒ‰
 *load
 	bload "save.dat",svdat
-	;ƒVƒiƒŠƒIƒtƒ@ƒCƒ‹–¼
+	;ã‚·ãƒŠãƒªã‚ªãƒ•ã‚¡ã‚¤ãƒ«å
 	repeat 16
 		a=peek(svdat,cnt) :if a=255 :a=0
 		poke fnm,cnt,a :if a=0 :break
 	loop
 	gosub *decod
-	;ƒVƒiƒŠƒIŽÀs’†ƒ|ƒWƒVƒ‡ƒ“
+	;ã‚·ãƒŠãƒªã‚ªå®Ÿè¡Œä¸­ãƒã‚¸ã‚·ãƒ§ãƒ³
 	p1=peek(svdat,16)-128
 	p2=peek(svdat,17)-128
 	p3=peek(svdat,18)-128
 	po=16384*p3+128*p2+p1
-	;ƒVƒiƒŠƒI•œ‹A•Ï”(po_ret)‚ÌƒXƒ^ƒbƒNNo.
+	;ã‚·ãƒŠãƒªã‚ªå¾©å¸°å¤‰æ•°(po_ret)ã®ã‚¹ã‚¿ãƒƒã‚¯No.
 	pi=peek(svdat,19)-1
-	;ƒVƒiƒŠƒI•œ‹Aƒ|ƒWƒVƒ‡ƒ“(@RET)
+	;ã‚·ãƒŠãƒªã‚ªå¾©å¸°ãƒã‚¸ã‚·ãƒ§ãƒ³(@RET)
 	repeat 16 :b=cnt*3
 		p1=peek(svdat,b+20)-128
 		p2=peek(svdat,b+21)-128
 		p3=peek(svdat,b+22)-128
 		po_ret(cnt)=16384*p3+128*p2+p1
 	loop
-	;‘I‘ðŽˆ”
+	;é¸æŠžè‚¢æ•°
 	sl=peek(svdat,68)-1
-	;‘I‘ðŽˆ”ò‚Ñæ(ƒ‰ƒxƒ‹No.)
+	;é¸æŠžè‚¢é£›ã³å…ˆ(ãƒ©ãƒ™ãƒ«No.)
 	repeat sl
 		sel(cnt)=peek(svdat,69+cnt)
 	loop
-	;ƒtƒ‰ƒO
+	;ãƒ•ãƒ©ã‚°
 	repeat 250
 		flg(cnt)=peek(svdat,85+cnt)-1
 	loop
-	;’¼‘O‚Ì•¶Í
+	;ç›´å‰ã®æ–‡ç« 
 	repeat 5000
 		a=peek(svdat,336+cnt) :poke msg,cnt,a
 		if a=0 :break
@@ -197,7 +197,7 @@
 	msg="[Load]\n"+msg :gosub *set_cui
 	return
 
-;CUI•\Ž¦
+;CUIè¡¨ç¤º
 *put_msg
 	redraw 0 :color 0,0,0 :boxf
 	pos 0,374 :celput 1,bg
@@ -208,7 +208,7 @@
 	redraw 1
 	return
 
-;CUI‚É•¶Í‚ðƒZƒbƒg
+;CUIã«æ–‡ç« ã‚’ã‚»ãƒƒãƒˆ
 *set_cui
 	notesel msg
 	repeat notemax
@@ -218,7 +218,7 @@
 	loop
 	return
 
-;ƒ^ƒbƒ`“ü—Í
+;ã‚¿ãƒƒãƒå…¥åŠ›
 *touch
 	ky_old=0 :dv=53
 	gosub *put_msg
@@ -230,14 +230,14 @@
 	loop
 	return
 
-;WebƒTƒCƒg‚©‚çƒf[ƒ^Žæ“¾
+;Webã‚µã‚¤ãƒˆã‹ã‚‰ãƒ‡ãƒ¼ã‚¿å–å¾—
 *web_get
 	httpload url
-	if stat :goto *bad	; ƒŠƒNƒGƒXƒgŽ¸”s
+	if stat :goto *bad	; ãƒªã‚¯ã‚¨ã‚¹ãƒˆå¤±æ•—
 *dl_stat
-	; "DOWNLOAD ŠJŽn" Œ‹‰Ê‘Ò‚¿ƒ‹[ƒv
+	; "DOWNLOAD é–‹å§‹" çµæžœå¾…ã¡ãƒ«ãƒ¼ãƒ—
 	httpinfo res,HTTPINFO_MODE
-	if res=HTTPMODE_READY {			; "DOWNLOAD Š®—¹"
+	if res=HTTPMODE_READY {			; "DOWNLOAD å®Œäº†"
 		httpinfo bf,HTTPINFO_DATA	;
 		httpinfo sz,HTTPINFO_SIZE	;
 		return
@@ -245,11 +245,11 @@
 	if res<=HTTPMODE_NONE :goto *bad
 	await 50 :goto *dl_stat
 *bad
-	; ƒGƒ‰[
+	; ã‚¨ãƒ©ãƒ¼
 	msg="Network Access Error" :gosub *set_cui
 	return
 
-;ƒ^ƒCƒgƒ‹Eƒƒjƒ…[‰æ–Ê
+;ã‚¿ã‚¤ãƒˆãƒ«ãƒ»ãƒ¡ãƒ‹ãƒ¥ãƒ¼ç”»é¢
 *title_menu
 	bg=2 :msg="READY" :gosub *set_cui
 	repeat 80 :poke msg,cnt,0 :loop
@@ -258,19 +258,19 @@
 	gosub *touch
 	if a<7 :msg="OK" :gosub *set_cui :return
 
-	;ƒ^ƒCƒgƒ‹ˆê——Žæ“¾
+	;ã‚¿ã‚¤ãƒˆãƒ«ä¸€è¦§å–å¾—
 	sdim lst,1000,160 :sdim scn,40,80
 	bg=1 :msg="--- TITLE LIST ---" :gosub *set_cui
 	url=home+"title.htm" :gosub *web_get
 
-	;ˆê——‚ð”z—ñ•Ï”(lst)‚ÉƒZƒbƒg
+	;ä¸€è¦§ã‚’é…åˆ—å¤‰æ•°(lst)ã«ã‚»ãƒƒãƒˆ
 	notesel bf :tc=0
 	repeat notemax
 		noteget msg,cnt
 		if peek(msg,0)='*' :noteget lst(tc),cnt+1 :tc=tc+1
 	loop
 
-	;CUI‚Éˆê——o—Í
+	;CUIã«ä¸€è¦§å‡ºåŠ›
 	a=15 :s=""
 	repeat tc
 ;		split lst(cnt),",",scn
@@ -283,21 +283,22 @@
 	msg="NO.?" :gosub *set_cui
 
 *no_inp
-	;–ß‚é(Ret)
+	;æˆ»ã‚‹(Ret)
 	if a=12 :goto *title_menu
-	;ƒVƒiƒŠƒIƒtƒ@ƒCƒ‹Žæ“¾(Get)
+	;ã‚·ãƒŠãƒªã‚ªãƒ•ã‚¡ã‚¤ãƒ«å–å¾—(Get)
 	if a=11 {
 		cui(22)=cui(22)+" Get"
 ;		n=int(s) :split lst(n),",",scn :c=stat-1
 		n=int(s) :gosub *splits
 		bsave "title.txt",scn(0),strlen(scn(0))
 		repeat c
-			url=home+strf("%03d",n)+"/"+scn(cnt+1)+".scn"
-			gosub *web_get :bsave scn(cnt+1)+".scn",bf,sz
+			url=home+strf("%03d",n)+"/"+scn(cnt+1)+".hex"
+			gosub *web_get :gosub *hex2bin
+			bsave scn(cnt+1)+".scn",bf,sz
 		loop
 		goto *title_menu
 	}
-	;”Ô†“ü—Í
+	;ç•ªå·å…¥åŠ›
 	if a<11 {
 		s=s+str(a\10) :s=strmid(s,-1,3)
 		cui(22)="NO."+s :gosub *put_msg
@@ -305,7 +306,7 @@
 	gosub *touch
 	goto *no_inp
 
-;","‚Å‹æØ‚ç‚ê‚½•¶Žš‚ðŽæ“¾
+;","ã§åŒºåˆ‡ã‚‰ã‚ŒãŸæ–‡å­—ã‚’å–å¾—
 *splits
 	ln=strlen(lst(n))-1 :i=0
 	repeat 80
@@ -313,3 +314,12 @@
 		if i>ln :c=cnt :break
 	loop
 	return
+
+;16é€²æ–‡å­—åˆ—ã‚’ãƒã‚¤ãƒŠãƒªã«æˆ»ã™
+*hex2bin
+	repeat sz/2
+		h=peek(bf,cnt*2) :l=peek(bf,cnt*2+1)
+		h=h-48 :h=h-7*(h>16) :l=l-48 :l=l-7*(l>16)
+		poke bf,cnt,16*h+l
+	loop
+	poke bf,sz/2,0 :return
