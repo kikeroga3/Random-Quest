@@ -7,3 +7,8 @@
 5‰ñˆÈ‰º‚Åo—ˆ‚ê‚Î‚È‚©‚È‚©—DG‚Å‚·B
 
 
+When you run the program, mixes the contents of the sequence "0123456789" is displayed, and it waits for input.
+If you enter a number between 2 and 10, it inverts the sequence by the number specified from the left end.
+Please invert it several times to arrange the sequence in order "0123456789".
+You are quite good if it can be done in 5 times or less.
+

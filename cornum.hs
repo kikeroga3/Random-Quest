@@ -1,5 +1,10 @@
 ; Correct Numbers
 
+	mes "When you run the program, mixes the contents of the sequence 0123456789 is displayed, and it waits for input."
+	mes "If you enter a number between 2 and 10, it inverts the sequence by the number specified from the left end."
+	mes "Please invert it several times to arrange the sequence in order 0123456789."
+	mes "You are quite good if it can be done in 5 times or less."
+
 	nums="0123456789" :tc=0
 
 	; Shake
@@ -8,7 +13,7 @@
 	loop
 
 *main
-	mes nums
+	mes "\n"+nums
 	if nums="0123456789" {
 		mes "Clear!"
 		if tc<5 :mes "Congratulations!"
