@@ -15,8 +15,8 @@
 	stick k
 	if k=2 and p2y>0 :p2y=p2y-4
 	if k=8 and p2y<479 :p2y=p2y+4
-	if mousey<p1y :p2y=p2y-4
-	if mousey>p2y :p2y=p2y+4
+	if mousey<p1y :p1y=p1y-4
+	if mousey>p1y :p1y=p1y+4
 
 	if by<0 or by>479 :bdy=-bdy
 
