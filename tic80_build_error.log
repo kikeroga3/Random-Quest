@@ -1,0 +1,56 @@
+pi@raspberrypi:~/Downloads/TIC-80 $ make linux
+make static -C 3rd-party/wren-0.1.0/
+make[1]: Entering directory '/home/pi/Downloads/TIC-80/3rd-party/wren-0.1.0'
+make[2]: Entering directory '/home/pi/Downloads/TIC-80/3rd-party/wren-0.1.0'
+       str src/vm/wren_core.wren          
+       str src/optional/wren_opt_meta.wren 
+       str src/optional/wren_opt_random.wren 
+        cc src/optional/wren_opt_meta.c    -O3 -std=c99 -fPIC
+        cc src/optional/wren_opt_random.c  -O3 -std=c99 -fPIC
+        cc src/vm/wren_utils.c             -O3 -std=c99 -fPIC
+        cc src/vm/wren_compiler.c          -O3 -std=c99 -fPIC
+        cc src/vm/wren_core.c              -O3 -std=c99 -fPIC
+        cc src/vm/wren_value.c             -O3 -std=c99 -fPIC
+        cc src/vm/wren_debug.c             -O3 -std=c99 -fPIC
+        cc src/vm/wren_vm.c                -O3 -std=c99 -fPIC
+        cc src/vm/wren_primitive.c         -O3 -std=c99 -fPIC
+        ar lib/libwren.a                  rcu
+make[2]: Leaving directory '/home/pi/Downloads/TIC-80/3rd-party/wren-0.1.0'
+make[1]: Leaving directory '/home/pi/Downloads/TIC-80/3rd-party/wren-0.1.0'
+make -C 3rd-party/sdl-gpu/build/linux/
+make[1]: Entering directory '/home/pi/Downloads/TIC-80/3rd-party/sdl-gpu/build/linux'
+gcc ../../src/renderer_GLES_1.c -O3 -DGLEW_STATIC -DSDL_GPU_DISABLE_GLES -I../../include -I../../src/externals/glew -I../../src/externals/glew/GL -I../../src/externals/stb_image -I../../src/externals/stb_image_write -I../../../SDL2-2.0.7/include -c -o renderer_GLES_1.o
+gcc ../../src/renderer_GLES_2.c -O3 -DGLEW_STATIC -DSDL_GPU_DISABLE_GLES -I../../include -I../../src/externals/glew -I../../src/externals/glew/GL -I../../src/externals/stb_image -I../../src/externals/stb_image_write -I../../../SDL2-2.0.7/include -c -o renderer_GLES_2.o
+gcc ../../src/renderer_GLES_3.c -O3 -DGLEW_STATIC -DSDL_GPU_DISABLE_GLES -I../../include -I../../src/externals/glew -I../../src/externals/glew/GL -I../../src/externals/stb_image -I../../src/externals/stb_image_write -I../../../SDL2-2.0.7/include -c -o renderer_GLES_3.o
+gcc ../../src/renderer_OpenGL_1.c -O3 -DGLEW_STATIC -DSDL_GPU_DISABLE_GLES -I../../include -I../../src/externals/glew -I../../src/externals/glew/GL -I../../src/externals/stb_image -I../../src/externals/stb_image_write -I../../../SDL2-2.0.7/include -c -o renderer_OpenGL_1.o
+gcc ../../src/renderer_OpenGL_1_BASE.c -O3 -DGLEW_STATIC -DSDL_GPU_DISABLE_GLES -I../../include -I../../src/externals/glew -I../../src/externals/glew/GL -I../../src/externals/stb_image -I../../src/externals/stb_image_write -I../../../SDL2-2.0.7/include -c -o renderer_OpenGL_1_BASE.o
+gcc ../../src/renderer_OpenGL_2.c -O3 -DGLEW_STATIC -DSDL_GPU_DISABLE_GLES -I../../include -I../../src/externals/glew -I../../src/externals/glew/GL -I../../src/externals/stb_image -I../../src/externals/stb_image_write -I../../../SDL2-2.0.7/include -c -o renderer_OpenGL_2.o
+gcc ../../src/renderer_OpenGL_3.c -O3 -DGLEW_STATIC -DSDL_GPU_DISABLE_GLES -I../../include -I../../src/externals/glew -I../../src/externals/glew/GL -I../../src/externals/stb_image -I../../src/externals/stb_image_write -I../../../SDL2-2.0.7/include -c -o renderer_OpenGL_3.o
+gcc ../../src/renderer_OpenGL_4.c -O3 -DGLEW_STATIC -DSDL_GPU_DISABLE_GLES -I../../include -I../../src/externals/glew -I../../src/externals/glew/GL -I../../src/externals/stb_image -I../../src/externals/stb_image_write -I../../../SDL2-2.0.7/include -c -o renderer_OpenGL_4.o
+gcc ../../src/SDL_gpu.c -O3 -DGLEW_STATIC -DSDL_GPU_DISABLE_GLES -I../../include -I../../src/externals/glew -I../../src/externals/glew/GL -I../../src/externals/stb_image -I../../src/externals/stb_image_write -I../../../SDL2-2.0.7/include -c -o SDL_gpu.o
+gcc ../../src/SDL_gpu_matrix.c -O3 -DGLEW_STATIC -DSDL_GPU_DISABLE_GLES -I../../include -I../../src/externals/glew -I../../src/externals/glew/GL -I../../src/externals/stb_image -I../../src/externals/stb_image_write -I../../../SDL2-2.0.7/include -c -o SDL_gpu_matrix.o
+gcc ../../src/SDL_gpu_renderer.c -O3 -DGLEW_STATIC -DSDL_GPU_DISABLE_GLES -I../../include -I../../src/externals/glew -I../../src/externals/glew/GL -I../../src/externals/stb_image -I../../src/externals/stb_image_write -I../../../SDL2-2.0.7/include -c -o SDL_gpu_renderer.o
+gcc ../../src/SDL_gpu_shapes.c -O3 -DGLEW_STATIC -DSDL_GPU_DISABLE_GLES -I../../include -I../../src/externals/glew -I../../src/externals/glew/GL -I../../src/externals/stb_image -I../../src/externals/stb_image_write -I../../../SDL2-2.0.7/include -c -o SDL_gpu_shapes.o
+gcc ../../src/externals/glew/glew.c -O3 -DGLEW_STATIC -DSDL_GPU_DISABLE_GLES -I../../include -I../../src/externals/glew -I../../src/externals/glew/GL -I../../src/externals/stb_image -I../../src/externals/stb_image_write -I../../../SDL2-2.0.7/include -c -o glew.o
+gcc ../../src/externals/stb_image/stb_image.c -O3 -DGLEW_STATIC -DSDL_GPU_DISABLE_GLES -I../../include -I../../src/externals/glew -I../../src/externals/glew/GL -I../../src/externals/stb_image -I../../src/externals/stb_image_write -I../../../SDL2-2.0.7/include -c -o stb_image.o
+gcc ../../src/externals/stb_image_write/stb_image_write.c -O3 -DGLEW_STATIC -DSDL_GPU_DISABLE_GLES -I../../include -I../../src/externals/glew -I../../src/externals/glew/GL -I../../src/externals/stb_image -I../../src/externals/stb_image_write -I../../../SDL2-2.0.7/include -c -o stb_image_write.o
+ar rcu libsdlgpu.a renderer_GLES_1.o renderer_GLES_2.o renderer_GLES_3.o renderer_OpenGL_1.o renderer_OpenGL_1_BASE.o renderer_OpenGL_2.o renderer_OpenGL_3.o renderer_OpenGL_4.o SDL_gpu.o SDL_gpu_matrix.o SDL_gpu_renderer.o SDL_gpu_shapes.o glew.o stb_image.o stb_image_write.o
+ranlib libsdlgpu.a
+make[1]: Leaving directory '/home/pi/Downloads/TIC-80/3rd-party/sdl-gpu/build/linux'
+gcc `pkg-config --cflags gtk+-3.0` `sdl2-config --cflags` src/studio.c src/console.c src/run.c src/ext/file_dialog.c src/ext/md5.c src/ext/gif.c 3rd-party/SDL2_net-2.0.1/SDLnet.c 3rd-party/SDL2_net-2.0.1/SDLnetTCP.c 3rd-party/SDL2_net-2.0.1/SDLnetselect.c src/fs.c src/tools.c src/start.c src/sprite.c src/map.c src/sfx.c src/music.c src/history.c src/world.c src/config.c src/code.c src/dialog.c src/menu.c src/net.c src/surf.c src/system.c 3rd-party/lpeg-1.0.1/*.c 3rd-party/giflib-5.1.4/lib/*.c src/html.c src/tic80.c src/tic.c 3rd-party/blip-buf/blip_buf.c src/jsapi.c src/luaapi.c src/wrenapi.c 3rd-party/duktape-2.2.0/src/duktape.c -O3 -Wall -std=gnu99 -I3rd-party/lua-5.3.1/src -I3rd-party/zlib-1.2.8 -I3rd-party/giflib-5.1.4/lib -I3rd-party/SDL2-2.0.7/include -I3rd-party/sdl-gpu/include -I3rd-party/wren-0.1.0/src/include -I3rd-party/moonscript -I3rd-party/blip-buf -I3rd-party/duktape-2.2.0/src -I3rd-party/SDL2_net-2.0.1 -Iinclude `pkg-config --libs gtk+-3.0` `sdl2-config --static-libs` -L3rd-party/wren-0.1.0/lib -L3rd-party/sdl-gpu/build/linux -llua5.3 -lwren -ldl -lm -lpthread -lrt -lz -lsdlgpu -lGL -o bin/tic80
+src/system.c: In function ‘checkTouch’:
+src/system.c:359:6: warning: implicit declaration of function ‘SDL_PointInRect’ [-Wimplicit-function-declaration]
+      if (SDL_PointInRect(&point, rect))
+      ^
+src/system.c: In function ‘blitSound’:
+src/system.c:674:3: warning: implicit declaration of function ‘SDL_QueueAudio’ [-Wimplicit-function-declaration]
+   SDL_QueueAudio(platform.audio.device, platform.audio.cvt.buf, platform.audio.cvt.len_cvt);
+   ^
+/tmp/ccnf4T53.o: In function `checkTouch':
+system.c:(.text+0xf8): undefined reference to `SDL_PointInRect'
+/tmp/ccnf4T53.o: In function `main':
+system.c:(.text.startup+0x7f8): undefined reference to `SDL_QueueAudio'
+system.c:(.text.startup+0x990): undefined reference to `SDL_QueueAudio'
+collect2: error: ld returned 1 exit status
+Makefile:375: recipe for target 'linux' failed
+make: *** [linux] Error 1
